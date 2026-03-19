@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendario Circles Learning - Otoño 2026</title>
+<style>
+  :root {
+    --san-benito: #3b82f6;
+    --san-benito-light: #dbeafe;
+    --san-benito-mid: #93c5fd;
+    --sip: #8b5cf6;
+    --sip-light: #ede9fe;
+    --sip-mid: #c4b5fd;
+    --chilemass: #f59e0b;
+    --chilemass-light: #fef3c7;
+    --chilemass-mid: #fcd34d;
+    --puc: #10b981;
+    --puc-light: #d1fae5;
+    --puc-mid: #6ee7b7;
+    --slep: #ef4444;
+    --slep-light: #fee2e2;
+    --slep-mid: #fca5a5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 2px;
+  }
+
+  .header p {
+    color: #64748b;
+    font-size: 13px;
+  }
+
+  /* TABS */
+  .tabs-container {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e2e8f0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #64748b;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tab:hover {
+    color: #1e293b;
+    background: #f1f5f9;
+  }
+
+  .tab.active {
+    color: #1e293b;
+    border-bottom-color: #1e293b;
+  }
+
+  .tab .tab-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .tab[data-tab="all"] .tab-dot { background: #64748b; }
+  .tab[data-tab="san-benito"] .tab-dot { background: var(--san-benito); }
+  .tab[data-tab="san-benito"].active { border-bottom-color: var(--san-benito); color: var(--san-benito); }
+  .tab[data-tab="sip"] .tab-dot { background: var(--sip); }
+  .tab[data-tab="sip"].active { border-bottom-color: var(--sip); color: var(--sip); }
+  .tab[data-tab="chilemass"] .tab-dot { background: var(--chilemass); }
+  .tab[data-tab="chilemass"].active { border-bottom-color: var(--chilemass); color: var(--chilemass); }
+  .tab[data-tab="puc"] .tab-dot { background: var(--puc); }
+  .tab[data-tab="puc"].active { border-bottom-color: var(--puc); color: var(--puc); }
+  .tab[data-tab="slep"] .tab-dot { background: var(--slep); }
+  .tab[data-tab="slep"].active { border-bottom-color: var(--slep); color: var(--slep); }
+
+  /* MONTH NAV */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .month-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .month-nav button {
+    background: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+
+  .month-nav button:hover { background: #cbd5e1; }
+
+  .month-nav .month-label {
+    font-size: 20px;
+    font-weight: 700;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: #64748b;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* CALENDAR */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #cbd5e1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  .day-header {
+    background: #1e293b;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .day-cell {
+    background: white;
+    min-height: 100px;
+    padding: 3px;
+    position: relative;
+  }
+
+  .day-cell.other-month { background: #f8fafc; }
+  .day-cell.today { background: #fffbeb; box-shadow: inset 0 0 0 2px #f59e0b; }
+  .day-cell.weekend { background: #fafafa; }
+
+  .day-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 2px;
+    padding: 1px 3px;
+  }
+
+  .day-cell.other-month .day-number { color: #cbd5e1; }
+  .day-cell.today .day-number { color: #d97706; font-weight: 700; }
+
+  .event {
+    font-size: 9.5px;
+    padding: 1px 4px;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    line-height: 1.4;
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .event:hover {
+    z-index: 10;
+    white-space: normal;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  .event.match { color: white; font-weight: 700; }
+  .event.ext { opacity: 0.55; font-style: italic; }
+  .event.oh { border-left: 3px solid; background: transparent !important; font-weight: 600; font-size: 9px; }
+
+  .event[data-project="san-benito"] { background: var(--san-benito-light); color: #1e40af; }
+  .event[data-project="san-benito"].match { background: var(--san-benito); color: white; }
+  .event[data-project="san-benito"].oh { border-color: var(--san-benito); color: var(--san-benito); }
+  .event[data-project="sip"] { background: var(--sip-light); color: #5b21b6; }
+  .event[data-project="sip"].match { background: var(--sip); color: white; }
+  .event[data-project="sip"].oh { border-color: var(--sip); color: var(--sip); }
+  .event[data-project="chilemass"] { background: var(--chilemass-light); color: #92400e; }
+  .event[data-project="chilemass"].match { background: var(--chilemass); color: white; }
+  .event[data-project="chilemass"].oh { border-color: var(--chilemass); color: var(--chilemass); }
+  .event[data-project="puc"] { background: var(--puc-light); color: #065f46; }
+  .event[data-project="puc"].match { background: var(--puc); color: white; }
+  .event[data-project="puc"].oh { border-color: var(--puc); color: var(--puc); }
+  .event[data-project="slep"] { background: var(--slep-light); color: #991b1b; }
+  .event[data-project="slep"].match { background: var(--slep); color: white; }
+  .event[data-project="slep"].oh { border-color: var(--slep); color: var(--slep); }
+
+  .more-events {
+    font-size: 9px;
+    color: #94a3b8;
+    padding: 0 3px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .more-events:hover { color: #1e293b; }
+
+  /* STATS */
+  .stats-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    text-align: center;
+    min-width: 110px;
+  }
+
+  .stat-card .stat-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .stat-card .stat-label {
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* COURSE DETAIL PANEL (shown on project tabs) */
+  .course-panel {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .course-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 4px solid;
+  }
+
+  .course-card[data-project="san-benito"] { border-left-color: var(--san-benito); }
+  .course-card[data-project="sip"] { border-left-color: var(--sip); }
+  .course-card[data-project="chilemass"] { border-left-color: var(--chilemass); }
+  .course-card[data-project="puc"] { border-left-color: var(--puc); }
+  .course-card[data-project="slep"] { border-left-color: var(--slep); }
+
+  .course-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #0f172a;
+  }
+
+  .course-card .course-meta {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .course-card .course-meta strong {
+    color: #334155;
+  }
+
+  .course-card .phase-bar {
+    display: flex;
+    gap: 2px;
+    margin-top: 8px;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .phase-bar .phase {
+    border-radius: 2px;
+    flex: 1;
+  }
+
+  .phase.match-phase { background: #1e293b; }
+  .phase.week-phase { opacity: 1; }
+  .phase.ext-phase { opacity: 0.4; }
+
+  .phase-bar[data-project="san-benito"] .week-phase { background: var(--san-benito); }
+  .phase-bar[data-project="san-benito"] .ext-phase { background: var(--san-benito-mid); }
+  .phase-bar[data-project="sip"] .week-phase { background: var(--sip); }
+  .phase-bar[data-project="sip"] .ext-phase { background: var(--sip-mid); }
+  .phase-bar[data-project="chilemass"] .week-phase { background: var(--chilemass); }
+  .phase-bar[data-project="chilemass"] .ext-phase { background: var(--chilemass-mid); }
+  .phase-bar[data-project="puc"] .week-phase { background: var(--puc); }
+  .phase-bar[data-project="puc"] .ext-phase { background: var(--puc-mid); }
+  .phase-bar[data-project="slep"] .week-phase { background: var(--slep); }
+  .phase-bar[data-project="slep"] .ext-phase { background: var(--slep-mid); }
+
+  @media (max-width: 768px) {
+    .day-cell { min-height: 70px; }
+    .event { font-size: 8px; padding: 1px 2px; }
+    body { padding: 10px; }
+    .tabs-container { gap: 0; }
+    .tab { padding: 8px 10px; font-size: 11px; }
+    .controls { flex-direction: column; gap: 10px; }
+  }
+
+  @media print {
+    .tabs-container, .controls { page-break-inside: avoid; }
+    .day-cell { min-height: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Circles Learning — Calendario Otoño 2026</h1>
+  <p>12 cursos activos en 5 convocatorias &middot; Febrero a Julio 2026</p>
+</div>
+
+<div class="tabs-container" id="tabsContainer">
+  <button class="tab active" data-tab="all" onclick="switchTab('all')">
+    <span class="tab-dot"></span> Vista unificada
+  </button>
+  <button class="tab" data-tab="san-benito" onclick="switchTab('san-benito')">
+    <span class="tab-dot"></span> San Benito
+  </button>
+  <button class="tab" data-tab="sip" onclick="switchTab('sip')">
+    <span class="tab-dot"></span> SIP
+  </button>
+  <button class="tab" data-tab="chilemass" onclick="switchTab('chilemass')">
+    <span class="tab-dot"></span> ChileMass
+  </button>
+  <button class="tab" data-tab="puc" onclick="switchTab('puc')">
+    <span class="tab-dot"></span> Curso IA PUC
+  </button>
+  <button class="tab" data-tab="slep" onclick="switchTab('slep')">
+    <span class="tab-dot"></span> SLEP Tamarugal
+  </button>
+</div>
+
+<div class="controls">
+  <div class="month-nav">
+    <button onclick="changeMonth(-1)">&#9664;</button>
+    <span class="month-label" id="monthLabel"></span>
+    <button onclick="changeMonth(1)">&#9654;</button>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:#1e293b"></span> Match</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#93c5fd"></span> Semana</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#93c5fd; opacity:0.4"></span> Extensión</div>
+    <div class="legend-item"><span class="legend-dot" style="background:white; border: 2px solid #3b82f6; width:8px; height:8px;"></span> Office Hours</div>
+  </div>
+</div>
+
+<div class="calendar-grid" id="calendarGrid"></div>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<div class="course-panel" id="coursePanel"></div>
+
+<script>
+// ============ DATA ============
+const courses = [
+  {
+    id: "sb-ia-edu", project: "san-benito", projectLabel: "San Benito",
+    name: "IA para la educación", shortName: "IA Edu", students: 115,
+    period: { start: "2026-02-24", end: "2026-04-03" },
+    match: { start: "2026-02-24", end: "2026-02-26" },
+    weeks: [
+      { sem: 1, start: "2026-02-26", end: "2026-02-27", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-03-02", end: "2026-03-06", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-03-09", end: "2026-03-13", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-03-16", end: "2026-03-20", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-03-23", end: "2026-03-27" },
+      { ext: 2, start: "2026-03-30", end: "2026-04-03" },
+    ],
+    officeHours: ["2026-03-17T16:15"]
+  },
+  {
+    id: "sb-ia-avz", project: "san-benito", projectLabel: "San Benito",
+    name: "IA Avanzado", shortName: "IA Avz", students: 45,
+    period: { start: "2026-02-24", end: "2026-04-03" },
+    match: { start: "2026-02-24", end: "2026-02-26" },
+    weeks: [
+      { sem: 1, start: "2026-02-26", end: "2026-02-27", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-03-02", end: "2026-03-06", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 3, start: "2026-03-09", end: "2026-03-13", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-03-16", end: "2026-03-20", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-03-23", end: "2026-03-27" },
+      { ext: 2, start: "2026-03-30", end: "2026-04-03" },
+    ],
+    officeHours: ["2026-03-24T16:15"]
+  },
+  {
+    id: "sb-gw", project: "san-benito", projectLabel: "San Benito",
+    name: "Google Workspace", shortName: "G.Work", students: 52,
+    period: { start: "2026-04-14", end: "2026-05-29" },
+    match: { start: "2026-04-14", end: "2026-04-17" },
+    weeks: [
+      { sem: 1, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-04-27", end: "2026-05-01", mod: 0, indiv: 0, grupal: 0 },
+      { sem: 3, start: "2026-05-04", end: "2026-05-08", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-05-18", end: "2026-05-22" },
+      { ext: 2, start: "2026-05-25", end: "2026-05-29" },
+    ],
+    officeHours: ["2026-05-12T16:15"]
+  },
+  {
+    id: "sb-cl", project: "san-benito", projectLabel: "San Benito",
+    name: "Comprensión lectora", shortName: "Comp.L", students: 20,
+    period: { start: "2026-04-21", end: "2026-06-05" },
+    match: { start: "2026-04-21", end: "2026-04-24" },
+    weeks: [
+      { sem: 1, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-05-04", end: "2026-05-08", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-05-25", end: "2026-05-29" },
+      { ext: 2, start: "2026-06-01", end: "2026-06-05" },
+    ],
+    officeHours: []
+  },
+  {
+    id: "sip-mce-doc", project: "sip", projectLabel: "SIP",
+    name: "MCE Docentes", shortName: "MCE Doc", students: 900,
+    period: { start: "2026-03-23", end: "2026-05-08" },
+    match: { start: "2026-03-23", end: "2026-03-27" },
+    weeks: [
+      { sem: 1, start: "2026-03-30", end: "2026-04-03", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 2, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-04-27", end: "2026-05-01" },
+      { ext: 2, start: "2026-05-04", end: "2026-05-08" },
+    ],
+    officeHours: ["2026-04-10T18:00", "2026-04-24T18:00"]
+  },
+  {
+    id: "sip-mce-ast", project: "sip", projectLabel: "SIP",
+    name: "MCE Asistentes educación", shortName: "MCE Asist", students: 300,
+    period: { start: "2026-03-23", end: "2026-04-24" },
+    match: { start: "2026-03-23", end: "2026-03-27" },
+    weeks: [
+      { sem: 1, start: "2026-03-30", end: "2026-04-03", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 2, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-04-13", end: "2026-04-17" },
+      { ext: 2, start: "2026-04-20", end: "2026-04-24" },
+    ],
+    officeHours: ["2026-04-10T18:00"]
+  },
+  {
+    id: "sip-mce-lid", project: "sip", projectLabel: "SIP",
+    name: "MCE Líderes", shortName: "MCE Líd", students: 100,
+    period: { start: "2026-05-04", end: "2026-06-12" },
+    match: { start: "2026-05-04", end: "2026-05-08" },
+    weeks: [
+      { sem: 1, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 2, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-01", end: "2026-06-05" },
+      { ext: 2, start: "2026-06-08", end: "2026-06-12" },
+    ],
+    officeHours: ["2026-05-22T18:00", "2026-05-29T18:00"]
+  },
+  {
+    id: "cm-ia-basico", project: "chilemass", projectLabel: "ChileMass",
+    name: "IA básico", shortName: "IA Bás", students: 3000,
+    period: { start: "2026-05-04", end: "2026-07-03" },
+    match: { start: "2026-05-04", end: "2026-05-08" },
+    weeks: [
+      { sem: 1, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 5, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 6, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-05-20T18:30", "2026-06-03T18:30", "2026-06-17T18:30"]
+  },
+  {
+    id: "cm-ia-avz", project: "chilemass", projectLabel: "ChileMass",
+    name: "IA Avanzado", shortName: "IA Avz", students: 3000,
+    period: { start: "2026-05-04", end: "2026-07-03" },
+    match: { start: "2026-05-04", end: "2026-05-08" },
+    weeks: [
+      { sem: 1, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 5, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 6, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 0 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-05-21T18:30", "2026-06-04T18:30", "2026-06-17T18:30"]
+  },
+  {
+    id: "puc-ia", project: "puc", projectLabel: "Curso IA PUC",
+    name: "IA para la educación superior", shortName: "PUC IA", students: 100,
+    period: { start: "2026-04-20", end: "2026-06-12" },
+    match: { start: "2026-04-20", end: "2026-04-24" },
+    weeks: [
+      { sem: 1, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-05-04", end: "2026-05-08", mod: 1, indiv: 0, grupal: 0 },
+      { sem: 3, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 4, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 5, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 6, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-08", end: "2026-06-12" },
+    ],
+    officeHours: ["2026-05-05T15:00", "2026-05-19T15:00", "2026-06-02T15:00"]
+  },
+  {
+    id: "slep-r0", project: "slep", projectLabel: "SLEP Tamarugal",
+    name: "Ruta 0 Docentes", shortName: "Ruta 0", students: 700,
+    period: { start: "2026-03-30", end: "2026-05-15" },
+    match: { start: "2026-03-30", end: "2026-04-03" },
+    weeks: [
+      { sem: 1, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-05-04", end: "2026-05-08" },
+      { ext: 2, start: "2026-05-11", end: "2026-05-15" },
+    ],
+    officeHours: []
+  },
+  {
+    id: "slep-c1", project: "slep", projectLabel: "SLEP Tamarugal",
+    name: "Curso 1 Líderes", shortName: "C1 Líd", students: 100,
+    period: { start: "2026-03-30", end: "2026-05-15" },
+    match: { start: "2026-03-30", end: "2026-04-03" },
+    weeks: [
+      { sem: 1, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-05-04", end: "2026-05-08" },
+      { ext: 2, start: "2026-05-11", end: "2026-05-15" },
+    ],
+    officeHours: []
+  },
+];
+
+const projectNames = {
+  "san-benito": "San Benito",
+  "sip": "SIP MCE otoño 2026",
+  "chilemass": "ChileMass IA 2026",
+  "puc": "Curso IA PUC",
+  "slep": "SLEP Tamarugal"
+};
+
+// ============ STATE ============
+let currentYear = 2026;
+let currentMonth = 2; // March 2026
+let activeTab = "all"; // "all" or project key
+const today = new Date();
+const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+// ============ HELPERS ============
+function dateStr(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+
+function isInRange(ds, start, end) {
+  return ds >= start && ds <= end;
+}
+
+function formatDate(ds) {
+  const [y, m, d] = ds.split("-");
+  return `${d}/${m}`;
+}
+
+function getFilteredCourses() {
+  if (activeTab === "all") return courses;
+  return courses.filter(c => c.project === activeTab);
+}
+
+// ============ EVENTS ============
+function getEventsForDate(dateString) {
+  const events = [];
+  const filtered = getFilteredCourses();
+
+  for (const course of filtered) {
+    const prefix = activeTab === "all" ? `${course.shortName}` : course.shortName;
+
+    if (isInRange(dateString, course.match.start, course.match.end)) {
+      events.push({
+        type: "match", label: `${prefix} Match`,
+        project: course.project,
+        detail: `${course.projectLabel}: ${course.name}\nMatch (${course.students} alumnos)`
+      });
+    }
+
+    for (const w of course.weeks) {
+      if (isInRange(dateString, w.start, w.end)) {
+        let s = [];
+        if (w.mod) s.push(`${w.mod}m`);
+        if (w.indiv) s.push(`${w.indiv}i`);
+        if (w.grupal) s.push(`${w.grupal}g`);
+        events.push({
+          type: "week", label: `${prefix} S${w.sem}`,
+          project: course.project,
+          detail: `${course.projectLabel}: ${course.name}\nSemana ${w.sem}: ${s.join(" ") || "sin sesiones"}`
+        });
+      }
+    }
+
+    for (const e of course.extensions) {
+      if (isInRange(dateString, e.start, e.end)) {
+        events.push({
+          type: "ext", label: `${prefix} Ext${e.ext}`,
+          project: course.project,
+          detail: `${course.projectLabel}: ${course.name}\nExtensión ${e.ext}`
+        });
+      }
+    }
+
+    for (const oh of course.officeHours) {
+      const [ohDate, ohTime] = oh.split("T");
+      if (dateString === ohDate) {
+        events.push({
+          type: "oh", label: `${prefix} OH ${ohTime}`,
+          project: course.project,
+          detail: `${course.projectLabel}: ${course.name}\nOffice Hours ${ohTime}`
+        });
+      }
+    }
+  }
+
+  const order = { match: 0, week: 1, ext: 2, oh: 3 };
+  events.sort((a, b) => order[a.type] - order[b.type]);
+  return events;
+}
+
+// ============ RENDER CALENDAR ============
+function render() {
+  const grid = document.getElementById("calendarGrid");
+  grid.innerHTML = "";
+
+  document.getElementById("monthLabel").textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+  const dayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+  for (const d of dayNames) {
+    const el = document.createElement("div");
+    el.className = "day-header";
+    el.textContent = d;
+    grid.appendChild(el);
+  }
+
+  const firstDay = new Date(currentYear, currentMonth, 1);
+  let startDow = firstDay.getDay();
+  startDow = startDow === 0 ? 6 : startDow - 1;
+
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const prevMonthLast = new Date(currentYear, currentMonth, 0);
+
+  for (let i = startDow - 1; i >= 0; i--) {
+    renderDayCell(grid, new Date(currentYear, currentMonth - 1, prevMonthLast.getDate() - i), true);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    renderDayCell(grid, new Date(currentYear, currentMonth, day), false);
+  }
+
+  const totalCells = startDow + daysInMonth;
+  const remaining = (7 - (totalCells % 7)) % 7;
+  for (let day = 1; day <= remaining; day++) {
+    renderDayCell(grid, new Date(currentYear, currentMonth + 1, day), true);
+  }
+
+  renderStats();
+  renderCoursePanel();
+}
+
+function renderDayCell(grid, date, otherMonth) {
+  const cell = document.createElement("div");
+  cell.className = "day-cell";
+  if (otherMonth) cell.classList.add("other-month");
+  const dow = date.getDay();
+  if (dow === 0 || dow === 6) cell.classList.add("weekend");
+  if (date.toDateString() === today.toDateString()) cell.classList.add("today");
+
+  const num = document.createElement("div");
+  num.className = "day-number";
+  num.textContent = date.getDate();
+  cell.appendChild(num);
+
+  const ds = dateStr(date);
+  const events = getEventsForDate(ds);
+  const maxVis = activeTab === "all" ? 3 : 5;
+  const visible = events.slice(0, maxVis);
+  const hidden = events.length - maxVis;
+
+  for (const ev of visible) {
+    const el = document.createElement("div");
+    el.className = `event ${ev.type}`;
+    el.setAttribute("data-project", ev.project);
+    el.textContent = ev.label;
+    el.title = ev.detail;
+    cell.appendChild(el);
+  }
+
+  if (hidden > 0) {
+    const more = document.createElement("div");
+    more.className = "more-events";
+    more.textContent = `+${hidden} más`;
+    more.title = events.slice(maxVis).map(e => e.label).join("\n");
+    cell.appendChild(more);
+  }
+
+  grid.appendChild(cell);
+}
+
+// ============ STATS ============
+function renderStats() {
+  const statsBar = document.getElementById("statsBar");
+  statsBar.innerHTML = "";
+
+  const ms = `${currentYear}-${String(currentMonth+1).padStart(2,"0")}-01`;
+  const me = `${currentYear}-${String(currentMonth+1).padStart(2,"0")}-${new Date(currentYear,currentMonth+1,0).getDate()}`;
+
+  const filtered = getFilteredCourses();
+  let active = 0, students = 0, matches = 0, ohs = 0;
+
+  for (const c of filtered) {
+    if (c.period.start <= me && c.period.end >= ms) { active++; students += c.students; }
+    if (c.match.start >= ms && c.match.start <= me) matches++;
+    for (const oh of c.officeHours) {
+      const d = oh.split("T")[0];
+      if (d >= ms && d <= me) ohs++;
+    }
+  }
+
+  [{n: active, l: "Cursos activos"}, {n: students.toLocaleString("es-CL"), l: "Alumnos"}, {n: matches, l: "Matches"}, {n: ohs, l: "Office Hours"}].forEach(s => {
+    const card = document.createElement("div");
+    card.className = "stat-card";
+    card.innerHTML = `<div class="stat-number">${s.n}</div><div class="stat-label">${s.l}</div>`;
+    statsBar.appendChild(card);
+  });
+}
+
+// ============ COURSE PANEL ============
+function renderCoursePanel() {
+  const panel = document.getElementById("coursePanel");
+  panel.innerHTML = "";
+
+  const filtered = getFilteredCourses();
+
+  for (const c of filtered) {
+    const card = document.createElement("div");
+    card.className = "course-card";
+    card.setAttribute("data-project", c.project);
+
+    const ohList = c.officeHours.length > 0
+      ? c.officeHours.map(oh => { const [d,t] = oh.split("T"); return `${formatDate(d)} ${t}`; }).join(", ")
+      : "Sin OH";
+
+    card.innerHTML = `
+      <h3>${c.name}</h3>
+      <div class="course-meta">
+        <strong>${c.projectLabel}</strong> &middot; ${c.students} alumnos<br>
+        Match: ${formatDate(c.match.start)} → ${formatDate(c.match.end)}<br>
+        Semanas: ${c.weeks.length} &middot; Extensiones: ${c.extensions.length}<br>
+        OH: ${ohList}
+      </div>
+      <div class="phase-bar" data-project="${c.project}">
+        <div class="phase match-phase"></div>
+        ${c.weeks.map(() => '<div class="phase week-phase"></div>').join("")}
+        ${c.extensions.map(() => '<div class="phase ext-phase"></div>').join("")}
+      </div>
+    `;
+    panel.appendChild(card);
+  }
+}
+
+// ============ TABS ============
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll(".tab").forEach(t => {
+    t.classList.toggle("active", t.getAttribute("data-tab") === tab);
+  });
+  render();
+}
+
+// ============ MONTH NAV ============
+function changeMonth(delta) {
+  currentMonth += delta;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  render();
+}
+
+// ============ INIT ============
+render();
+</script>
+</body>
+</html>
