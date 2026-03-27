@@ -375,7 +375,7 @@
 
 <div class="header">
   <h1>Circles Learning — Calendario Otoño 2026</h1>
-  <p>12 cursos activos en 5 convocatorias &middot; Febrero a Julio 2026</p>
+  <p>12 cursos activos en 5 convocatorias &middot; Febrero a Septiembre 2026</p>
 </div>
 
 <div class="tabs-container" id="tabsContainer">
@@ -424,7 +424,7 @@
 const courses = [
   {
     id: "sb-ia-edu", project: "san-benito", projectLabel: "San Benito",
-    name: "IA para la educación", shortName: "IA Básico", students: 115,
+    name: "IA para la educación", shortName: "IA Edu", students: 115,
     period: { start: "2026-02-24", end: "2026-04-03" },
     match: { start: "2026-02-24", end: "2026-02-26" },
     weeks: [
@@ -441,7 +441,7 @@ const courses = [
   },
   {
     id: "sb-ia-avz", project: "san-benito", projectLabel: "San Benito",
-    name: "IA Avanzado", shortName: "IA Avanzado", students: 45,
+    name: "IA Avanzado", shortName: "IA Avz", students: 45,
     period: { start: "2026-02-24", end: "2026-04-03" },
     match: { start: "2026-02-24", end: "2026-02-26" },
     weeks: [
@@ -458,7 +458,7 @@ const courses = [
   },
   {
     id: "sb-gw", project: "san-benito", projectLabel: "San Benito",
-    name: "Google Workspace", shortName: "Google Workspace", students: 52,
+    name: "Google Workspace", shortName: "G.Work", students: 52,
     period: { start: "2026-04-14", end: "2026-05-29" },
     match: { start: "2026-04-14", end: "2026-04-17" },
     weeks: [
@@ -475,7 +475,7 @@ const courses = [
   },
   {
     id: "sb-cl", project: "san-benito", projectLabel: "San Benito",
-    name: "Comprensión lectora", shortName: "Comprensión Lectora", students: 20,
+    name: "Comprensión lectora", shortName: "Comp.L", students: 20,
     period: { start: "2026-04-21", end: "2026-06-05" },
     match: { start: "2026-04-21", end: "2026-04-24" },
     weeks: [
@@ -492,55 +492,61 @@ const courses = [
   },
   {
     id: "sip-mce-doc", project: "sip", projectLabel: "SIP",
-    name: "MCE Docentes", shortName: "MCE Docentes", students: 900,
-    period: { start: "2026-03-23", end: "2026-05-08" },
-    match: { start: "2026-03-23", end: "2026-03-27" },
+    name: "MCE Docentes", shortName: "MCE Doc", students: 1200,
+    period: { start: "2026-03-30", end: "2026-05-29" },
+    match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
-      { sem: 1, start: "2026-03-30", end: "2026-04-03", mod: 1, indiv: 1, grupal: 0 },
-      { sem: 2, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 1, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
     ],
     extensions: [
-      { ext: 1, start: "2026-04-27", end: "2026-05-01" },
-      { ext: 2, start: "2026-05-04", end: "2026-05-08" },
+      { ext: 1, start: "2026-05-04", end: "2026-05-08" },
+      { ext: 2, start: "2026-05-11", end: "2026-05-15" },
+      { ext: 3, start: "2026-05-18", end: "2026-05-22" },
+      { ext: 4, start: "2026-05-25", end: "2026-05-29" },
     ],
-    officeHours: ["2026-04-10T18:00", "2026-04-24T18:00"]
+    officeHours: ["2026-04-17T16:00", "2026-04-20T16:00", "2026-05-01T16:00"]
   },
   {
     id: "sip-mce-ast", project: "sip", projectLabel: "SIP",
-    name: "MCE Asistentes educación", shortName: "MCE Asistentes", students: 300,
-    period: { start: "2026-03-23", end: "2026-04-24" },
-    match: { start: "2026-03-23", end: "2026-03-27" },
+    name: "MCE Asistentes educación", shortName: "MCE Asist", students: 450,
+    period: { start: "2026-03-30", end: "2026-05-15" },
+    match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
-      { sem: 1, start: "2026-03-30", end: "2026-04-03", mod: 1, indiv: 1, grupal: 0 },
-      { sem: 2, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 1, start: "2026-04-06", end: "2026-04-10", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-04-13", end: "2026-04-17", mod: 1, indiv: 0, grupal: 1 },
     ],
     extensions: [
-      { ext: 1, start: "2026-04-13", end: "2026-04-17" },
-      { ext: 2, start: "2026-04-20", end: "2026-04-24" },
+      { ext: 1, start: "2026-04-20", end: "2026-04-24" },
+      { ext: 2, start: "2026-04-27", end: "2026-05-01" },
+      { ext: 3, start: "2026-05-04", end: "2026-05-08" },
+      { ext: 4, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: ["2026-04-10T18:00"]
+    officeHours: ["2026-04-17T16:00"]
   },
   {
     id: "sip-mce-lid", project: "sip", projectLabel: "SIP",
-    name: "MCE Líderes", shortName: "MCE Líderes", students: 100,
-    period: { start: "2026-05-04", end: "2026-06-12" },
-    match: { start: "2026-05-04", end: "2026-05-08" },
+    name: "MCE Líderes", shortName: "MCE Líd", students: 0,
+    period: { start: "2026-07-20", end: "2026-09-11" },
+    match: { start: "2026-07-20", end: "2026-07-24" },
     weeks: [
-      { sem: 1, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 1, grupal: 0 },
-      { sem: 2, start: "2026-05-18", end: "2026-05-22", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 1, start: "2026-07-27", end: "2026-07-31", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-03", end: "2026-08-07", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 1, grupal: 0 },
     ],
     extensions: [
-      { ext: 1, start: "2026-06-01", end: "2026-06-05" },
-      { ext: 2, start: "2026-06-08", end: "2026-06-12" },
+      { ext: 1, start: "2026-08-17", end: "2026-08-21" },
+      { ext: 2, start: "2026-08-24", end: "2026-08-28" },
+      { ext: 3, start: "2026-08-31", end: "2026-09-04" },
+      { ext: 4, start: "2026-09-07", end: "2026-09-11" },
     ],
-    officeHours: ["2026-05-22T18:00", "2026-05-29T18:00"]
+    officeHours: ["2026-08-03T16:00", "2026-08-10T16:00"]
   },
   {
     id: "cm-ia-basico", project: "chilemass", projectLabel: "ChileMass",
-    name: "IA básico", shortName: "IA Básico", students: 3000,
+    name: "IA básico", shortName: "IA Bás", students: 3000,
     period: { start: "2026-05-04", end: "2026-07-03" },
     match: { start: "2026-05-04", end: "2026-05-08" },
     weeks: [
@@ -559,7 +565,7 @@ const courses = [
   },
   {
     id: "cm-ia-avz", project: "chilemass", projectLabel: "ChileMass",
-    name: "IA Avanzado", shortName: "IA Avanzado", students: 3000,
+    name: "IA Avanzado", shortName: "IA Avz", students: 3000,
     period: { start: "2026-05-04", end: "2026-07-03" },
     match: { start: "2026-05-04", end: "2026-05-08" },
     weeks: [
@@ -596,7 +602,7 @@ const courses = [
   },
   {
     id: "slep-r0", project: "slep", projectLabel: "SLEP Tamarugal",
-    name: "Ruta 0 Docentes", shortName: "Ruta 0 Docentes", students: 700,
+    name: "Diagnóstico colaborativo", shortName: "Diag", students: 700,
     period: { start: "2026-03-30", end: "2026-05-15" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -609,11 +615,11 @@ const courses = [
       { ext: 1, start: "2026-05-04", end: "2026-05-08" },
       { ext: 2, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: []
+    officeHours: ["2026-04-16T15:00", "2026-04-29T15:00"]
   },
   {
     id: "slep-c1", project: "slep", projectLabel: "SLEP Tamarugal",
-    name: "Curso 1 Líderes", shortName: "Curso 1 Líderes", students: 100,
+    name: "Liderazgo educación pública", shortName: "Liderazgo", students: 100,
     period: { start: "2026-03-30", end: "2026-05-15" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -626,7 +632,7 @@ const courses = [
       { ext: 1, start: "2026-05-04", end: "2026-05-08" },
       { ext: 2, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: []
+    officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"]
   },
 ];
 
