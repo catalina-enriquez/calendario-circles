@@ -324,6 +324,23 @@
     padding: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     border-left: 4px solid;
+    cursor: pointer;
+    transition: opacity 0.15s, box-shadow 0.15s;
+    user-select: none;
+  }
+
+  .course-card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.14);
+  }
+
+  .course-card.hidden {
+    opacity: 0.4;
+    background: #f8fafc;
+  }
+
+  .course-card.hidden h3 {
+    text-decoration: line-through;
+    color: #94a3b8;
   }
 
   .course-card[data-project="san-benito"] { border-left-color: var(--san-benito); }
@@ -844,6 +861,7 @@ const holidays = {
 let currentYear = 2026;
 let currentMonth = 3; // April 2026
 let activeTabs = new Set(["all"]); // multi-select tabs
+let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
 const today = new Date();
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
@@ -861,9 +879,17 @@ function formatDate(ds) {
   return `${d}/${m}`;
 }
 
-function getFilteredCourses() {
+function courseKey(c) {
+  return `${c.project}::${c.name}`;
+}
+
+function getCoursesByTab() {
   if (activeTabs.has("all")) return courses;
   return courses.filter(c => activeTabs.has(c.project));
+}
+
+function getFilteredCourses() {
+  return getCoursesByTab().filter(c => !hiddenCourses.has(courseKey(c)));
 }
 
 // ============ EVENTS ============
@@ -1045,12 +1071,17 @@ function renderCoursePanel() {
   const panel = document.getElementById("coursePanel");
   panel.innerHTML = "";
 
-  const filtered = getFilteredCourses();
+  const tabCourses = getCoursesByTab();
 
-  for (const c of filtered) {
+  for (const c of tabCourses) {
     const card = document.createElement("div");
     card.className = "course-card";
     card.setAttribute("data-project", c.project);
+    const key = courseKey(c);
+    if (hiddenCourses.has(key)) card.classList.add("hidden");
+    card.title = hiddenCourses.has(key)
+      ? "Click para mostrar este curso en el calendario"
+      : "Click para ocultar este curso del calendario";
 
     const ohList = c.officeHours.length > 0
       ? c.officeHours.map(oh => { const [d,t] = oh.split("T"); return `${formatDate(d)} ${t}`; }).join(", ")
@@ -1070,6 +1101,16 @@ function renderCoursePanel() {
         ${c.extensions.map(() => '<div class="phase ext-phase"></div>').join("")}
       </div>
     `;
+
+    card.addEventListener("click", () => {
+      if (hiddenCourses.has(key)) {
+        hiddenCourses.delete(key);
+      } else {
+        hiddenCourses.add(key);
+      }
+      render();
+    });
+
     panel.appendChild(card);
   }
 }
@@ -1094,6 +1135,8 @@ function switchTab(tab) {
       activeTabs.add("all");
     }
   }
+  // Al cambiar de convocatoria, todos los cursos vuelven a estar visibles
+  hiddenCourses.clear();
   document.querySelectorAll(".tab").forEach(t => {
     t.classList.toggle("active", activeTabs.has(t.getAttribute("data-tab")));
   });
