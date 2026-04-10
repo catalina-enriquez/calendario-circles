@@ -996,57 +996,57 @@ const holidays = {
 
 // ============ TA ASSIGNMENTS ============
 // Fuente: Operations/automation/Asignaciones-TAs/Asignaciones-TAs-otoño-2026.md
-// Cada asignación tiene `peak` (carga pico semanal). El promedio se calcula en
-// computeAssignmentMetrics() usando la duración real del curso (semanas activas
-// vs total con extensiones). Si la asignación es puntual (ej. "1 sem puntual"),
-// se puede pasar `weeksOverride` para forzar el cálculo del promedio.
+// Generado automáticamente por streamlit/sync-tas-to-calendar.py — NO EDITAR A MANO.
+// Para actualizar: editar el .md fuente y correr el script.
+// === TAS:AUTO START ===
 const taAssignments = [
   { name: "Victoria Marcenaro", email: "victoriamarcenaro@gmail.com", capacity: 150,
     assignments: [
-      { project: "sip", course: "MCE Docentes", peak: 100 }
+      { project: "sip", course: "MCE Docentes", peak: 100 },
     ]
   },
   { name: "Pamela Opazo", email: "pamela.opazo@gmail.com", capacity: 70,
     assignments: [
-      { project: "sip", course: "MCE Docentes", peak: 56 }
+      { project: "sip", course: "MCE Docentes", peak: 56 },
     ]
   },
   { name: "Dafne Polanco", email: "dafnayal@gmail.com", capacity: 100,
     assignments: [
-      { project: "sip", course: "MCE Docentes", peak: 80 }
+      { project: "sip", course: "MCE Docentes", peak: 80 },
     ]
   },
   { name: "Daniel Martínez", email: "teacherdan.eng@gmail.com", capacity: 100,
     assignments: [
-      { project: "sip", course: "MCE Docentes", peak: 80 }
+      { project: "sip", course: "MCE Docentes", peak: 80 },
     ]
   },
   { name: "Evelyn Duarte", email: "evelyn.duarte.leiva@gmail.com", capacity: 200,
     assignments: [
       { project: "sip", course: "MCE Docentes", peak: 43 },
-      { project: "slep", course: "Ruta 0 Docentes", peak: 70 }
+      { project: "slep", course: "Ruta 0 Docentes", peak: 70 },
     ]
   },
   { name: "Víctor Gálvez", email: "vgalvezvargas@gmail.com", capacity: 200,
     assignments: [
       { project: "slep", course: "Ruta 0 Docentes", peak: 69 },
-      { project: "sip", course: "MCE Asistentes educación", peak: 137, note: "1 sem puntual", weeksOverride: 1 }
+      { project: "sip", course: "MCE Asistentes educación", peak: 69, note: "1 sem puntual", weeksOverride: 1 },
     ]
   },
   { name: "Daniela García", email: "dmgarciamolina@gmail.com", capacity: 150,
     assignments: [
       { project: "san-benito", course: "Google Workspace", peak: 13 },
       { project: "san-benito", course: "Comprensión lectora", peak: 5 },
-      { project: "puc", course: "IA para la educación superior", peak: 25 }
+      { project: "puc", course: "IA para la educación superior", peak: 25 },
     ]
   },
   { name: "Joseph Fuentealba", email: "joseph.fuentealba@inacapmail.cl", capacity: 80,
     assignments: [
-      { project: "slep", course: "Curso 1 Líderes", peak: 28 }
+      { project: "slep", course: "Curso 1 Líderes", peak: 28 },
     ]
-  }
-  // Denisse Campuzano: en reserva, sin asignaciones — se ocultará hasta que tenga carga
+  },
+  // Denisse Campuzano: sin asignaciones — oculto en la vista
 ];
+// === TAS:AUTO END ===
 
 // ============ STATE ============
 let currentYear = 2026;
