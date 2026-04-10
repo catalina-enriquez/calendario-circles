@@ -21,6 +21,9 @@
     --slep: #ef4444;
     --slep-light: #fee2e2;
     --slep-mid: #fca5a5;
+    --inacap: #06b6d4;
+    --inacap-light: #cffafe;
+    --inacap-mid: #67e8f9;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -106,6 +109,8 @@
   .tab[data-tab="puc"].active { border-bottom-color: var(--puc); color: var(--puc); }
   .tab[data-tab="slep"] .tab-dot { background: var(--slep); }
   .tab[data-tab="slep"].active { border-bottom-color: var(--slep); color: var(--slep); }
+  .tab[data-tab="inacap"] .tab-dot { background: var(--inacap); }
+  .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
 
   /* MONTH NAV */
   .controls {
@@ -194,6 +199,20 @@
   .day-cell.other-month { background: #f8fafc; }
   .day-cell.today { background: #fffbeb; box-shadow: inset 0 0 0 2px #f59e0b; }
   .day-cell.weekend { background: #fafafa; }
+  .day-cell.holiday { background: #e2e8f0; }
+
+  .holiday-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
 
   .day-number {
     font-size: 12px;
@@ -247,6 +266,9 @@
   .event[data-project="slep"] { background: var(--slep-light); color: #991b1b; }
   .event[data-project="slep"].match { background: var(--slep); color: white; }
   .event[data-project="slep"].oh { border-color: var(--slep); color: var(--slep); }
+  .event[data-project="inacap"] { background: var(--inacap-light); color: #155e75; }
+  .event[data-project="inacap"].match { background: var(--inacap); color: white; }
+  .event[data-project="inacap"].oh { border-color: var(--inacap); color: var(--inacap); }
 
   .more-events {
     font-size: 9px;
@@ -309,6 +331,7 @@
   .course-card[data-project="chilemass"] { border-left-color: var(--chilemass); }
   .course-card[data-project="puc"] { border-left-color: var(--puc); }
   .course-card[data-project="slep"] { border-left-color: var(--slep); }
+  .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
 
   .course-card h3 {
     font-size: 14px;
@@ -355,6 +378,8 @@
   .phase-bar[data-project="puc"] .ext-phase { background: var(--puc-mid); }
   .phase-bar[data-project="slep"] .week-phase { background: var(--slep); }
   .phase-bar[data-project="slep"] .ext-phase { background: var(--slep-mid); }
+  .phase-bar[data-project="inacap"] .week-phase { background: var(--inacap); }
+  .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
 
   @media (max-width: 768px) {
     .day-cell { min-height: 70px; }
@@ -375,7 +400,7 @@
 
 <div class="header">
   <h1>Circles Learning — Calendario Otoño 2026</h1>
-  <p>12 cursos activos en 5 convocatorias &middot; Febrero a Septiembre 2026</p>
+  <p>21 cursos &middot; Febrero a Septiembre 2026</p>
 </div>
 
 <div class="tabs-container" id="tabsContainer">
@@ -396,6 +421,9 @@
   </button>
   <button class="tab" data-tab="slep" onclick="switchTab('slep')">
     <span class="tab-dot"></span> SLEP Tamarugal
+  </button>
+  <button class="tab" data-tab="inacap" onclick="switchTab('inacap')">
+    <span class="tab-dot"></span> INACAP
   </button>
 </div>
 
@@ -634,6 +662,160 @@ const courses = [
     ],
     officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"]
   },
+  // ======== INACAP — Otoño 2026 (9 cursos) ========
+  {
+    id: "inacap-ip1", project: "inacap", projectLabel: "INACAP",
+    name: "Innovación pedagógica I", shortName: "InnovP1", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-01T16:30", "2026-06-15T16:30"]
+  },
+  {
+    id: "inacap-ip2", project: "inacap", projectLabel: "INACAP",
+    name: "Innovación pedagógica II", shortName: "InnovP2", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-01T18:00", "2026-06-15T18:00"]
+  },
+  {
+    id: "inacap-dgi", project: "inacap", projectLabel: "INACAP",
+    name: "Diversidad, Género e Inclusión II", shortName: "DGI2", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-02T16:30", "2026-06-16T16:30"]
+  },
+  {
+    id: "inacap-cd", project: "inacap", projectLabel: "INACAP",
+    name: "Competencias digitales", shortName: "CompDig", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-02T18:00", "2026-06-16T18:00"]
+  },
+  {
+    id: "inacap-ep", project: "inacap", projectLabel: "INACAP",
+    name: "Elaboración de Proyectos", shortName: "ElabProy", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-03T16:30", "2026-06-17T16:30"]
+  },
+  {
+    id: "inacap-ev", project: "inacap", projectLabel: "INACAP",
+    name: "Evaluación", shortName: "Eval", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-04T16:30", "2026-06-18T16:30"]
+  },
+  {
+    id: "inacap-erpia", project: "inacap", projectLabel: "INACAP",
+    name: "Elaboración y revisión de productos con Inteligencia Artificial", shortName: "ERPIA", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-05T16:30", "2026-06-19T16:30"]
+  },
+  {
+    id: "inacap-ed", project: "inacap", projectLabel: "INACAP",
+    name: "Estrategias didácticas", shortName: "EstDid", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-05T18:00", "2026-06-19T18:00"]
+  },
+  {
+    id: "inacap-edo", project: "inacap", projectLabel: "INACAP",
+    name: "Estrategias didácticas para cursos online", shortName: "EstDidOn", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-04T18:00", "2026-06-18T18:00"]
+  },
 ];
 
 const projectNames = {
@@ -641,13 +823,27 @@ const projectNames = {
   "sip": "SIP MCE otoño 2026",
   "chilemass": "ChileMass IA 2026",
   "puc": "Curso IA PUC",
-  "slep": "SLEP Tamarugal"
+  "slep": "SLEP Tamarugal",
+  "inacap": "INACAP Otoño 2026"
+};
+
+// ============ FERIADOS CHILE 2026 ============
+const holidays = {
+  "2026-04-03": "Viernes Santo",
+  "2026-04-04": "Sábado Santo",
+  "2026-05-01": "Día del Trabajo",
+  "2026-05-21": "Glorias Navales",
+  "2026-06-29": "San Pedro y San Pablo",
+  "2026-07-16": "Virgen del Carmen",
+  "2026-08-15": "Asunción de la Virgen",
+  "2026-09-18": "Fiestas Patrias",
+  "2026-09-19": "Glorias del Ejército",
 };
 
 // ============ STATE ============
 let currentYear = 2026;
-let currentMonth = 2; // March 2026
-let activeTab = "all"; // "all" or project key
+let currentMonth = 3; // April 2026
+let activeTabs = new Set(["all"]); // multi-select tabs
 const today = new Date();
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
@@ -666,8 +862,8 @@ function formatDate(ds) {
 }
 
 function getFilteredCourses() {
-  if (activeTab === "all") return courses;
-  return courses.filter(c => c.project === activeTab);
+  if (activeTabs.has("all")) return courses;
+  return courses.filter(c => activeTabs.has(c.project));
 }
 
 // ============ EVENTS ============
@@ -676,7 +872,7 @@ function getEventsForDate(dateString) {
   const filtered = getFilteredCourses();
 
   for (const course of filtered) {
-    const prefix = activeTab === "all" ? `${course.shortName}` : course.shortName;
+    const prefix = course.shortName;
 
     if (isInRange(dateString, course.match.start, course.match.end)) {
       events.push({
@@ -781,8 +977,18 @@ function renderDayCell(grid, date, otherMonth) {
   cell.appendChild(num);
 
   const ds = dateStr(date);
+
+  if (holidays[ds]) {
+    cell.classList.add("holiday");
+    const lbl = document.createElement("div");
+    lbl.className = "holiday-label";
+    lbl.textContent = "Feriado";
+    lbl.title = holidays[ds];
+    cell.appendChild(lbl);
+  }
+
   const events = getEventsForDate(ds);
-  const maxVis = activeTab === "all" ? 3 : 5;
+  const maxVis = activeTabs.has("all") ? 3 : 5;
   const visible = events.slice(0, maxVis);
   const hidden = events.length - maxVis;
 
@@ -870,9 +1076,26 @@ function renderCoursePanel() {
 
 // ============ TABS ============
 function switchTab(tab) {
-  activeTab = tab;
+  if (tab === "all") {
+    // "Vista unificada" limpia todo y muestra solo los cursos base
+    activeTabs.clear();
+    activeTabs.add("all");
+  } else {
+    // Quitar "all" si estaba activo
+    activeTabs.delete("all");
+    // Toggle de la convocatoria
+    if (activeTabs.has(tab)) {
+      activeTabs.delete(tab);
+    } else {
+      activeTabs.add(tab);
+    }
+    // Si no queda nada seleccionado, volver a "all"
+    if (activeTabs.size === 0) {
+      activeTabs.add("all");
+    }
+  }
   document.querySelectorAll(".tab").forEach(t => {
-    t.classList.toggle("active", t.getAttribute("data-tab") === tab);
+    t.classList.toggle("active", activeTabs.has(t.getAttribute("data-tab")));
   });
   render();
 }
