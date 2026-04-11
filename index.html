@@ -433,6 +433,21 @@
     padding: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     border-left: 4px solid #475569;
+    cursor: pointer;
+    transition: opacity 0.15s, box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+  }
+  .ta-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+  }
+  .ta-card.selected {
+    box-shadow: 0 0 0 2px #3b82f6, 0 4px 12px rgba(59,130,246,0.22);
+  }
+  .ta-card.dim {
+    opacity: 0.45;
+  }
+  .ta-card.dim:hover {
+    opacity: 0.75;
   }
   .ta-card h3 {
     font-size: 14px;
@@ -1054,6 +1069,7 @@ let currentMonth = 3; // April 2026
 let activeTabs = new Set(["all"]); // multi-select tabs
 let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
 let viewMode = "courses"; // "courses" | "tas"
+let selectedTaKey = null; // email del TA seleccionado en vista TA, o null
 const today = new Date();
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
@@ -1115,15 +1131,58 @@ function getVisibleTAs() {
     .filter(x => x.visibleAssignments.length > 0);
 }
 
+function getTaKey(ta) { return ta.email; }
+function findTaByKey(key) {
+  return taAssignments.find(t => getTaKey(t) === key) || null;
+}
+
+// Estimación de revisiones por curso por semana, según el modelo:
+//   - Semana activa (S1..Sn): peak completo
+//   - Semana de extensión: peak * 0.3 (cola de rezagados)
+//   - Si la asignación tiene weeksOverride, solo cuenta hasta esa cantidad
+//     de semanas activas (Víctor en SIP MCE Asistentes "1 sem puntual").
+//
+// Devuelve null cuando el curso debe ocultarse del calendario en vista TA:
+//   - Ningún TA tiene asignación en este curso, o
+//   - Hay un TA seleccionado y no trabaja este curso.
+// Devuelve un número (puede ser 0) en otro caso.
+function computeWeekLoad(course, weekIndex, isExtension, selectedTa) {
+  const matches = [];
+  for (const ta of taAssignments) {
+    for (const a of ta.assignments) {
+      if (a.project === course.project && a.course === course.name) {
+        matches.push({ ta, a });
+      }
+    }
+  }
+  if (matches.length === 0) return null; // ningún TA en este curso
+
+  const relevant = selectedTa ? matches.filter(m => m.ta === selectedTa) : matches;
+  if (selectedTa && relevant.length === 0) return null;
+
+  let total = 0;
+  for (const { a } of relevant) {
+    if (a.weeksOverride !== undefined && weekIndex >= a.weeksOverride) continue;
+    total += isExtension ? Math.round(a.peak * 0.3) : a.peak;
+  }
+  // Carga 0 = ningún TA contribuye esta semana (ej. weeksOverride agotado).
+  // Ocultamos el evento para no ensuciar el calendario.
+  if (total === 0) return null;
+  return total;
+}
+
 // ============ EVENTS ============
 function getEventsForDate(dateString) {
   const events = [];
   const filtered = getFilteredCourses();
+  const isTaView = viewMode === "tas";
+  const selectedTa = (isTaView && selectedTaKey) ? findTaByKey(selectedTaKey) : null;
 
   for (const course of filtered) {
     const prefix = course.shortName;
 
-    if (isInRange(dateString, course.match.start, course.match.end)) {
+    // Match: oculto en vista TA (no hay revisiones durante match)
+    if (!isTaView && isInRange(dateString, course.match.start, course.match.end)) {
       events.push({
         type: "match", label: `${prefix} Match`,
         project: course.project,
@@ -1131,8 +1190,22 @@ function getEventsForDate(dateString) {
       });
     }
 
-    for (const w of course.weeks) {
-      if (isInRange(dateString, w.start, w.end)) {
+    for (let i = 0; i < course.weeks.length; i++) {
+      const w = course.weeks[i];
+      if (!isInRange(dateString, w.start, w.end)) continue;
+
+      if (isTaView) {
+        const load = computeWeekLoad(course, i, false, selectedTa);
+        if (load === null) continue;
+        events.push({
+          type: "week",
+          label: `${prefix} S${w.sem} · ${load}r`,
+          project: course.project,
+          detail: selectedTa
+            ? `${selectedTa.name}\n${course.projectLabel}: ${course.name}\nSemana ${w.sem}: ${load} revisiones`
+            : `${course.projectLabel}: ${course.name}\nSemana ${w.sem}: ${load} revisiones (total)`
+        });
+      } else {
         let s = [];
         if (w.mod) s.push(`${w.mod}m`);
         if (w.indiv) s.push(`${w.indiv}i`);
@@ -1145,8 +1218,23 @@ function getEventsForDate(dateString) {
       }
     }
 
-    for (const e of course.extensions) {
-      if (isInRange(dateString, e.start, e.end)) {
+    for (let i = 0; i < course.extensions.length; i++) {
+      const e = course.extensions[i];
+      if (!isInRange(dateString, e.start, e.end)) continue;
+
+      if (isTaView) {
+        const cumIdx = course.weeks.length + i;
+        const load = computeWeekLoad(course, cumIdx, true, selectedTa);
+        if (load === null) continue;
+        events.push({
+          type: "ext",
+          label: `${prefix} Ext${e.ext} · ${load}r`,
+          project: course.project,
+          detail: selectedTa
+            ? `${selectedTa.name}\n${course.projectLabel}: ${course.name}\nExtensión ${e.ext}: ${load} revisiones (cola)`
+            : `${course.projectLabel}: ${course.name}\nExtensión ${e.ext}: ${load} revisiones (cola)`
+        });
+      } else {
         events.push({
           type: "ext", label: `${prefix} Ext${e.ext}`,
           project: course.project,
@@ -1273,8 +1361,14 @@ function renderStats() {
   let cards;
   if (viewMode === "tas") {
     const visibleTAs = getVisibleTAs();
+    const selectedTa = selectedTaKey ? findTaByKey(selectedTaKey) : null;
+    // Si hay un TA seleccionado, las stats reflejan solo a ese TA (filtrado
+    // además por la convocatoria activa). Si no, totales sobre los visibles.
+    const scope = selectedTa
+      ? visibleTAs.filter(x => x.ta === selectedTa)
+      : visibleTAs;
     let totalPeak = 0, totalAvg = 0, totalCap = 0;
-    for (const { ta, visibleAssignments } of visibleTAs) {
+    for (const { ta, visibleAssignments } of scope) {
       for (const a of visibleAssignments) {
         const m = computeAssignmentMetrics(a);
         totalPeak += m.peak;
@@ -1284,7 +1378,7 @@ function renderStats() {
     }
     const utilPct = totalCap > 0 ? Math.round(totalPeak / totalCap * 100) : 0;
     cards = [
-      { n: visibleTAs.length, l: "TAs activos" },
+      { n: scope.length, l: selectedTa ? "TA seleccionado" : "TAs activos" },
       { n: totalPeak.toLocaleString("es-CL"), l: "Rev/sem pico" },
       { n: totalAvg.toLocaleString("es-CL"), l: "Rev/sem promedio" },
       { n: `${utilPct}%`, l: "Capacidad utilizada" }
@@ -1385,6 +1479,13 @@ function renderTaPanel() {
   for (const { ta, visibleAssignments } of visibleTAs) {
     const card = document.createElement("div");
     card.className = "ta-card";
+    const key = getTaKey(ta);
+    const isSelected = selectedTaKey === key;
+    if (isSelected) card.classList.add("selected");
+    else if (selectedTaKey) card.classList.add("dim");
+    card.title = isSelected
+      ? "Click para deseleccionar y volver a ver todos"
+      : "Click para filtrar el calendario a la carga personal de este TA";
 
     let totalPeak = 0, totalAvg = 0;
     const rows = visibleAssignments.map(a => {
@@ -1422,6 +1523,11 @@ function renderTaPanel() {
       <div class="ta-capacity-bar"><div class="ta-capacity-fill ${capClass}" style="width:${Math.min(100,capPct)}%"></div></div>
     `;
 
+    card.addEventListener("click", () => {
+      selectedTaKey = (selectedTaKey === key) ? null : key;
+      render();
+    });
+
     panel.appendChild(card);
   }
 }
@@ -1432,8 +1538,9 @@ function setViewMode(mode) {
   document.querySelectorAll(".view-btn").forEach(b => {
     b.classList.toggle("active", b.getAttribute("data-view") === mode);
   });
-  // Limpiar cursos ocultos al cambiar de vista para arrancar fresco
+  // Limpiar cursos ocultos y selección de TA al cambiar de vista
   hiddenCourses.clear();
+  if (mode !== "tas") selectedTaKey = null;
   render();
 }
 
