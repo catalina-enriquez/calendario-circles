@@ -545,6 +545,180 @@
     font-size: 13px;
   }
 
+  /* ===== Flip card ===== */
+  .ta-card-wrapper {
+    perspective: 900px;
+    cursor: pointer;
+  }
+  .ta-card-inner {
+    position: relative;
+    transition: transform 0.45s ease;
+    transform-style: preserve-3d;
+  }
+  .ta-card-wrapper.flipped .ta-card-inner {
+    transform: rotateY(180deg);
+  }
+  .ta-card-front, .ta-card-back {
+    backface-visibility: hidden;
+  }
+  .ta-card-back {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    transform: rotateY(180deg);
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 4px solid #475569;
+  }
+  .ta-card-wrapper.flipped .ta-card-back {
+    position: relative;
+  }
+  .ta-card-wrapper.flipped .ta-card-front {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+  }
+  .ta-flip-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    color: #94a3b8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    float: right;
+    transition: color 0.15s;
+  }
+  .ta-flip-btn:hover { color: #3b82f6; }
+  .ta-progress-row {
+    margin-bottom: 10px;
+  }
+  .ta-progress-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+  }
+  .ta-progress-course {
+    font-size: 12px;
+    color: #334155;
+    margin-bottom: 4px;
+  }
+  .ta-progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 3px;
+  }
+  .ta-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+  .ta-progress-fill.green { background: #10b981; }
+  .ta-progress-fill.yellow { background: #f59e0b; }
+  .ta-progress-fill.red { background: #ef4444; }
+  .ta-progress-nums {
+    font-size: 11px;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+  }
+  .ta-progress-nums strong { color: #0f172a; }
+  .ta-progress-total {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 2px solid #e2e8f0;
+  }
+  .ta-back-updated {
+    font-size: 10px;
+    color: #cbd5e1;
+    margin-top: 10px;
+    text-align: right;
+  }
+
+  /* ===== Panel resumen de avance ===== */
+  .ta-summary-panel {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    overflow-x: auto;
+  }
+  .ta-summary-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .ta-summary-panel th {
+    text-align: left;
+    padding: 8px 10px;
+    font-weight: 700;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .ta-summary-panel th:not(:first-child) { text-align: right; }
+  .ta-summary-panel td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }
+  .ta-summary-panel td:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .ta-summary-panel tr.clickable { cursor: pointer; }
+  .ta-summary-panel tr.clickable:hover { background: #f8fafc; }
+  .ta-summary-panel tr.selected-row { background: #eff6ff; }
+  .ta-summary-panel tr.total-row td {
+    font-weight: 700;
+    border-top: 2px solid #e2e8f0;
+    color: #0f172a;
+  }
+  .ta-summary-panel .mini-bar {
+    display: inline-block;
+    width: 80px;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .ta-summary-panel .mini-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .ta-summary-panel .mini-fill.green { background: #10b981; }
+  .ta-summary-panel .mini-fill.yellow { background: #f59e0b; }
+  .ta-summary-panel .mini-fill.red { background: #ef4444; }
+  .ta-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .ta-summary-header h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+  .ta-summary-updated {
+    font-size: 11px;
+    color: #94a3b8;
+  }
+  .ta-no-data {
+    font-size: 12px;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 12px 0;
+  }
+
   @media (max-width: 768px) {
     .day-cell { min-height: 70px; }
     .event { font-size: 8px; padding: 1px 2px; }
@@ -564,7 +738,7 @@
 
 <div class="header">
   <h1>Circles Learning — Calendario Otoño 2026</h1>
-  <p>21 cursos &middot; Febrero a Septiembre 2026</p>
+  <p>22 cursos &middot; Febrero a Septiembre 2026</p>
 </div>
 
 <div class="view-toggle" id="viewToggle">
@@ -614,6 +788,8 @@
 
 <div class="stats-bar" id="statsBar"></div>
 
+<div id="taSummaryPanel"></div>
+
 <div class="course-panel" id="coursePanel"></div>
 
 <script>
@@ -660,7 +836,7 @@ const courses = [
     match: { start: "2026-04-14", end: "2026-04-17" },
     weeks: [
       { sem: 1, start: "2026-04-20", end: "2026-04-24", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-04-27", end: "2026-05-01", mod: 0, indiv: 0, grupal: 0 },
+      { sem: 2, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
       { sem: 3, start: "2026-05-04", end: "2026-05-08", mod: 1, indiv: 0, grupal: 1 },
       { sem: 4, start: "2026-05-11", end: "2026-05-15", mod: 1, indiv: 0, grupal: 1 },
     ],
@@ -831,7 +1007,7 @@ const courses = [
     ],
     officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"]
   },
-  // ======== INACAP — Otoño 2026 (9 cursos) ========
+  // ======== INACAP — Otoño 2026 (10 cursos) ========
   {
     id: "inacap-ip1", project: "inacap", projectLabel: "INACAP",
     name: "Innovación pedagógica I", shortName: "InnovP1", students: 0,
@@ -985,6 +1161,23 @@ const courses = [
     ],
     officeHours: ["2026-06-04T18:00", "2026-06-18T18:00"]
   },
+  {
+    id: "inacap-gp", project: "inacap", projectLabel: "INACAP",
+    name: "Gestión de Proyectos", shortName: "GestProy", students: 0,
+    period: { start: "2026-05-19", end: "2026-07-03" },
+    match: { start: "2026-05-19", end: "2026-05-29" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-03T18:00", "2026-06-17T18:00"]
+  },
 ];
 
 const projectNames = {
@@ -1070,6 +1263,7 @@ let activeTabs = new Set(["all"]); // multi-select tabs
 let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
 let viewMode = "courses"; // "courses" | "tas"
 let selectedTaKey = null; // email del TA seleccionado en vista TA, o null
+let taProgressData = null; // datos de avance real, cargados desde JSON
 const today = new Date();
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
@@ -1297,6 +1491,7 @@ function render() {
   }
 
   renderStats();
+  renderSummaryPanel();
   if (viewMode === "tas") {
     renderTaPanel();
   } else {
@@ -1465,6 +1660,55 @@ function renderCoursePanel() {
 }
 
 // ============ TA PANEL ============
+function buildTaCardBack(ta, visibleAssignments) {
+  // Cara posterior: avance real de revisiones (requiere taProgressData)
+  if (!taProgressData || !taProgressData.tas || !taProgressData.tas[ta.email]) {
+    return `<div class="ta-no-data">Sin datos de avance.<br>Correr export-ta-review-progress.py</div>`;
+  }
+  const updated = taProgressData.updated
+    ? new Date(taProgressData.updated).toLocaleDateString("es-CL",{day:"2-digit",month:"2-digit"})
+      + " " + new Date(taProgressData.updated).toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit"})
+    : "";
+
+  // Agrupar assignments por project para evitar duplicar barras
+  const projectsSeen = new Set();
+  let rows = "";
+  for (const a of visibleAssignments) {
+    if (projectsSeen.has(a.project)) continue;
+    projectsSeen.add(a.project);
+    const prog = getTaProgress(ta.email, a.project);
+    if (!prog) continue;
+    const cc = progressColorClass(prog.pct);
+    const course = findCourse(a.project, a.course);
+    const projLabel = course ? course.projectLabel : a.project;
+    rows += `
+      <div class="ta-progress-row">
+        <div class="ta-progress-label">${projLabel}</div>
+        <div class="ta-progress-bar"><div class="ta-progress-fill ${cc}" style="width:${prog.pct}%"></div></div>
+        <div class="ta-progress-nums">
+          <span><strong>${prog.pct}%</strong> al día</span>
+          <span>${prog.reviewed} revisadas · ${prog.to_review} en cola</span>
+        </div>
+      </div>`;
+  }
+
+  const tot = getTaProgressTotal(ta.email);
+  if (tot) {
+    const tcc = progressColorClass(tot.pct);
+    rows += `
+      <div class="ta-progress-total">
+        <div class="ta-progress-label">TOTAL</div>
+        <div class="ta-progress-bar"><div class="ta-progress-fill ${tcc}" style="width:${tot.pct}%"></div></div>
+        <div class="ta-progress-nums">
+          <span><strong>${tot.pct}%</strong> al día</span>
+          <span>${tot.reviewed} revisadas · ${tot.to_review} en cola</span>
+        </div>
+      </div>`;
+  }
+
+  return rows + `<div class="ta-back-updated">Actualizado: ${updated}</div>`;
+}
+
 function renderTaPanel() {
   const panel = document.getElementById("coursePanel");
   panel.innerHTML = "";
@@ -1476,17 +1720,18 @@ function renderTaPanel() {
     return;
   }
 
+  const hasProgressData = taProgressData && taProgressData.tas;
+
   for (const { ta, visibleAssignments } of visibleTAs) {
-    const card = document.createElement("div");
-    card.className = "ta-card";
     const key = getTaKey(ta);
     const isSelected = selectedTaKey === key;
-    if (isSelected) card.classList.add("selected");
-    else if (selectedTaKey) card.classList.add("dim");
-    card.title = isSelected
-      ? "Click para deseleccionar y volver a ver todos"
-      : "Click para filtrar el calendario a la carga personal de este TA";
 
+    // Wrapper para flip
+    const wrapper = document.createElement("div");
+    wrapper.className = "ta-card-wrapper";
+    if (isSelected) wrapper.classList.add("selected-wrapper");
+
+    // Card front (existente)
     let totalPeak = 0, totalAvg = 0;
     const rows = visibleAssignments.map(a => {
       const m = computeAssignmentMetrics(a);
@@ -1511,24 +1756,58 @@ function renderTaPanel() {
     if (capPct >= 90) capClass = "danger";
     else if (capPct >= 75) capClass = "warning";
 
-    card.innerHTML = `
-      <h3>${ta.name}</h3>
-      <div class="ta-email">${ta.email}</div>
-      <div>${rows}</div>
-      <div class="ta-totals">
-        <span>Total</span>
-        <span class="ta-totals-nums"><strong>${totalPeak}</strong> pico · ${totalAvg} prom</span>
+    const flipBtnFront = hasProgressData && taProgressData.tas[ta.email]
+      ? `<button class="ta-flip-btn flip-to-back" title="Ver avance de revisiones">&#x21bb; ver avance</button>`
+      : "";
+    const flipBtnBack = `<button class="ta-flip-btn flip-to-front" title="Volver a carga estimada">&#x21bb; volver</button>`;
+
+    const frontHtml = `
+      <div class="ta-card ta-card-front${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
+        ${flipBtnFront}
+        <h3>${ta.name}</h3>
+        <div class="ta-email">${ta.email}</div>
+        <div>${rows}</div>
+        <div class="ta-totals">
+          <span>Total</span>
+          <span class="ta-totals-nums"><strong>${totalPeak}</strong> pico · ${totalAvg} prom</span>
+        </div>
+        <div class="ta-capacity">Capacidad utilizada: ${capPct}% (${totalPeak}/${ta.capacity} pico)</div>
+        <div class="ta-capacity-bar"><div class="ta-capacity-fill ${capClass}" style="width:${Math.min(100,capPct)}%"></div></div>
       </div>
-      <div class="ta-capacity">Capacidad utilizada: ${capPct}% (${totalPeak}/${ta.capacity} pico)</div>
-      <div class="ta-capacity-bar"><div class="ta-capacity-fill ${capClass}" style="width:${Math.min(100,capPct)}%"></div></div>
     `;
 
-    card.addEventListener("click", () => {
+    const backHtml = `
+      <div class="ta-card-back${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
+        ${flipBtnBack}
+        <h3>${ta.name}</h3>
+        ${buildTaCardBack(ta, visibleAssignments)}
+      </div>
+    `;
+
+    wrapper.innerHTML = `<div class="ta-card-inner">${frontHtml}${backHtml}</div>`;
+
+    // Click en tarjeta (no en flip button) = seleccionar/deseleccionar TA
+    wrapper.addEventListener("click", (e) => {
+      if (e.target.closest(".ta-flip-btn")) return; // no seleccionar al flip
       selectedTaKey = (selectedTaKey === key) ? null : key;
       render();
     });
 
-    panel.appendChild(card);
+    // Click en flip button = voltear tarjeta
+    wrapper.querySelectorAll(".flip-to-back").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        wrapper.classList.add("flipped");
+      });
+    });
+    wrapper.querySelectorAll(".flip-to-front").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        wrapper.classList.remove("flipped");
+      });
+    });
+
+    panel.appendChild(wrapper);
   }
 }
 
@@ -1572,6 +1851,112 @@ function switchTab(tab) {
   render();
 }
 
+// ============ PROGRESS HELPERS ============
+function progressColorClass(pct) {
+  if (pct >= 90) return "green";
+  if (pct >= 60) return "yellow";
+  return "red";
+}
+
+function getTaProgress(email, project) {
+  // Devuelve {reviewed, to_review, pct} o null si no hay datos
+  if (!taProgressData || !taProgressData.tas || !taProgressData.tas[email]) return null;
+  const proj = taProgressData.tas[email][project];
+  if (!proj) return null;
+  const total = proj.reviewed + proj.to_review;
+  const pct = total > 0 ? Math.round(proj.reviewed / total * 100) : 100;
+  return { reviewed: proj.reviewed, to_review: proj.to_review, pct };
+}
+
+function getTaProgressTotal(email) {
+  if (!taProgressData || !taProgressData.tas || !taProgressData.tas[email]) return null;
+  const projects = taProgressData.tas[email];
+  let rev = 0, pend = 0;
+  for (const p of Object.values(projects)) {
+    rev += p.reviewed;
+    pend += p.to_review;
+  }
+  const total = rev + pend;
+  return { reviewed: rev, to_review: pend, pct: total > 0 ? Math.round(rev / total * 100) : 100 };
+}
+
+// ============ SUMMARY PANEL ============
+function renderSummaryPanel() {
+  const el = document.getElementById("taSummaryPanel");
+  el.innerHTML = "";
+
+  if (viewMode !== "tas" || !taProgressData || !taProgressData.tas) return;
+
+  const visibleTAs = getVisibleTAs();
+  if (visibleTAs.length === 0) return;
+
+  // Solo mostrar TAs que tienen datos de avance real
+  const withData = visibleTAs.filter(x => taProgressData.tas[x.ta.email]);
+  if (withData.length === 0) {
+    el.innerHTML = `<div class="ta-summary-panel"><p class="ta-no-data">Sin datos de avance. Correr export-ta-review-progress.py para actualizar.</p></div>`;
+    return;
+  }
+
+  const updated = taProgressData.updated
+    ? new Date(taProgressData.updated).toLocaleDateString("es-CL", {day:"2-digit",month:"2-digit"})
+      + " " + new Date(taProgressData.updated).toLocaleTimeString("es-CL", {hour:"2-digit",minute:"2-digit"})
+    : "—";
+
+  let rows = "";
+  let grandRev = 0, grandPend = 0;
+
+  for (const { ta } of withData) {
+    const t = getTaProgressTotal(ta.email);
+    if (!t) continue;
+    grandRev += t.reviewed;
+    grandPend += t.to_review;
+    const cc = progressColorClass(t.pct);
+    const isSelected = selectedTaKey === getTaKey(ta);
+    const rowCls = `clickable${isSelected ? " selected-row" : ""}`;
+    rows += `<tr class="${rowCls}" data-ta-email="${ta.email}">
+      <td>${ta.name}</td>
+      <td>${t.reviewed}</td>
+      <td>${t.to_review}</td>
+      <td><span class="mini-bar"><span class="mini-fill ${cc}" style="width:${t.pct}%"></span></span>${t.pct}%</td>
+    </tr>`;
+  }
+
+  const grandTotal = grandRev + grandPend;
+  const grandPct = grandTotal > 0 ? Math.round(grandRev / grandTotal * 100) : 100;
+  const grandCc = progressColorClass(grandPct);
+
+  const html = `
+    <div class="ta-summary-panel">
+      <div class="ta-summary-header">
+        <h2>Avance de revisiones</h2>
+        <span class="ta-summary-updated">Actualizado: ${updated}</span>
+      </div>
+      <table>
+        <thead><tr>
+          <th>TA</th><th>Revisadas</th><th>En cola</th><th>% al día</th>
+        </tr></thead>
+        <tbody>
+          ${rows}
+          <tr class="total-row">
+            <td>TOTAL</td><td>${grandRev}</td><td>${grandPend}</td>
+            <td><span class="mini-bar"><span class="mini-fill ${grandCc}" style="width:${grandPct}%"></span></span>${grandPct}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+  el.innerHTML = html;
+
+  // Click en fila = seleccionar TA
+  el.querySelectorAll("tr.clickable").forEach(tr => {
+    tr.addEventListener("click", () => {
+      const email = tr.getAttribute("data-ta-email");
+      selectedTaKey = (selectedTaKey === email) ? null : email;
+      render();
+    });
+  });
+}
+
 // ============ MONTH NAV ============
 function changeMonth(delta) {
   currentMonth += delta;
@@ -1582,6 +1967,14 @@ function changeMonth(delta) {
 
 // ============ INIT ============
 render();
+
+// Cargar datos de avance de revisiones (JSON estático, actualizado por
+// export-ta-review-progress.py). Si el fetch falla, el calendario funciona
+// igual pero sin barras de avance — degradación elegante.
+fetch("ta-review-progress.json")
+  .then(r => { if (r.ok) return r.json(); throw new Error(r.status); })
+  .then(data => { taProgressData = data; render(); })
+  .catch(() => { /* sin datos de avance, OK */ });
 </script>
 </body>
 </html>
