@@ -171,6 +171,48 @@
   .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+  }
+  .calendar-grid.with-sidebar {
+    grid-template-columns: 100px repeat(7, 1fr);
+  }
+  .review-sidebar-header {
+    font-size: 10px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 4px;
+    letter-spacing: 0.04em;
+  }
+  .review-sidebar {
+    font-size: 10px;
+    color: #475569;
+    padding: 6px;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .review-sidebar .sidebar-course {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .review-sidebar .sidebar-course strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+  .review-sidebar .sidebar-total {
+    border-top: 1px solid #cbd5e1;
+    margin-top: 3px;
+    padding-top: 3px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .calendar-grid {
     gap: 1px;
     background: #cbd5e1;
     border-radius: 10px;
@@ -1393,7 +1435,7 @@ function getEventsForDate(dateString) {
         if (load === null) continue;
         events.push({
           type: "week",
-          label: `${prefix} S${w.sem} · ${load}r`,
+          label: `${prefix} S${w.sem}`,
           project: course.project,
           detail: selectedTa
             ? `${selectedTa.name}\n${course.projectLabel}: ${course.name}\nSemana ${w.sem}: ${load} revisiones`
@@ -1422,7 +1464,7 @@ function getEventsForDate(dateString) {
         if (load === null) continue;
         events.push({
           type: "ext",
-          label: `${prefix} Ext${e.ext} · ${load}r`,
+          label: `${prefix} Ext${e.ext}`,
           project: course.project,
           detail: selectedTa
             ? `${selectedTa.name}\n${course.projectLabel}: ${course.name}\nExtensión ${e.ext}: ${load} revisiones (cola)`
@@ -1455,12 +1497,72 @@ function getEventsForDate(dateString) {
 }
 
 // ============ RENDER CALENDAR ============
+function computeSidebarForWeek(dates) {
+  // Dado un array de 7 Date objects (Lun a Dom), devuelve HTML para la sidebar
+  // con las revisiones promedio por curso activo esa semana.
+  const selectedTa = (viewMode === "tas" && selectedTaKey) ? findTaByKey(selectedTaKey) : null;
+  const courseLoads = {}; // "project::course" → {label, load}
+  const filtered = getFilteredCourses();
+
+  for (const course of filtered) {
+    for (let i = 0; i < course.weeks.length; i++) {
+      const w = course.weeks[i];
+      // Basta con que el primer día de la semana caiga dentro del rango del curso-week
+      const anyOverlap = dates.some(d => isInRange(dateStr(d), w.start, w.end));
+      if (!anyOverlap) continue;
+      const load = computeWeekLoad(course, i, false, selectedTa);
+      if (load === null || load === 0) continue;
+      const key = `${course.project}::${course.name}`;
+      if (!courseLoads[key]) {
+        courseLoads[key] = { label: course.shortName, load: 0 };
+      }
+      courseLoads[key].load = Math.max(courseLoads[key].load, load);
+    }
+    for (let i = 0; i < course.extensions.length; i++) {
+      const e = course.extensions[i];
+      const anyOverlap = dates.some(d => isInRange(dateStr(d), e.start, e.end));
+      if (!anyOverlap) continue;
+      const cumIdx = course.weeks.length + i;
+      const load = computeWeekLoad(course, cumIdx, true, selectedTa);
+      if (load === null || load === 0) continue;
+      const key = `${course.project}::${course.name}`;
+      if (!courseLoads[key]) {
+        courseLoads[key] = { label: course.shortName, load: 0 };
+      }
+      courseLoads[key].load = Math.max(courseLoads[key].load, load);
+    }
+  }
+
+  const entries = Object.values(courseLoads).sort((a, b) => b.load - a.load);
+  if (entries.length === 0) return "";
+
+  let html = entries.map(e =>
+    `<div class="sidebar-course">${e.label}: <strong>${e.load}</strong></div>`
+  ).join("");
+
+  if (entries.length > 1) {
+    const total = entries.reduce((s, e) => s + e.load, 0);
+    html += `<div class="sidebar-total">Total: ${total}</div>`;
+  }
+  return html;
+}
+
 function render() {
   const grid = document.getElementById("calendarGrid");
   grid.innerHTML = "";
 
+  const isTaView = viewMode === "tas";
+  grid.classList.toggle("with-sidebar", isTaView);
+
   document.getElementById("monthLabel").textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
+  // Headers
+  if (isTaView) {
+    const sh = document.createElement("div");
+    sh.className = "review-sidebar-header";
+    sh.textContent = "Rev/sem";
+    grid.appendChild(sh);
+  }
   const dayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
   for (const d of dayNames) {
     const el = document.createElement("div");
@@ -1469,25 +1571,42 @@ function render() {
     grid.appendChild(el);
   }
 
+  // Collect all day cells first, then inject sidebar per row
   const firstDay = new Date(currentYear, currentMonth, 1);
   let startDow = firstDay.getDay();
   startDow = startDow === 0 ? 6 : startDow - 1;
-
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const prevMonthLast = new Date(currentYear, currentMonth, 0);
 
+  const allDates = [];
   for (let i = startDow - 1; i >= 0; i--) {
-    renderDayCell(grid, new Date(currentYear, currentMonth - 1, prevMonthLast.getDate() - i), true);
+    allDates.push({ date: new Date(currentYear, currentMonth - 1, prevMonthLast.getDate() - i), outside: true });
   }
-
   for (let day = 1; day <= daysInMonth; day++) {
-    renderDayCell(grid, new Date(currentYear, currentMonth, day), false);
+    allDates.push({ date: new Date(currentYear, currentMonth, day), outside: false });
   }
-
   const totalCells = startDow + daysInMonth;
   const remaining = (7 - (totalCells % 7)) % 7;
   for (let day = 1; day <= remaining; day++) {
-    renderDayCell(grid, new Date(currentYear, currentMonth + 1, day), true);
+    allDates.push({ date: new Date(currentYear, currentMonth + 1, day), outside: true });
+  }
+
+  // Render row by row (7 days per row)
+  for (let r = 0; r < allDates.length; r += 7) {
+    const rowDates = allDates.slice(r, r + 7);
+
+    // Sidebar cell for TA view
+    if (isTaView) {
+      const sidebar = document.createElement("div");
+      sidebar.className = "review-sidebar";
+      sidebar.innerHTML = computeSidebarForWeek(rowDates.map(d => d.date));
+      grid.appendChild(sidebar);
+    }
+
+    // 7 day cells
+    for (const { date, outside } of rowDates) {
+      renderDayCell(grid, date, outside);
+    }
   }
 
   renderStats();
@@ -1574,7 +1693,7 @@ function renderStats() {
     const utilPct = totalCap > 0 ? Math.round(totalPeak / totalCap * 100) : 0;
     cards = [
       { n: scope.length, l: selectedTa ? "TA seleccionado" : "TAs activos" },
-      { n: totalPeak.toLocaleString("es-CL"), l: "Rev/sem pico" },
+      { n: totalPeak.toLocaleString("es-CL"), l: "Rev/sem máx" },
       { n: totalAvg.toLocaleString("es-CL"), l: "Rev/sem promedio" },
       { n: `${utilPct}%`, l: "Capacidad utilizada" }
     ];
@@ -1687,7 +1806,7 @@ function buildTaCardBack(ta, visibleAssignments) {
         <div class="ta-progress-bar"><div class="ta-progress-fill ${cc}" style="width:${prog.pct}%"></div></div>
         <div class="ta-progress-nums">
           <span><strong>${prog.pct}%</strong> al día</span>
-          <span>${prog.reviewed} revisadas · ${prog.to_review} en cola</span>
+          <span>${prog.reviewed} rev. hechas · ${prog.to_review} pendientes</span>
         </div>
       </div>`;
   }
@@ -1701,7 +1820,7 @@ function buildTaCardBack(ta, visibleAssignments) {
         <div class="ta-progress-bar"><div class="ta-progress-fill ${tcc}" style="width:${tot.pct}%"></div></div>
         <div class="ta-progress-nums">
           <span><strong>${tot.pct}%</strong> al día</span>
-          <span>${tot.reviewed} revisadas · ${tot.to_review} en cola</span>
+          <span>${tot.reviewed} rev. hechas · ${tot.to_review} pendientes</span>
         </div>
       </div>`;
   }
@@ -1746,7 +1865,7 @@ function renderTaPanel() {
             <span class="ta-assign-course">${a.course}</span>
             ${noteHtml}
           </div>
-          <div class="ta-assign-nums"><strong>${m.peak}</strong> pico · ${m.avg} prom</div>
+          <div class="ta-assign-nums"><strong>${m.peak}</strong> máx · ${m.avg} prom</div>
         </div>
       `;
     }).join("");
@@ -1769,9 +1888,9 @@ function renderTaPanel() {
         <div>${rows}</div>
         <div class="ta-totals">
           <span>Total</span>
-          <span class="ta-totals-nums"><strong>${totalPeak}</strong> pico · ${totalAvg} prom</span>
+          <span class="ta-totals-nums"><strong>${totalPeak}</strong> máx · ${totalAvg} prom</span>
         </div>
-        <div class="ta-capacity">Capacidad utilizada: ${capPct}% (${totalPeak}/${ta.capacity} pico)</div>
+        <div class="ta-capacity">Capacidad utilizada: ${capPct}% (${totalPeak}/${ta.capacity} máx)</div>
         <div class="ta-capacity-bar"><div class="ta-capacity-fill ${capClass}" style="width:${Math.min(100,capPct)}%"></div></div>
       </div>
     `;
@@ -1933,7 +2052,7 @@ function renderSummaryPanel() {
       </div>
       <table>
         <thead><tr>
-          <th>TA</th><th>Revisadas</th><th>En cola</th><th>% al día</th>
+          <th>TA</th><th>Rev. hechas</th><th>Rev. pendientes</th><th>% al día</th>
         </tr></thead>
         <tbody>
           ${rows}
