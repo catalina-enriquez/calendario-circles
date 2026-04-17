@@ -1,54 +1,54 @@
 {
-  "updated": "2026-04-17T10:39:39",
+  "updated": "2026-04-17T18:49:39",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 64
+        "to_review": 19
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
-        "reviewed": 0,
-        "to_review": 9
+        "reviewed": 4,
+        "to_review": 0
       },
       "slep": {
-        "reviewed": 192,
-        "to_review": 215
+        "reviewed": 47,
+        "to_review": 60
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
       "slep": {
-        "reviewed": 78,
-        "to_review": 27
+        "reviewed": 27,
+        "to_review": 5
       }
     },
     "pamela.opazo@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 76
+        "to_review": 19
       }
     },
     "teacherdan.eng@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 44
+        "to_review": 13
       }
     },
     "vgalvezvargas@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 44
+        "to_review": 17
       },
       "slep": {
-        "reviewed": 207,
-        "to_review": 198
+        "reviewed": 48,
+        "to_review": 63
       }
     },
     "victoriamarcenaro@gmail.com": {
       "sip": {
-        "reviewed": 52,
-        "to_review": 184
+        "reviewed": 11,
+        "to_review": 43
       }
     }
   }
