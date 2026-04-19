@@ -1,10 +1,10 @@
 {
-  "updated": "2026-04-18T10:01:47",
+  "updated": "2026-04-19T10:00:27",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 20
+        "to_review": 21
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -13,26 +13,26 @@
         "to_review": 0
       },
       "slep": {
-        "reviewed": 66,
-        "to_review": 43
+        "reviewed": 65,
+        "to_review": 48
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
       "slep": {
         "reviewed": 32,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "pamela.opazo@gmail.com": {
       "sip": {
         "reviewed": 18,
-        "to_review": 1
+        "to_review": 2
       }
     },
     "teacherdan.eng@gmail.com": {
       "sip": {
         "reviewed": 0,
-        "to_review": 14
+        "to_review": 15
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -42,7 +42,7 @@
       },
       "slep": {
         "reviewed": 48,
-        "to_review": 63
+        "to_review": 66
       }
     },
     "victoriamarcenaro@gmail.com": {
