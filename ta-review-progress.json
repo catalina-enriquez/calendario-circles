@@ -1,60 +1,60 @@
 {
-  "updated": "2026-04-27T10:07:32",
+  "updated": "2026-04-30T10:00:05",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 75,
-        "to_review": 0
+        "reviewed": 74,
+        "to_review": 38
       }
     },
     "dmgarciamolina@gmail.com": {
       "san-benito": {
         "reviewed": 7,
-        "to_review": 0
+        "to_review": 4
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
         "reviewed": 19,
-        "to_review": 0
+        "to_review": 14
       },
       "slep": {
-        "reviewed": 172,
-        "to_review": 1
+        "reviewed": 192,
+        "to_review": 18
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
       "slep": {
-        "reviewed": 43,
-        "to_review": 10
+        "reviewed": 63,
+        "to_review": 5
       }
     },
     "pamela.opazo@gmail.com": {
       "sip": {
-        "reviewed": 43,
-        "to_review": 4
+        "reviewed": 45,
+        "to_review": 35
       }
     },
     "teacherdan.eng@gmail.com": {
       "sip": {
         "reviewed": 47,
-        "to_review": 1
+        "to_review": 37
       }
     },
     "vgalvezvargas@gmail.com": {
       "sip": {
-        "reviewed": 29,
-        "to_review": 0
+        "reviewed": 32,
+        "to_review": 8
       },
       "slep": {
-        "reviewed": 172,
-        "to_review": 0
+        "reviewed": 191,
+        "to_review": 6
       }
     },
     "victoriamarcenaro@gmail.com": {
       "sip": {
-        "reviewed": 87,
-        "to_review": 17
+        "reviewed": 118,
+        "to_review": 40
       }
     }
   }
