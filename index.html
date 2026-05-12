@@ -1299,8 +1299,8 @@ const taAssignments = [
 // === TAS:AUTO END ===
 
 // ============ STATE ============
-let currentYear = 2026;
-let currentMonth = 3; // April 2026
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth();
 let activeTabs = new Set(["all"]); // multi-select tabs
 let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
 let viewMode = "courses"; // "courses" | "tas"
