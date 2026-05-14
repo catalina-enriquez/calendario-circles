@@ -24,6 +24,12 @@
     --inacap: #06b6d4;
     --inacap-light: #cffafe;
     --inacap-mid: #67e8f9;
+    --pedagogia: #ec4899;
+    --pedagogia-light: #fce7f3;
+    --pedagogia-mid: #f9a8d4;
+    --obsia: #f97316;
+    --obsia-light: #fff7ed;
+    --obsia-mid: #fdba74;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -111,6 +117,10 @@
   .tab[data-tab="slep"].active { border-bottom-color: var(--slep); color: var(--slep); }
   .tab[data-tab="inacap"] .tab-dot { background: var(--inacap); }
   .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
+  .tab[data-tab="pedagogia"] .tab-dot { background: var(--pedagogia); }
+  .tab[data-tab="pedagogia"].active { border-bottom-color: var(--pedagogia); color: var(--pedagogia); }
+  .tab[data-tab="obsia"] .tab-dot { background: var(--obsia); }
+  .tab[data-tab="obsia"].active { border-bottom-color: var(--obsia); color: var(--obsia); }
 
   /* MONTH NAV */
   .controls {
@@ -311,6 +321,12 @@
   .event[data-project="inacap"] { background: var(--inacap-light); color: #155e75; }
   .event[data-project="inacap"].match { background: var(--inacap); color: white; }
   .event[data-project="inacap"].oh { border-color: var(--inacap); color: var(--inacap); }
+  .event[data-project="pedagogia"] { background: var(--pedagogia-light); color: #9d174d; }
+  .event[data-project="pedagogia"].match { background: var(--pedagogia); color: white; }
+  .event[data-project="pedagogia"].oh { border-color: var(--pedagogia); color: var(--pedagogia); }
+  .event[data-project="obsia"] { background: var(--obsia-light); color: #9a3412; }
+  .event[data-project="obsia"].match { background: var(--obsia); color: white; }
+  .event[data-project="obsia"].oh { border-color: var(--obsia); color: var(--obsia); }
 
   .more-events {
     font-size: 9px;
@@ -391,6 +407,8 @@
   .course-card[data-project="puc"] { border-left-color: var(--puc); }
   .course-card[data-project="slep"] { border-left-color: var(--slep); }
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
+  .course-card[data-project="pedagogia"] { border-left-color: var(--pedagogia); }
+  .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
 
   .course-card h3 {
     font-size: 14px;
@@ -439,6 +457,10 @@
   .phase-bar[data-project="slep"] .ext-phase { background: var(--slep-mid); }
   .phase-bar[data-project="inacap"] .week-phase { background: var(--inacap); }
   .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
+  .phase-bar[data-project="pedagogia"] .week-phase { background: var(--pedagogia); }
+  .phase-bar[data-project="pedagogia"] .ext-phase { background: var(--pedagogia-mid); }
+  .phase-bar[data-project="obsia"] .week-phase { background: var(--obsia); }
+  .phase-bar[data-project="obsia"] .ext-phase { background: var(--obsia-mid); }
 
   /* ===== View toggle (Cursos / Revisiones por TA) ===== */
   .view-toggle {
@@ -810,6 +832,12 @@
   <button class="tab" data-tab="inacap" onclick="switchTab('inacap')">
     <span class="tab-dot"></span> INACAP
   </button>
+  <button class="tab" data-tab="pedagogia" onclick="switchTab('pedagogia')">
+    <span class="tab-dot"></span> Comp. lectora
+  </button>
+  <button class="tab" data-tab="obsia" onclick="switchTab('obsia')">
+    <span class="tab-dot"></span> ObsIA
+  </button>
 </div>
 
 <div class="controls">
@@ -886,7 +914,7 @@ const courses = [
       { ext: 1, start: "2026-05-18", end: "2026-05-22" },
       { ext: 2, start: "2026-05-25", end: "2026-05-29" },
     ],
-    officeHours: ["2026-05-12T16:15"]
+    officeHours: ["2026-05-12T16:15", "2026-05-19T16:15"]
   },
   {
     id: "sb-cl", project: "san-benito", projectLabel: "San Benito",
@@ -995,7 +1023,7 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-05-21T18:30", "2026-06-04T18:30", "2026-06-17T18:30"]
+    officeHours: ["2026-05-28T18:30", "2026-06-04T18:30", "2026-06-17T18:30"]
   },
   {
     id: "puc-ia", project: "puc", projectLabel: "Curso IA PUC",
@@ -1220,6 +1248,34 @@ const courses = [
     ],
     officeHours: ["2026-06-03T18:00", "2026-06-17T18:00"]
   },
+  // ======== Observación de aula con IA ========
+  {
+    id: "obsia-1", project: "obsia", projectLabel: "ObsIA",
+    name: "Observación de aula con IA", shortName: "ObsIA", students: 0,
+    period: { start: "2026-05-18", end: "2026-07-03" },
+    match: { start: "2026-05-18", end: "2026-05-22" },
+    weeks: [
+      { sem: 1, start: "2026-05-25", end: "2026-05-29", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 2, start: "2026-06-29", end: "2026-07-03" },
+    ],
+    officeHours: ["2026-06-01T15:00", "2026-06-15T15:00"]
+  },
+  // ======== Pedagogía para una lectura efectiva ========
+  {
+    id: "ped-lect", project: "pedagogia", projectLabel: "Comp. lectora",
+    name: "Pedagogía para una lectura efectiva", shortName: "Comp. lectora", students: 0,
+    period: { start: "2026-05-19", end: "2026-05-19" },
+    match: null,
+    weeks: [],
+    extensions: [],
+    officeHours: ["2026-05-19T16:15"]
+  },
 ];
 
 const projectNames = {
@@ -1228,7 +1284,9 @@ const projectNames = {
   "chilemass": "ChileMass IA 2026",
   "puc": "Curso IA PUC",
   "slep": "SLEP Tamarugal",
-  "inacap": "INACAP Otoño 2026"
+  "inacap": "INACAP Otoño 2026",
+  "pedagogia": "Comp. lectora",
+  "obsia": "Observación de aula con IA"
 };
 
 // ============ FERIADOS CHILE 2026 ============
@@ -1300,7 +1358,7 @@ const taAssignments = [
 
 // ============ STATE ============
 let currentYear = 2026;
-let currentMonth = 3; // April 2026
+let currentMonth = new Date().getMonth(); // mes actual automático
 let activeTabs = new Set(["all"]); // multi-select tabs
 let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
 let viewMode = "courses"; // "courses" | "tas"
@@ -1418,7 +1476,7 @@ function getEventsForDate(dateString) {
     const prefix = course.shortName;
 
     // Match: oculto en vista TA (no hay revisiones durante match)
-    if (!isTaView && isInRange(dateString, course.match.start, course.match.end)) {
+    if (!isTaView && course.match && isInRange(dateString, course.match.start, course.match.end)) {
       events.push({
         type: "match", label: `${prefix} Match`,
         project: course.project,
@@ -1643,11 +1701,25 @@ function renderDayCell(grid, date, otherMonth) {
   }
 
   const events = getEventsForDate(ds);
+  // OH (tutorías) SIEMPRE visibles — nunca se esconden en "+N más"
+  const ohEvents = events.filter(e => e.type === "oh");
+  const otherEvents = events.filter(e => e.type !== "oh");
   const maxVis = activeTabs.has("all") ? 3 : 5;
-  const visible = events.slice(0, maxVis);
-  const hidden = events.length - maxVis;
+  const slotsForOthers = Math.max(0, maxVis - ohEvents.length);
+  const visibleOthers = otherEvents.slice(0, slotsForOthers);
+  const hiddenCount = otherEvents.length - slotsForOthers;
 
-  for (const ev of visible) {
+  // Renderizar OH primero (siempre)
+  for (const ev of ohEvents) {
+    const el = document.createElement("div");
+    el.className = `event ${ev.type}`;
+    el.setAttribute("data-project", ev.project);
+    el.textContent = ev.label;
+    el.title = ev.detail;
+    cell.appendChild(el);
+  }
+  // Luego los demás eventos en slots restantes
+  for (const ev of visibleOthers) {
     const el = document.createElement("div");
     el.className = `event ${ev.type}`;
     el.setAttribute("data-project", ev.project);
@@ -1656,11 +1728,11 @@ function renderDayCell(grid, date, otherMonth) {
     cell.appendChild(el);
   }
 
-  if (hidden > 0) {
+  if (hiddenCount > 0) {
     const more = document.createElement("div");
     more.className = "more-events";
-    more.textContent = `+${hidden} más`;
-    more.title = events.slice(maxVis).map(e => e.label).join("\n");
+    more.textContent = `+${hiddenCount} más`;
+    more.title = otherEvents.slice(slotsForOthers).map(e => e.label).join("\n");
     cell.appendChild(more);
   }
 
@@ -1706,7 +1778,7 @@ function renderStats() {
 
     for (const c of filtered) {
       if (c.period.start <= me && c.period.end >= ms) { active++; students += c.students; }
-      if (c.match.start >= ms && c.match.start <= me) matches++;
+      if (c.match && c.match.start >= ms && c.match.start <= me) matches++;
       for (const oh of c.officeHours) {
         const d = oh.split("T")[0];
         if (d >= ms && d <= me) ohs++;
@@ -1754,7 +1826,7 @@ function renderCoursePanel() {
       <h3>${c.name}</h3>
       <div class="course-meta">
         <strong>${c.projectLabel}</strong> &middot; ${c.students} alumnos<br>
-        Match: ${formatDate(c.match.start)} → ${formatDate(c.match.end)}<br>
+        ${c.match ? `Match: ${formatDate(c.match.start)} → ${formatDate(c.match.end)}<br>` : ''}
         Semanas: ${c.weeks.length} &middot; Extensiones: ${c.extensions.length}<br>
         OH: ${ohList}
       </div>
