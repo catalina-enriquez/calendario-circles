@@ -1701,16 +1701,17 @@ function renderDayCell(grid, date, otherMonth) {
   }
 
   const events = getEventsForDate(ds);
-  // OH (tutorías) SIEMPRE visibles — nunca se esconden en "+N más"
-  const ohEvents = events.filter(e => e.type === "oh");
-  const otherEvents = events.filter(e => e.type !== "oh");
+  // Prioridad de visibilidad: 1) OH (tutorías), 2) Match, 3) resto
+  // OH y Match SIEMPRE visibles — nunca se esconden en "+N más"
+  const priorityEvents = events.filter(e => e.type === "oh" || e.type === "match");
+  const restEvents = events.filter(e => e.type !== "oh" && e.type !== "match");
   const maxVis = activeTabs.has("all") ? 3 : 5;
-  const slotsForOthers = Math.max(0, maxVis - ohEvents.length);
-  const visibleOthers = otherEvents.slice(0, slotsForOthers);
-  const hiddenCount = otherEvents.length - slotsForOthers;
+  const slotsForRest = Math.max(0, maxVis - priorityEvents.length);
+  const visibleRest = restEvents.slice(0, slotsForRest);
+  const hiddenCount = restEvents.length - slotsForRest;
 
-  // Renderizar OH primero (siempre)
-  for (const ev of ohEvents) {
+  // Renderizar OH y Match primero (siempre)
+  for (const ev of priorityEvents) {
     const el = document.createElement("div");
     el.className = `event ${ev.type}`;
     el.setAttribute("data-project", ev.project);
@@ -1718,8 +1719,8 @@ function renderDayCell(grid, date, otherMonth) {
     el.title = ev.detail;
     cell.appendChild(el);
   }
-  // Luego los demás eventos en slots restantes
-  for (const ev of visibleOthers) {
+  // Luego el resto en slots sobrantes
+  for (const ev of visibleRest) {
     const el = document.createElement("div");
     el.className = `event ${ev.type}`;
     el.setAttribute("data-project", ev.project);
@@ -1732,7 +1733,7 @@ function renderDayCell(grid, date, otherMonth) {
     const more = document.createElement("div");
     more.className = "more-events";
     more.textContent = `+${hiddenCount} más`;
-    more.title = otherEvents.slice(slotsForOthers).map(e => e.label).join("\n");
+    more.title = restEvents.slice(slotsForRest).map(e => e.label).join("\n");
     cell.appendChild(more);
   }
 
