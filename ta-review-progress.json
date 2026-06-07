@@ -1,16 +1,16 @@
 {
-  "updated": "2026-06-06T10:10:37",
+  "updated": "2026-06-07T10:08:36",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 194,
-        "to_review": 7
+        "reviewed": 201,
+        "to_review": 0
       }
     },
     "dmgarciamolina@gmail.com": {
       "san-benito": {
-        "reviewed": 37,
-        "to_review": 1
+        "reviewed": 38,
+        "to_review": 0
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -37,8 +37,8 @@
     },
     "teacherdan.eng@gmail.com": {
       "sip": {
-        "reviewed": 182,
-        "to_review": 5
+        "reviewed": 181,
+        "to_review": 7
       }
     },
     "vgalvezvargas@gmail.com": {
