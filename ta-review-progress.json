@@ -1,10 +1,10 @@
 {
-  "updated": "2026-06-08T10:03:45",
+  "updated": "2026-06-09T10:07:43",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
         "reviewed": 201,
-        "to_review": 0
+        "to_review": 2
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -15,7 +15,7 @@
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
-        "reviewed": 72,
+        "reviewed": 73,
         "to_review": 1
       },
       "slep": {
@@ -37,8 +37,8 @@
     },
     "teacherdan.eng@gmail.com": {
       "sip": {
-        "reviewed": 181,
-        "to_review": 7
+        "reviewed": 180,
+        "to_review": 9
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -54,7 +54,7 @@
     "victoriamarcenaro@gmail.com": {
       "sip": {
         "reviewed": 260,
-        "to_review": 0
+        "to_review": 2
       }
     }
   }
