@@ -1,10 +1,10 @@
 {
-  "updated": "2026-06-14T10:07:51",
+  "updated": "2026-06-15T10:07:59",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 201,
-        "to_review": 14
+        "reviewed": 215,
+        "to_review": 0
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -15,8 +15,8 @@
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
-        "reviewed": 80,
-        "to_review": 5
+        "reviewed": 85,
+        "to_review": 0
       },
       "slep": {
         "reviewed": 265,
