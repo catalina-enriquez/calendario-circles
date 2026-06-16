@@ -27,9 +27,6 @@
     --pedagogia: #ec4899;
     --pedagogia-light: #fce7f3;
     --pedagogia-mid: #f9a8d4;
-    --slep2: #dc2626;
-    --slep2-light: #fecaca;
-    --slep2-mid: #f87171;
     --obsia: #f97316;
     --obsia-light: #fff7ed;
     --obsia-mid: #fdba74;
@@ -118,8 +115,6 @@
   .tab[data-tab="puc"].active { border-bottom-color: var(--puc); color: var(--puc); }
   .tab[data-tab="slep"] .tab-dot { background: var(--slep); }
   .tab[data-tab="slep"].active { border-bottom-color: var(--slep); color: var(--slep); }
-  .tab[data-tab="slep2"] .tab-dot { background: var(--slep2); }
-  .tab[data-tab="slep2"].active { border-bottom-color: var(--slep2); color: var(--slep2); }
   .tab[data-tab="inacap"] .tab-dot { background: var(--inacap); }
   .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
   .tab[data-tab="pedagogia"] .tab-dot { background: var(--pedagogia); }
@@ -323,9 +318,6 @@
   .event[data-project="slep"] { background: var(--slep-light); color: #991b1b; }
   .event[data-project="slep"].match { background: var(--slep); color: white; }
   .event[data-project="slep"].oh { border-color: var(--slep); color: var(--slep); }
-  .event[data-project="slep2"] { background: var(--slep2-light); color: #7f1d1d; }
-  .event[data-project="slep2"].match { background: var(--slep2); color: white; }
-  .event[data-project="slep2"].oh { border-color: var(--slep2); color: var(--slep2); }
   .event[data-project="inacap"] { background: var(--inacap-light); color: #155e75; }
   .event[data-project="inacap"].match { background: var(--inacap); color: white; }
   .event[data-project="inacap"].oh { border-color: var(--inacap); color: var(--inacap); }
@@ -414,7 +406,6 @@
   .course-card[data-project="chilemass"] { border-left-color: var(--chilemass); }
   .course-card[data-project="puc"] { border-left-color: var(--puc); }
   .course-card[data-project="slep"] { border-left-color: var(--slep); }
-  .course-card[data-project="slep2"] { border-left-color: var(--slep2); }
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
   .course-card[data-project="pedagogia"] { border-left-color: var(--pedagogia); }
   .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
@@ -464,8 +455,6 @@
   .phase-bar[data-project="puc"] .ext-phase { background: var(--puc-mid); }
   .phase-bar[data-project="slep"] .week-phase { background: var(--slep); }
   .phase-bar[data-project="slep"] .ext-phase { background: var(--slep-mid); }
-  .phase-bar[data-project="slep2"] .week-phase { background: var(--slep2); }
-  .phase-bar[data-project="slep2"] .ext-phase { background: var(--slep2-mid); }
   .phase-bar[data-project="inacap"] .week-phase { background: var(--inacap); }
   .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
   .phase-bar[data-project="pedagogia"] .week-phase { background: var(--pedagogia); }
@@ -840,9 +829,6 @@
   <button class="tab" data-tab="slep" onclick="switchTab('slep')">
     <span class="tab-dot"></span> SLEP Tamarugal
   </button>
-  <button class="tab" data-tab="slep2" onclick="switchTab('slep2')">
-    <span class="tab-dot"></span> SLEP Tamarugal 2
-  </button>
   <button class="tab" data-tab="inacap" onclick="switchTab('inacap')">
     <span class="tab-dot"></span> INACAP
   </button>
@@ -1091,75 +1077,6 @@ const courses = [
     ],
     officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"]
   },
-  // ======== SLEP Tamarugal 2 — Otoño 2026 (4 cursos) ========
-  {
-    id: "slep2-obs", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Obs y retro IA", shortName: "Obs IA", students: 64,
-    period: { start: "2026-05-25", end: "2026-07-10" },
-    match: { start: "2026-05-25", end: "2026-05-29" },
-    weeks: [
-      { sem: 1, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-06-22", end: "2026-06-26", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-06-29", end: "2026-07-03" },
-      { ext: 2, start: "2026-07-06", end: "2026-07-10" },
-    ],
-    officeHours: ["2026-06-08T15:25", "2026-06-22T15:25"]
-  },
-  {
-    id: "slep2-ed", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Estrategias didácticas", shortName: "Est. did.", students: 106,
-    period: { start: "2026-05-25", end: "2026-07-10" },
-    match: { start: "2026-05-25", end: "2026-05-29" },
-    weeks: [
-      { sem: 1, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-06-22", end: "2026-06-26", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-06-29", end: "2026-07-03" },
-      { ext: 2, start: "2026-07-06", end: "2026-07-10" },
-    ],
-    officeHours: ["2026-06-09T15:25", "2026-06-23T15:25"]
-  },
-  {
-    id: "slep2-ia", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "IA para la educación", shortName: "IA edu", students: 230,
-    period: { start: "2026-05-25", end: "2026-07-10" },
-    match: { start: "2026-05-25", end: "2026-05-29" },
-    weeks: [
-      { sem: 1, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-06-22", end: "2026-06-26", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-06-29", end: "2026-07-03" },
-      { ext: 2, start: "2026-07-06", end: "2026-07-10" },
-    ],
-    officeHours: ["2026-06-10T15:25", "2026-06-24T15:25"]
-  },
-  {
-    id: "slep2-conv", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Convivencia escolar", shortName: "Convivencia", students: 141,
-    period: { start: "2026-05-25", end: "2026-07-10" },
-    match: { start: "2026-05-25", end: "2026-05-29" },
-    weeks: [
-      { sem: 1, start: "2026-06-01", end: "2026-06-05", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-06-08", end: "2026-06-12", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-06-15", end: "2026-06-19", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-06-22", end: "2026-06-26", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-06-29", end: "2026-07-03" },
-      { ext: 2, start: "2026-07-06", end: "2026-07-10" },
-    ],
-    officeHours: ["2026-06-11T15:25", "2026-06-25T15:25"]
-  },
   // ======== INACAP — Otoño 2026 (10 cursos) ========
   {
     id: "inacap-ip1", project: "inacap", projectLabel: "INACAP",
@@ -1367,7 +1284,6 @@ const projectNames = {
   "chilemass": "ChileMass IA 2026",
   "puc": "Curso IA PUC",
   "slep": "SLEP Tamarugal",
-  "slep2": "SLEP Tamarugal 2",
   "inacap": "INACAP Otoño 2026",
   "pedagogia": "Comp. lectora",
   "obsia": "Observación de aula con IA"
