@@ -1644,7 +1644,7 @@ function getEventsForDate(dateString) {
     // Deadline
     if (course.deadline && dateString === course.deadline) {
       events.push({
-        type: "deadline", label: `${prefix} Cierre`,
+        type: "deadline", label: `${prefix} Cierre 23:59`,
         project: course.project,
         detail: `${course.projectLabel}: ${course.name}\nCierre: ${course.deadline} 23:59 hrs`
       });
