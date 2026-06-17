@@ -24,9 +24,7 @@
     --inacap: #06b6d4;
     --inacap-light: #cffafe;
     --inacap-mid: #67e8f9;
-    --pedagogia: #ec4899;
-    --pedagogia-light: #fce7f3;
-    --pedagogia-mid: #f9a8d4;
+
     --slep2: #dc2626;
     --slep2-light: #fecaca;
     --slep2-mid: #f87171;
@@ -122,8 +120,7 @@
   .tab[data-tab="slep2"].active { border-bottom-color: var(--slep2); color: var(--slep2); }
   .tab[data-tab="inacap"] .tab-dot { background: var(--inacap); }
   .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
-  .tab[data-tab="pedagogia"] .tab-dot { background: var(--pedagogia); }
-  .tab[data-tab="pedagogia"].active { border-bottom-color: var(--pedagogia); color: var(--pedagogia); }
+
   .tab[data-tab="obsia"] .tab-dot { background: var(--obsia); }
   .tab[data-tab="obsia"].active { border-bottom-color: var(--obsia); color: var(--obsia); }
 
@@ -307,6 +304,7 @@
   .event.match { color: white; font-weight: 700; }
   .event.ext { opacity: 0.55; font-style: italic; }
   .event.oh { border-left: 3px solid; background: transparent !important; font-weight: 600; font-size: 9px; }
+  .event.deadline { background: #dc2626; color: white; font-weight: 700; border: none; font-size: 9px; }
 
   .event[data-project="san-benito"] { background: var(--san-benito-light); color: #1e40af; }
   .event[data-project="san-benito"].match { background: var(--san-benito); color: white; }
@@ -329,9 +327,7 @@
   .event[data-project="inacap"] { background: var(--inacap-light); color: #155e75; }
   .event[data-project="inacap"].match { background: var(--inacap); color: white; }
   .event[data-project="inacap"].oh { border-color: var(--inacap); color: var(--inacap); }
-  .event[data-project="pedagogia"] { background: var(--pedagogia-light); color: #9d174d; }
-  .event[data-project="pedagogia"].match { background: var(--pedagogia); color: white; }
-  .event[data-project="pedagogia"].oh { border-color: var(--pedagogia); color: var(--pedagogia); }
+
   .event[data-project="obsia"] { background: var(--obsia-light); color: #9a3412; }
   .event[data-project="obsia"].match { background: var(--obsia); color: white; }
   .event[data-project="obsia"].oh { border-color: var(--obsia); color: var(--obsia); }
@@ -416,7 +412,7 @@
   .course-card[data-project="slep"] { border-left-color: var(--slep); }
   .course-card[data-project="slep2"] { border-left-color: var(--slep2); }
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
-  .course-card[data-project="pedagogia"] { border-left-color: var(--pedagogia); }
+
   .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
 
   .course-card h3 {
@@ -468,8 +464,7 @@
   .phase-bar[data-project="slep2"] .ext-phase { background: var(--slep2-mid); }
   .phase-bar[data-project="inacap"] .week-phase { background: var(--inacap); }
   .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
-  .phase-bar[data-project="pedagogia"] .week-phase { background: var(--pedagogia); }
-  .phase-bar[data-project="pedagogia"] .ext-phase { background: var(--pedagogia-mid); }
+
   .phase-bar[data-project="obsia"] .week-phase { background: var(--obsia); }
   .phase-bar[data-project="obsia"] .ext-phase { background: var(--obsia-mid); }
 
@@ -846,9 +841,7 @@
   <button class="tab" data-tab="inacap" onclick="switchTab('inacap')">
     <span class="tab-dot"></span> INACAP
   </button>
-  <button class="tab" data-tab="pedagogia" onclick="switchTab('pedagogia')">
-    <span class="tab-dot"></span> Comp. lectora
-  </button>
+
   <button class="tab" data-tab="obsia" onclick="switchTab('obsia')">
     <span class="tab-dot"></span> ObsIA
   </button>
@@ -865,6 +858,7 @@
     <div class="legend-item"><span class="legend-dot" style="background:#93c5fd"></span> Semana</div>
     <div class="legend-item"><span class="legend-dot" style="background:#93c5fd; opacity:0.4"></span> Extensión</div>
     <div class="legend-item"><span class="legend-dot" style="background:white; border: 2px solid #3b82f6; width:8px; height:8px;"></span> Office Hours</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#dc2626"></span> Cierre</div>
   </div>
 </div>
 
@@ -928,7 +922,8 @@ const courses = [
       { ext: 1, start: "2026-05-18", end: "2026-05-22" },
       { ext: 2, start: "2026-05-25", end: "2026-05-29" },
     ],
-    officeHours: ["2026-05-12T16:15", "2026-05-19T16:15"]
+    officeHours: ["2026-05-12T16:15", "2026-05-19T16:15"],
+    deadline: "2026-06-05"
   },
   {
     id: "sb-cl", project: "san-benito", projectLabel: "San Benito",
@@ -945,7 +940,8 @@ const courses = [
       { ext: 1, start: "2026-05-25", end: "2026-05-29" },
       { ext: 2, start: "2026-06-01", end: "2026-06-05" },
     ],
-    officeHours: []
+    officeHours: [],
+    deadline: "2026-06-05"
   },
   {
     id: "sip-mce-doc", project: "sip", projectLabel: "SIP",
@@ -964,7 +960,8 @@ const courses = [
       { ext: 3, start: "2026-05-18", end: "2026-05-22" },
       { ext: 4, start: "2026-05-25", end: "2026-05-29" },
     ],
-    officeHours: ["2026-04-17T16:00", "2026-04-30T16:00"]
+    officeHours: ["2026-04-17T16:00", "2026-04-30T16:00"],
+    deadline: "2026-06-15"
   },
   {
     id: "sip-mce-ast", project: "sip", projectLabel: "SIP",
@@ -981,7 +978,8 @@ const courses = [
       { ext: 3, start: "2026-05-04", end: "2026-05-08" },
       { ext: 4, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: ["2026-04-17T16:00"]
+    officeHours: ["2026-04-17T16:00"],
+    deadline: "2026-06-01"
   },
   {
     id: "sip-mce-lid", project: "sip", projectLabel: "SIP",
@@ -1042,7 +1040,7 @@ const courses = [
   {
     id: "puc-ia", project: "puc", projectLabel: "Curso IA PUC",
     name: "IA para la educación superior", shortName: "PUC IA", students: 100,
-    period: { start: "2026-04-20", end: "2026-06-12" },
+    period: { start: "2026-04-20", end: "2026-07-03" },
     match: { start: "2026-04-20", end: "2026-04-24" },
     weeks: [
       { sem: 1, start: "2026-04-27", end: "2026-05-01", mod: 1, indiv: 0, grupal: 1 },
@@ -1054,8 +1052,12 @@ const courses = [
     ],
     extensions: [
       { ext: 1, start: "2026-06-08", end: "2026-06-12" },
+      { ext: 2, start: "2026-06-15", end: "2026-06-19" },
+      { ext: 3, start: "2026-06-22", end: "2026-06-26" },
+      { ext: 4, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-05-05T15:00", "2026-05-19T15:00", "2026-06-02T15:00"]
+    officeHours: ["2026-05-05T15:00", "2026-05-19T15:00", "2026-06-02T15:00"],
+    deadline: "2026-07-03"
   },
   {
     id: "slep-r0", project: "slep", projectLabel: "SLEP Tamarugal",
@@ -1072,7 +1074,8 @@ const courses = [
       { ext: 1, start: "2026-05-04", end: "2026-05-08" },
       { ext: 2, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: ["2026-04-16T15:00", "2026-04-29T15:00"]
+    officeHours: ["2026-04-16T15:00", "2026-04-29T15:00"],
+    deadline: "2026-05-29"
   },
   {
     id: "slep-c1", project: "slep", projectLabel: "SLEP Tamarugal",
@@ -1089,7 +1092,8 @@ const courses = [
       { ext: 1, start: "2026-05-04", end: "2026-05-08" },
       { ext: 2, start: "2026-05-11", end: "2026-05-15" },
     ],
-    officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"]
+    officeHours: ["2026-04-17T15:00", "2026-04-30T15:00"],
+    deadline: "2026-05-29"
   },
   // ======== SLEP Tamarugal 2 — Otoño 2026 (4 cursos) ========
   {
@@ -1107,7 +1111,8 @@ const courses = [
       { ext: 1, start: "2026-06-29", end: "2026-07-03" },
       { ext: 2, start: "2026-07-06", end: "2026-07-10" },
     ],
-    officeHours: ["2026-06-08T15:25", "2026-06-22T15:25"]
+    officeHours: ["2026-06-08T15:25", "2026-06-22T15:25"],
+    deadline: "2026-07-10"
   },
   {
     id: "slep2-ed", project: "slep2", projectLabel: "SLEP Tamarugal 2",
@@ -1124,7 +1129,8 @@ const courses = [
       { ext: 1, start: "2026-06-29", end: "2026-07-03" },
       { ext: 2, start: "2026-07-06", end: "2026-07-10" },
     ],
-    officeHours: ["2026-06-09T15:25", "2026-06-23T15:25"]
+    officeHours: ["2026-06-09T15:25", "2026-06-23T15:25"],
+    deadline: "2026-07-10"
   },
   {
     id: "slep2-ia", project: "slep2", projectLabel: "SLEP Tamarugal 2",
@@ -1141,7 +1147,8 @@ const courses = [
       { ext: 1, start: "2026-06-29", end: "2026-07-03" },
       { ext: 2, start: "2026-07-06", end: "2026-07-10" },
     ],
-    officeHours: ["2026-06-10T15:25", "2026-06-24T15:25"]
+    officeHours: ["2026-06-10T15:25", "2026-06-24T15:25"],
+    deadline: "2026-07-10"
   },
   {
     id: "slep2-conv", project: "slep2", projectLabel: "SLEP Tamarugal 2",
@@ -1158,7 +1165,8 @@ const courses = [
       { ext: 1, start: "2026-06-29", end: "2026-07-03" },
       { ext: 2, start: "2026-07-06", end: "2026-07-10" },
     ],
-    officeHours: ["2026-06-11T15:25", "2026-06-25T15:25"]
+    officeHours: ["2026-06-11T15:25", "2026-06-25T15:25"],
+    deadline: "2026-07-10"
   },
   // ======== INACAP — Otoño 2026 (10 cursos) ========
   {
@@ -1176,7 +1184,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-01T16:30", "2026-06-15T16:30"]
+    officeHours: ["2026-06-01T16:30", "2026-06-15T16:30"],
+    deadline: "2026-06-22"
   },
   {
     id: "inacap-ip2", project: "inacap", projectLabel: "INACAP",
@@ -1193,7 +1202,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-01T18:00", "2026-06-15T18:00"]
+    officeHours: ["2026-06-01T18:00", "2026-06-15T18:00"],
+    deadline: "2026-06-22"
   },
   {
     id: "inacap-dgi", project: "inacap", projectLabel: "INACAP",
@@ -1210,7 +1220,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-02T16:30", "2026-06-16T16:30"]
+    officeHours: ["2026-06-02T16:30", "2026-06-16T16:30"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-cd", project: "inacap", projectLabel: "INACAP",
@@ -1227,7 +1238,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-02T18:00", "2026-06-16T18:00"]
+    officeHours: ["2026-06-02T18:00", "2026-06-16T18:00"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-ep", project: "inacap", projectLabel: "INACAP",
@@ -1244,7 +1256,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-03T16:30", "2026-06-17T16:30"]
+    officeHours: ["2026-06-03T16:30", "2026-06-17T16:30"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-ev", project: "inacap", projectLabel: "INACAP",
@@ -1261,7 +1274,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-04T16:30", "2026-06-18T16:30"]
+    officeHours: ["2026-06-04T16:30", "2026-06-18T16:30"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-erpia", project: "inacap", projectLabel: "INACAP",
@@ -1278,7 +1292,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-05T16:30", "2026-06-19T16:30"]
+    officeHours: ["2026-06-05T16:30", "2026-06-19T16:30"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-ed", project: "inacap", projectLabel: "INACAP",
@@ -1295,7 +1310,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-05T18:00", "2026-06-19T18:00"]
+    officeHours: ["2026-06-05T18:00", "2026-06-19T18:00"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-edo", project: "inacap", projectLabel: "INACAP",
@@ -1312,7 +1328,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-04T18:00", "2026-06-18T18:00"]
+    officeHours: ["2026-06-04T18:00", "2026-06-18T18:00"],
+    deadline: "2026-07-03"
   },
   {
     id: "inacap-gp", project: "inacap", projectLabel: "INACAP",
@@ -1329,7 +1346,8 @@ const courses = [
       { ext: 1, start: "2026-06-22", end: "2026-06-26" },
       { ext: 2, start: "2026-06-29", end: "2026-07-03" },
     ],
-    officeHours: ["2026-06-03T18:00", "2026-06-17T18:00"]
+    officeHours: ["2026-06-03T18:00", "2026-06-17T18:00"],
+    deadline: "2026-07-03"
   },
   // ======== Observación de aula con IA ========
   {
@@ -1349,16 +1367,7 @@ const courses = [
     ],
     officeHours: ["2026-06-01T15:00", "2026-06-15T15:00"]
   },
-  // ======== Pedagogía para una lectura efectiva ========
-  {
-    id: "ped-lect", project: "pedagogia", projectLabel: "Comp. lectora",
-    name: "Pedagogía para una lectura efectiva", shortName: "Comp. lectora", students: 0,
-    period: { start: "2026-05-19", end: "2026-05-19" },
-    match: null,
-    weeks: [],
-    extensions: [],
-    officeHours: ["2026-05-19T16:15"]
-  },
+
 ];
 
 const projectNames = {
@@ -1369,7 +1378,7 @@ const projectNames = {
   "slep": "SLEP Tamarugal",
   "slep2": "SLEP Tamarugal 2",
   "inacap": "INACAP Otoño 2026",
-  "pedagogia": "Comp. lectora",
+
   "obsia": "Observación de aula con IA"
 };
 
@@ -1631,9 +1640,18 @@ function getEventsForDate(dateString) {
         });
       }
     }
+
+    // Deadline
+    if (course.deadline && dateString === course.deadline) {
+      events.push({
+        type: "deadline", label: `${prefix} Cierre`,
+        project: course.project,
+        detail: `${course.projectLabel}: ${course.name}\nCierre: ${course.deadline} 23:59 hrs`
+      });
+    }
   }
 
-  const order = { match: 0, week: 1, ext: 2, oh: 3 };
+  const order = { match: 0, deadline: 1, week: 2, ext: 3, oh: 4 };
   events.sort((a, b) => order[a.type] - order[b.type]);
   return events;
 }
@@ -1787,8 +1805,8 @@ function renderDayCell(grid, date, otherMonth) {
   const events = getEventsForDate(ds);
   // Prioridad de visibilidad: 1) OH (tutorías), 2) Match, 3) resto
   // OH y Match SIEMPRE visibles — nunca se esconden en "+N más"
-  const priorityEvents = events.filter(e => e.type === "oh" || e.type === "match");
-  const restEvents = events.filter(e => e.type !== "oh" && e.type !== "match");
+  const priorityEvents = events.filter(e => e.type === "oh" || e.type === "match" || e.type === "deadline");
+  const restEvents = events.filter(e => e.type !== "oh" && e.type !== "match" && e.type !== "deadline");
   const maxVis = activeTabs.has("all") ? 3 : 5;
   const slotsForRest = Math.max(0, maxVis - priorityEvents.length);
   const visibleRest = restEvents.slice(0, slotsForRest);
