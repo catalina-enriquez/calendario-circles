@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendario Circles Learning - Otoño 2026</title>
+<title>Calendario Circles Learning - 2026</title>
 <style>
   :root {
     --san-benito: #3b82f6;
@@ -31,6 +31,9 @@
     --obsia: #f97316;
     --obsia-light: #fff7ed;
     --obsia-mid: #fdba74;
+    --inacap-inv: #0d9488;
+    --inacap-inv-light: #ccfbf1;
+    --inacap-inv-mid: #5eead4;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -120,6 +123,8 @@
   .tab[data-tab="slep2"].active { border-bottom-color: var(--slep2); color: var(--slep2); }
   .tab[data-tab="inacap"] .tab-dot { background: var(--inacap); }
   .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
+  .tab[data-tab="inacap-inv"] .tab-dot { background: var(--inacap-inv); }
+  .tab[data-tab="inacap-inv"].active { border-bottom-color: var(--inacap-inv); color: var(--inacap-inv); }
 
   .tab[data-tab="obsia"] .tab-dot { background: var(--obsia); }
   .tab[data-tab="obsia"].active { border-bottom-color: var(--obsia); color: var(--obsia); }
@@ -327,6 +332,9 @@
   .event[data-project="inacap"] { background: var(--inacap-light); color: #155e75; }
   .event[data-project="inacap"].match { background: var(--inacap); color: white; }
   .event[data-project="inacap"].oh { border-color: var(--inacap); color: var(--inacap); }
+  .event[data-project="inacap-inv"] { background: var(--inacap-inv-light); color: #134e4a; }
+  .event[data-project="inacap-inv"].match { background: var(--inacap-inv); color: white; }
+  .event[data-project="inacap-inv"].oh { border-color: var(--inacap-inv); color: var(--inacap-inv); }
 
   .event[data-project="obsia"] { background: var(--obsia-light); color: #9a3412; }
   .event[data-project="obsia"].match { background: var(--obsia); color: white; }
@@ -412,6 +420,7 @@
   .course-card[data-project="slep"] { border-left-color: var(--slep); }
   .course-card[data-project="slep2"] { border-left-color: var(--slep2); }
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
+  .course-card[data-project="inacap-inv"] { border-left-color: var(--inacap-inv); }
 
   .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
 
@@ -464,6 +473,8 @@
   .phase-bar[data-project="slep2"] .ext-phase { background: var(--slep2-mid); }
   .phase-bar[data-project="inacap"] .week-phase { background: var(--inacap); }
   .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
+  .phase-bar[data-project="inacap-inv"] .week-phase { background: var(--inacap-inv); }
+  .phase-bar[data-project="inacap-inv"] .ext-phase { background: var(--inacap-inv-mid); }
 
   .phase-bar[data-project="obsia"] .week-phase { background: var(--obsia); }
   .phase-bar[data-project="obsia"] .ext-phase { background: var(--obsia-mid); }
@@ -839,7 +850,10 @@
     <span class="tab-dot"></span> SLEP Tamarugal 2
   </button>
   <button class="tab" data-tab="inacap" onclick="switchTab('inacap')">
-    <span class="tab-dot"></span> INACAP
+    <span class="tab-dot"></span> INACAP Otoño
+  </button>
+  <button class="tab" data-tab="inacap-inv" onclick="switchTab('inacap-inv')">
+    <span class="tab-dot"></span> INACAP Inv
   </button>
 
   <button class="tab" data-tab="obsia" onclick="switchTab('obsia')">
@@ -1349,6 +1363,151 @@ const courses = [
     officeHours: ["2026-06-03T18:00", "2026-06-17T18:00"],
     deadline: "2026-07-03"
   },
+  // ======== INACAP — Invierno 2026 (8 cursos) ========
+  {
+    id: "inacap-inv-iae", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "IA para la Educación", shortName: "IAEduc", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-08-31T16:30", "2026-09-14T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-iaea", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "IA para la Educación Avanzado", shortName: "IAAvanz", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-08-31T18:00", "2026-09-14T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-ed", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Estrategias Didácticas", shortName: "EstDid", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-01T16:30", "2026-09-15T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-cd", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Competencias Digitales", shortName: "CompDig", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-01T18:00", "2026-09-15T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-ep", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Elaboración de Proyectos", shortName: "ElabProy", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-02T16:30", "2026-09-16T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-gp", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Gestión de Proyectos", shortName: "GestProy", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-02T18:00", "2026-09-16T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-erpia", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Elaboración y Revisión de Productos con IA", shortName: "ERPIA", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-03T18:00", "2026-09-17T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-edo", project: "inacap-inv", projectLabel: "INACAP Inv",
+    name: "Estrategias Didácticas para Educación Online", shortName: "EstDidOn", students: 0,
+    period: { start: "2026-08-17", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-03T16:30", "2026-09-17T16:30"],
+    deadline: "2026-10-02"
+  },
   // ======== Observación de aula con IA ========
   {
     id: "obsia-1", project: "obsia", projectLabel: "ObsIA",
@@ -1378,6 +1537,7 @@ const projectNames = {
   "slep": "SLEP Tamarugal",
   "slep2": "SLEP Tamarugal 2",
   "inacap": "INACAP Otoño 2026",
+  "inacap-inv": "INACAP Invierno 2026",
 
   "obsia": "Observación de aula con IA"
 };
