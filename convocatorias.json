@@ -1,6 +1,12 @@
 {
   "_meta": {
-    "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs y personas autorizadas a trabajar solas. Usado por scripts, calendario GitHub Pages y reportes.",
+    "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
+    "campos_curso": {
+      "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
+      "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
+      "tareas_revision_automatica": "Lista de sequence_order de tareas con revisión automática (External URL, ej. lab.getcircles.org). No cuentan como revisiones pendientes de TA.",
+      "excepciones_deadline": "Lista de emails de estudiantes cuyas entregas tardías deben revisarse igual (excepción al deadline)."
+    },
     "actualizado": "2026-06-19",
     "ubicacion": "Operations/convocatorias.json"
   },
@@ -111,7 +117,8 @@
           "course_id": "01KJ59XSTVGZ3BWCZGJKX8MCS7",
           "inicio": "2026-04-06",
           "cierre": "2026-06-19",
-          "modulos": 6,
+          "deadline_revisiones": "2026-06-19",
+          "modulos": 4,
           "inscritos": 1362,
           "tas": [
             "Victoria Marcenaro",
@@ -132,7 +139,8 @@
           "course_id": "01KKW7RC8NF412HDDWKETNWTT6",
           "inicio": "2026-04-06",
           "cierre": "2026-06-19",
-          "modulos": 4,
+          "deadline_revisiones": "2026-06-19",
+          "modulos": 2,
           "inscritos": 277,
           "tas": [
             "Víctor Gálvez"
@@ -149,7 +157,7 @@
           "course_id": "01KJ69REFY73YZ71ZA80F0444R",
           "inicio": "2026-07-27",
           "cierre": "2026-08-23",
-          "modulos": 5,
+          "modulos": 3,
           "inscritos": 40,
           "tas": []
         }
@@ -172,7 +180,8 @@
           "course_id": "01KJ69SE57C0RRR659D760BM55",
           "inicio": "2026-02-26",
           "cierre": "2026-05-30",
-          "modulos": 6,
+          "deadline_revisiones": "2026-05-31",
+          "modulos": 4,
           "inscritos": 110,
           "tas": [
             "Pamela Opazo"
@@ -188,7 +197,8 @@
           "course_id": "01KJ69SJBWSJ2C61728QVMFD0G",
           "inicio": "2026-02-26",
           "cierre": "2026-05-30",
-          "modulos": 6,
+          "deadline_revisiones": "2026-05-31",
+          "modulos": 4,
           "inscritos": 46,
           "tas": [
             "Pamela Opazo"
@@ -204,7 +214,8 @@
           "course_id": "01KP3PQ2TBKTSQGWCRVRSSSDRD",
           "inicio": "2026-04-20",
           "cierre": "2026-06-05",
-          "modulos": 6,
+          "deadline_revisiones": "2026-05-29",
+          "modulos": 4,
           "inscritos": 43,
           "tas": [
             "Daniela García"
@@ -220,7 +231,8 @@
           "course_id": "01KPEHG62JB3N1WYN34NKYSBNV",
           "inicio": "2026-04-27",
           "cierre": "2026-06-05",
-          "modulos": 6,
+          "deadline_revisiones": "2026-06-05",
+          "modulos": 4,
           "inscritos": 19,
           "tas": [
             "Daniela García"
@@ -250,7 +262,8 @@
           "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
           "inicio": "2026-04-27",
           "cierre": "2026-07-03",
-          "modulos": 8,
+          "deadline_revisiones": "2026-06-12",
+          "modulos": 6,
           "inscritos": 72,
           "tas": [
             "Daniela García"
@@ -281,7 +294,11 @@
           "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
           "inicio": "2026-05-11",
           "cierre": "2026-07-03",
-          "modulos": 8,
+          "tareas_revision_automatica": [
+            2,
+            3
+          ],
+          "modulos": 6,
           "inscritos": 4018,
           "tas": [
             "Evelyn Duarte",
@@ -298,7 +315,10 @@
           "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
           "inicio": "2026-05-11",
           "cierre": "2026-07-03",
-          "modulos": 8,
+          "tareas_revision_automatica": [
+            2
+          ],
+          "modulos": 6,
           "inscritos": 2197,
           "tas": [
             "Víctor Gálvez",
@@ -330,7 +350,7 @@
           "course_id": "01KRW3N8093ETBCN5R3560MDXW",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 54,
           "tas": [
             "Victoria Marcenaro"
@@ -346,7 +366,7 @@
           "course_id": "01KRW3ND7G6H1ZTABF4251PXVQ",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 81,
           "tas": [
             "Victoria Marcenaro"
@@ -362,7 +382,7 @@
           "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 62,
           "tas": [
             "Victoria Marcenaro"
@@ -378,7 +398,7 @@
           "course_id": "01KRW3PA04X51DD1JMX053C875",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 41,
           "tas": [
             "Daniela García"
@@ -394,7 +414,7 @@
           "course_id": "01KRW3PQDV34TDA72EZ6Q1668Y",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 52,
           "tas": [
             "Pamela Opazo"
@@ -410,7 +430,7 @@
           "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 121,
           "tas": [
             "Daniela García"
@@ -426,7 +446,7 @@
           "course_id": "01KRW3QN84VS32XM3F29S80R3R",
           "inicio": "2026-05-25",
           "cierre": "2026-06-22",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 48,
           "tas": [
             "Victoria Marcenaro"
@@ -442,7 +462,7 @@
           "course_id": "01KRW3QTNBBE6HDHN83D7JKECA",
           "inicio": "2026-05-25",
           "cierre": "2026-06-22",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 59,
           "tas": [
             "Pamela Opazo"
@@ -458,7 +478,7 @@
           "course_id": "01KRW3R257TNJSMP0V43VAKC01",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 32,
           "tas": [
             "Victoria Marcenaro"
@@ -474,7 +494,7 @@
           "course_id": "01KRXRFZ18SSV1VC7C04MYA2H3",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 30,
           "tas": [
             "Daniela García"
@@ -504,7 +524,7 @@
           "course_id": "01KRPRTWXNBFMDQ5F5THD7NQ2H",
           "inicio": "2026-05-25",
           "cierre": "2026-07-03",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 83,
           "tas": [
             "Joseph Fuentealba"
@@ -534,7 +554,9 @@
           "course_id": "01KMQQXD61P7ECTEAQ18EZYEVK",
           "inicio": "2026-04-06",
           "cierre": "2026-05-29",
-          "modulos": 6,
+          "deadline_revisiones": "2026-05-29",
+          "excluir_de_reportes": true,
+          "modulos": 4,
           "inscritos": 608,
           "tas": [
             "Evelyn Duarte",
@@ -551,7 +573,9 @@
           "course_id": "01KMR6TVX19GSJZFE08AKYR66A",
           "inicio": "2026-04-06",
           "cierre": "2026-05-29",
-          "modulos": 6,
+          "deadline_revisiones": "2026-05-29",
+          "excluir_de_reportes": true,
+          "modulos": 4,
           "inscritos": 134,
           "tas": [
             "Joseph Fuentealba"
@@ -567,7 +591,8 @@
           "course_id": "01KS44F7JD1HX500JMW7FZQB82",
           "inicio": "2026-05-22",
           "cierre": null,
-          "modulos": 5,
+          "excluir_de_reportes": true,
+          "modulos": 3,
           "inscritos": 44,
           "tas": [
             "Víctor Gálvez"
@@ -598,7 +623,7 @@
           "course_id": "01KS934NNA8R8FRW3EZGDR1JWY",
           "inicio": "2026-06-01",
           "cierre": "2026-07-10",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 69,
           "tas": [
             "Evelyn Duarte",
@@ -617,7 +642,7 @@
           "course_id": "01KS94PE87S6H56AZ29T2EEJ1Q",
           "inicio": "2026-06-01",
           "cierre": "2026-07-10",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 120,
           "tas": [
             "Evelyn Duarte",
@@ -636,7 +661,7 @@
           "course_id": "01KS94V91FX3DWKDEAYZ4MV5NK",
           "inicio": "2026-06-01",
           "cierre": "2026-07-10",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 162,
           "tas": [
             "Evelyn Duarte",
@@ -655,7 +680,7 @@
           "course_id": "01KS94W4C7ENEBZ233A88WP64M",
           "inicio": "2026-06-01",
           "cierre": "2026-07-10",
-          "modulos": 6,
+          "modulos": 4,
           "inscritos": 264,
           "tas": [
             "Evelyn Duarte",
