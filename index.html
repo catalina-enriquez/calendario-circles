@@ -338,6 +338,36 @@
   }
   .more-events:hover { color: #1e293b; }
 
+  .cell-expanded {
+    position: relative;
+    z-index: 20;
+    overflow: visible !important;
+  }
+  .cell-expanded .expanded-overlay {
+    position: absolute;
+    top: 0; left: -1px; right: -1px;
+    background: white;
+    border: 2px solid #334155;
+    border-radius: 6px;
+    padding: 4px 6px 2px;
+    z-index: 20;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    min-height: 100%;
+  }
+  .collapse-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 9px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 3px 0 1px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 3px;
+    font-weight: 700;
+  }
+  .collapse-btn:hover { color: #1e293b; }
+
   /* STATS */
   .stats-bar {
     display: flex;
@@ -1646,6 +1676,55 @@ function getEventsForDate(dateString) {
   return events;
 }
 
+// ============ EXPAND/COLLAPSE CELLS ============
+function expandCell(cell, allEvents) {
+  // Collapse any other expanded cell first
+  const prev = document.querySelector(".cell-expanded");
+  if (prev) collapseCell(prev);
+
+  cell.classList.add("cell-expanded");
+
+  // Create overlay with all events
+  const overlay = document.createElement("div");
+  overlay.className = "expanded-overlay";
+
+  // Copy the day number
+  const dayNum = cell.querySelector(".day-num");
+  if (dayNum) overlay.appendChild(dayNum.cloneNode(true));
+
+  // Copy holiday label if any
+  const holiday = cell.querySelector(".holiday-label");
+  if (holiday) overlay.appendChild(holiday.cloneNode(true));
+
+  // Render ALL events
+  for (const ev of allEvents) {
+    const el = document.createElement("div");
+    el.className = `event ${ev.type}`;
+    el.setAttribute("data-project", ev.project);
+    el.textContent = ev.label;
+    el.title = ev.detail;
+    overlay.appendChild(el);
+  }
+
+  // Collapse button
+  const colBtn = document.createElement("div");
+  colBtn.className = "collapse-btn";
+  colBtn.textContent = "▲ menos";
+  colBtn.addEventListener("click", function(e) {
+    e.stopPropagation();
+    collapseCell(cell);
+  });
+  overlay.appendChild(colBtn);
+
+  cell.appendChild(overlay);
+}
+
+function collapseCell(cell) {
+  cell.classList.remove("cell-expanded");
+  const overlay = cell.querySelector(".expanded-overlay");
+  if (overlay) overlay.remove();
+}
+
 // ============ RENDER CALENDAR ============
 function computeSidebarForWeek(dates) {
   // Dado un array de 7 Date objects (Lun a Dom), devuelve HTML para la sidebar
@@ -1825,7 +1904,13 @@ function renderDayCell(grid, date, otherMonth) {
     const more = document.createElement("div");
     more.className = "more-events";
     more.textContent = `+${hiddenCount} más`;
-    more.title = restEvents.slice(slotsForRest).map(e => e.label).join("\n");
+    // Store hidden events data for expansion
+    more._hiddenEvents = restEvents.slice(slotsForRest);
+    more._allEvents = [...priorityEvents, ...restEvents];
+    more.addEventListener("click", function(e) {
+      e.stopPropagation();
+      expandCell(cell, this._allEvents);
+    });
     cell.appendChild(more);
   }
 
