@@ -887,7 +887,7 @@
 
 <div class="view-toggle" id="viewToggle">
   <button class="view-btn active" data-view="courses" onclick="setViewMode('courses')">Vista cursos</button>
-  <button class="view-btn" data-view="tas" onclick="setViewMode('tas')">Vista revisiones por TA</button>
+  <button class="view-btn" data-view="tas" onclick="setViewMode('tas')">Revisiones por TA</button>
   <button class="view-btn" data-view="summary" onclick="setViewMode('summary')">Resumen</button>
 </div>
 
@@ -2142,70 +2142,76 @@ function renderTaPanel() {
   }
 
   const hasProgressData = taProgressData && taProgressData.tas;
+  const updated = hasProgressData && taProgressData.updated
+    ? new Date(taProgressData.updated).toLocaleString("es-CL", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })
+    : "";
 
   for (const { ta, visibleAssignments } of visibleTAs) {
     const key = getTaKey(ta);
     const isSelected = selectedTaKey === key;
 
-    // Wrapper para flip
     const wrapper = document.createElement("div");
     wrapper.className = "ta-card-wrapper";
     if (isSelected) wrapper.classList.add("selected-wrapper");
 
-    // Card front (existente)
-    let totalPeak = 0, totalAvg = 0;
-    const rows = visibleAssignments.map(a => {
-      const m = computeAssignmentMetrics(a);
-      totalPeak += m.peak;
-      totalAvg += m.avg;
-      const projectLabel = m.course ? m.course.projectLabel : a.project;
-      const noteHtml = a.note ? `<div class="ta-note">${a.note}</div>` : "";
-      return `
-        <div class="ta-assign-row">
-          <div class="ta-assign-name">
-            <span class="ta-assign-project">${projectLabel}</span>
-            <span class="ta-assign-course">${a.course}</span>
-            ${noteHtml}
+    // Build card content from real review data (JSON) if available
+    const taData = hasProgressData ? taProgressData.tas[ta.email] : null;
+    let cardRows = "";
+    let totalReviewed = 0, totalPending = 0;
+
+    if (taData) {
+      // Get unique projects from both assignments and JSON data
+      const projects = new Set([
+        ...Object.keys(taData),
+        ...visibleAssignments.map(a => a.project)
+      ]);
+
+      for (const proj of projects) {
+        const progData = taData[proj];
+        if (!progData) continue;
+        const rev = progData.reviewed;
+        const pend = progData.to_review;
+        totalReviewed += rev;
+        totalPending += pend;
+        const pct = (rev + pend) > 0 ? Math.round(rev / (rev + pend) * 100) : 100;
+        const cc = progressColorClass(pct);
+        const projLabel = projectNames[proj] || proj;
+        cardRows += `
+          <div class="ta-progress-row">
+            <div class="ta-progress-label">${projLabel}</div>
+            <div class="ta-progress-bar"><div class="ta-progress-fill ${cc}" style="width:${pct}%"></div></div>
+            <div class="ta-progress-nums">
+              <span><strong>${pct}%</strong> al día</span>
+              <span>${rev} hechas · ${pend} pendientes</span>
+            </div>
+          </div>`;
+      }
+
+      const totPct = (totalReviewed + totalPending) > 0 ? Math.round(totalReviewed / (totalReviewed + totalPending) * 100) : 100;
+      const tcc = progressColorClass(totPct);
+      cardRows += `
+        <div class="ta-progress-total">
+          <div class="ta-progress-label">TOTAL</div>
+          <div class="ta-progress-bar"><div class="ta-progress-fill ${tcc}" style="width:${totPct}%"></div></div>
+          <div class="ta-progress-nums">
+            <span><strong>${totPct}%</strong> al día</span>
+            <span>${totalReviewed} hechas · ${totalPending} pendientes</span>
           </div>
-          <div class="ta-assign-nums"><strong>${m.peak}</strong> máx · ${m.avg} prom</div>
-        </div>
-      `;
-    }).join("");
-
-    const capPct = ta.capacity > 0 ? Math.round(totalPeak / ta.capacity * 100) : 0;
-    let capClass = "";
-    if (capPct >= 90) capClass = "danger";
-    else if (capPct >= 75) capClass = "warning";
-
-    const flipBtnFront = hasProgressData && taProgressData.tas[ta.email]
-      ? `<button class="ta-flip-btn flip-to-back" title="Ver avance de revisiones">&#x21bb; ver avance</button>`
-      : "";
-    const flipBtnBack = `<button class="ta-flip-btn flip-to-front" title="Volver a carga estimada">&#x21bb; volver</button>`;
+        </div>`;
+      if (updated) cardRows += `<div class="ta-back-updated">Actualizado: ${updated}</div>`;
+    } else {
+      cardRows = `<div class="ta-no-data">Sin datos de avance</div>`;
+    }
 
     const frontHtml = `
-      <div class="ta-card ta-card-front${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
-        ${flipBtnFront}
+      <div class="ta-card${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
         <h3>${ta.name}</h3>
         <div class="ta-email">${ta.email}</div>
-        <div>${rows}</div>
-        <div class="ta-totals">
-          <span>Total</span>
-          <span class="ta-totals-nums"><strong>${totalPeak}</strong> máx · ${totalAvg} prom</span>
-        </div>
-        <div class="ta-capacity">Capacidad utilizada: ${capPct}% (${totalPeak}/${ta.capacity} máx)</div>
-        <div class="ta-capacity-bar"><div class="ta-capacity-fill ${capClass}" style="width:${Math.min(100,capPct)}%"></div></div>
+        ${cardRows}
       </div>
     `;
 
-    const backHtml = `
-      <div class="ta-card-back${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
-        ${flipBtnBack}
-        <h3>${ta.name}</h3>
-        ${buildTaCardBack(ta, visibleAssignments)}
-      </div>
-    `;
-
-    wrapper.innerHTML = `<div class="ta-card-inner">${frontHtml}${backHtml}</div>`;
+    wrapper.innerHTML = frontHtml;
 
     // Click en tarjeta (no en flip button) = seleccionar/deseleccionar TA
     wrapper.addEventListener("click", (e) => {
