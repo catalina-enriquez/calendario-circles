@@ -823,6 +823,55 @@
     .controls { flex-direction: column; gap: 10px; }
   }
 
+  /* SUMMARY TABLE */
+  .summary-header { margin-bottom: 16px; }
+  .summary-header h2 { font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+  .summary-header p { font-size: 13px; color: #64748b; }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .summary-table th {
+    background: #1e293b;
+    color: white;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .summary-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  .summary-table tr:hover td { background: #f8fafc; }
+  .summary-table .conv-name {
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .summary-table .num { text-align: right; }
+  .summary-table .total-row td {
+    font-weight: 700;
+    border-top: 2px solid #1e293b;
+    font-size: 14px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-activa { background: #dbeafe; color: #1d4ed8; }
+  .badge-cerrando { background: #fed7aa; color: #c2410c; }
+  .badge-cerrada { background: #d1d5db; color: #374151; }
+  .ta-list { font-size: 12px; color: #475569; }
+
   @media print {
     .tabs-container, .controls { page-break-inside: avoid; }
     .day-cell { min-height: 80px; }
@@ -839,6 +888,7 @@
 <div class="view-toggle" id="viewToggle">
   <button class="view-btn active" data-view="courses" onclick="setViewMode('courses')">Vista cursos</button>
   <button class="view-btn" data-view="tas" onclick="setViewMode('tas')">Vista revisiones por TA</button>
+  <button class="view-btn" data-view="summary" onclick="setViewMode('summary')">Resumen</button>
 </div>
 
 <div class="tabs-container" id="tabsContainer">
@@ -893,6 +943,8 @@
 <div id="taSummaryPanel"></div>
 
 <div class="course-panel" id="coursePanel"></div>
+
+<div id="summaryPanel" style="display:none"></div>
 
 <script>
 // ============ DATA ============
@@ -2189,7 +2241,134 @@ function setViewMode(mode) {
   // Limpiar cursos ocultos y selección de TA al cambiar de vista
   hiddenCourses.clear();
   if (mode !== "tas") selectedTaKey = null;
-  render();
+
+  const calendarElements = ["tabsContainer", "calendarGrid", "statsBar", "coursePanel", "taSummaryPanel"];
+  const summaryPanel = document.getElementById("summaryPanel");
+  const controlsEl = document.querySelector(".controls");
+
+  if (mode === "summary") {
+    calendarElements.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
+    if (controlsEl) controlsEl.style.display = "none";
+    summaryPanel.style.display = "block";
+    renderSummary();
+  } else {
+    calendarElements.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ""; });
+    if (controlsEl) controlsEl.style.display = "";
+    summaryPanel.style.display = "none";
+    render();
+  }
+}
+
+// ============ SUMMARY TABLE ============
+function renderSummary() {
+  const panel = document.getElementById("summaryPanel");
+
+  // Convocatoria display names and order
+  const convocatorias = [
+    { project: "sip", label: "SIP" },
+    { project: "san-benito", label: "San Benito" },
+    { project: "puc", label: "IA PUC" },
+    { project: "chilemass", label: "IA ChileMass" },
+    { project: "inacap", label: "INACAP" },
+    { project: "obsia", label: "Obs y acomp docente IA" },
+    { project: "slep", label: "SLEP Tamarugal 1" },
+    { project: "slep2", label: "SLEP Tamarugal 2" },
+  ];
+
+  const today = new Date();
+  const todayStr = dateStr(today);
+  const fmt = d => d ? d.substring(5).replace("-", "-") : "";
+
+  // Build TA lookup: course name → [TA first names]
+  const taLookup = {};
+  for (const ta of taAssignments) {
+    for (const a of ta.assignments) {
+      const key = `${a.project}::${a.course}`;
+      if (!taLookup[key]) taLookup[key] = [];
+      taLookup[key].push(ta.name.split(" ")[0]);
+    }
+  }
+
+  let totalStudents = 0;
+  const allTAs = new Set();
+  let rows = "";
+
+  for (const conv of convocatorias) {
+    const convCourses = courses.filter(c => c.project === conv.project);
+    if (convCourses.length === 0) continue;
+
+    // Compute convocatoria-level match range
+    const matchStarts = convCourses.filter(c => c.match).map(c => c.match.start);
+    const matchEnds = convCourses.filter(c => c.match).map(c => c.match.end);
+    const matchRange = matchStarts.length
+      ? fmt(matchStarts.sort()[0]) + " — " + fmt(matchEnds.sort().reverse()[0])
+      : "";
+
+    // Status: cerrada if all deadlines/period ends passed, cerrando if some, activa otherwise
+    const deadlines = convCourses.map(c => c.deadline || c.period.end);
+    const maxDeadline = deadlines.sort().reverse()[0];
+    const allPast = deadlines.every(d => d < todayStr);
+    const somePast = deadlines.some(d => d <= todayStr);
+    let status, badgeClass;
+    if (allPast) {
+      status = "cerrada"; badgeClass = "badge-cerrada";
+    } else if (somePast) {
+      status = "cerrando"; badgeClass = "badge-cerrando";
+    } else {
+      status = "activa"; badgeClass = "badge-activa";
+    }
+
+    for (let i = 0; i < convCourses.length; i++) {
+      const c = convCourses[i];
+      const mods = c.weeks.length;
+      const inicio = fmt(c.weeks.length > 0 ? c.weeks[0].start : c.match ? c.match.start : c.period.start);
+      const cierre = fmt(c.deadline || c.period.end);
+
+      // Find TAs for this course
+      const taKey = `${c.project}::${c.name}`;
+      const tas = taLookup[taKey] || [];
+      tas.forEach(t => allTAs.add(t));
+
+      totalStudents += c.students;
+
+      const isFirst = i === 0;
+      rows += "<tr>";
+      if (isFirst) {
+        rows += `<td class="conv-name" rowspan="${convCourses.length}">${conv.label}</td>`;
+        rows += `<td rowspan="${convCourses.length}"><span class="badge ${badgeClass}">${status}</span></td>`;
+        rows += `<td rowspan="${convCourses.length}" style="font-size:12px;white-space:nowrap">${matchRange}</td>`;
+      }
+      rows += `<td>${c.name}</td>`;
+      rows += `<td class="num">${inicio}</td>`;
+      rows += `<td class="num">${cierre}</td>`;
+      rows += `<td class="num">${mods}</td>`;
+      rows += `<td class="num">${c.students > 0 ? c.students.toLocaleString("es-CL") : ""}</td>`;
+      rows += `<td class="ta-list">${tas.length > 0 ? tas.join(", ") : '<span style="color:#94a3b8">Por definir</span>'}</td>`;
+      rows += "</tr>";
+    }
+  }
+
+  // Total row
+  rows += `<tr class="total-row">
+    <td>TOTAL</td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <td class="num">${totalStudents.toLocaleString("es-CL")}</td>
+    <td>${allTAs.size} TAs</td>
+  </tr>`;
+
+  const now = today.toLocaleDateString("es-CL", { day: "numeric", month: "long", year: "numeric" });
+  panel.innerHTML = `
+    <div class="summary-header">
+      <h2>Convocatorias activas — Otoño 2026</h2>
+      <p>Actualización: ${now}</p>
+    </div>
+    <table class="summary-table">
+      <thead><tr>
+        <th>Convocatoria</th><th>Estado</th><th>Match</th><th>Curso</th>
+        <th>Inicio</th><th>Cierre</th><th>Mód</th><th>Inscritos</th><th>TA(s)</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
 }
 
 // ============ TABS ============
