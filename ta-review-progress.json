@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T18:03:29",
+  "updated": "2026-06-22T10:00:07",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -8,13 +8,13 @@
       },
       "chilemass": {
         "reviewed": 331,
-        "to_review": 61
+        "to_review": 72
       }
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 641,
-        "to_review": 169
+        "reviewed": 695,
+        "to_review": 145
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -28,11 +28,11 @@
       },
       "inacap": {
         "reviewed": 272,
-        "to_review": 31
+        "to_review": 36
       },
       "slep2": {
         "reviewed": 0,
-        "to_review": 30
+        "to_review": 31
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -45,8 +45,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 789,
-        "to_review": 56
+        "reviewed": 787,
+        "to_review": 80
       },
       "slep2": {
         "reviewed": 0,
@@ -60,7 +60,7 @@
       },
       "obsia": {
         "reviewed": 11,
-        "to_review": 2
+        "to_review": 3
       }
     },
     "pamela.opazo@gmail.com": {
@@ -73,8 +73,8 @@
         "to_review": 1
       },
       "inacap": {
-        "reviewed": 178,
-        "to_review": 1
+        "reviewed": 179,
+        "to_review": 2
       }
     },
     "teacherdan.eng@gmail.com": {
@@ -83,8 +83,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 330,
-        "to_review": 61
+        "reviewed": 358,
+        "to_review": 43
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -98,11 +98,11 @@
       },
       "chilemass": {
         "reviewed": 358,
-        "to_review": 47
+        "to_review": 59
       },
       "slep2": {
         "reviewed": 64,
-        "to_review": 1
+        "to_review": 2
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -111,12 +111,12 @@
         "to_review": 3
       },
       "inacap": {
-        "reviewed": 311,
-        "to_review": 20
+        "reviewed": 309,
+        "to_review": 41
       },
       "slep2": {
         "reviewed": 79,
-        "to_review": 2
+        "to_review": 5
       }
     }
   }
