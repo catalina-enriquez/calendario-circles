@@ -293,7 +293,7 @@
           "nombre": "IA para la educación",
           "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
           "inicio": "2026-05-11",
-          "cierre": "2026-07-03",
+          "cierre": "2026-07-10",
           "tareas_revision_automatica": [
             2,
             3
@@ -314,7 +314,7 @@
           "nombre": "IA para la educación - Avanzado",
           "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
           "inicio": "2026-05-11",
-          "cierre": "2026-07-03",
+          "cierre": "2026-07-10",
           "tareas_revision_automatica": [
             2
           ],
@@ -340,6 +340,10 @@
       "temporada": "otoño 2026",
       "estado": "activa",
       "carpeta": "INACAP-otoño-2026",
+      "contraparte": {
+        "to": ["ascappini@inacap.cl"],
+        "cc": ["mgallardoj@inacap.cl"]
+      },
       "match": {
         "inicio": "2026-05-19",
         "fin": "2026-05-29"
@@ -585,24 +589,6 @@
             "primera_emision": "2026-05-18",
             "emitidos": true
           }
-        },
-        {
-          "nombre": "Estrategias didácticas de aprendizaje activo (Jardines)",
-          "course_id": "01KS44F7JD1HX500JMW7FZQB82",
-          "inicio": "2026-05-22",
-          "cierre": null,
-          "excluir_de_reportes": true,
-          "modulos": 3,
-          "inscritos": 44,
-          "tas": [
-            "Víctor Gálvez"
-          ],
-          "cierre_publico": null,
-          "certificados": {
-            "primera_emision": null,
-            "emitidos": false,
-            "nota": "Sin fecha límite. Activo todo el año en jornadas intensivas por jardines."
-          }
         }
       ]
     },
@@ -613,6 +599,16 @@
       "temporada": "otoño 2026",
       "estado": "activa",
       "carpeta": "SLEP-Tamarugal-2-otoño-2026",
+      "contraparte": {
+        "to": [
+          "javiera.vergara@sleptamarugal.gob.cl",
+          "paula.olivares@sleptamarugal.gob.cl"
+        ],
+        "cc": [
+          "andrea.osorio@sleptamarugal.gob.cl",
+          "samuel.diaz@sleptamarugal.gob.cl"
+        ]
+      },
       "match": {
         "inicio": "2026-05-25",
         "fin": "2026-05-29"
@@ -692,6 +688,23 @@
           "certificados": {
             "primera_emision": "2026-06-29",
             "emitidos": false
+          }
+        },
+        {
+          "nombre": "Estrategias didácticas de aprendizaje activo (Jardines)",
+          "course_id": "01KS44F7JD1HX500JMW7FZQB82",
+          "inicio": "2026-05-22",
+          "cierre": null,
+          "modulos": 3,
+          "inscritos": 44,
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "cierre_publico": null,
+          "certificados": {
+            "primera_emision": null,
+            "emitidos": false,
+            "nota": "Sin fecha límite. Activo todo el año en jornadas intensivas por jardines."
           }
         }
       ]

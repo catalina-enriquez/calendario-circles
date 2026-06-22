@@ -222,12 +222,14 @@
     font-weight: 700;
     color: #0f172a;
   }
-  .calendar-grid {
-    gap: 1px;
-    background: #cbd5e1;
+  .calendar-grid-wrapper {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .calendar-grid {
+    gap: 1px;
+    background: #cbd5e1;
   }
 
   .day-header {
@@ -936,7 +938,7 @@
   </div>
 </div>
 
-<div class="calendar-grid" id="calendarGrid"></div>
+<div class="calendar-grid-wrapper"><div class="calendar-grid" id="calendarGrid"></div></div>
 
 <div class="stats-bar" id="statsBar"></div>
 
@@ -2326,7 +2328,7 @@ function renderSummary() {
 }
 
 function renderSummaryTable(panel, data) {
-  const fmt = d => d ? d.substring(5).replace("-", "-") : "—";
+  const fmt = d => { if (!d) return "—"; const [,m,dd] = d.split("-"); return `${dd}/${m}`; };
   const badgeMap = {
     activa: "badge-activa",
     cerrando: "badge-cerrando",
