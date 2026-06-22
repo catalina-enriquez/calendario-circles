@@ -262,7 +262,7 @@
           "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
           "inicio": "2026-04-27",
           "cierre": "2026-07-03",
-          "deadline_revisiones": "2026-06-12",
+          "deadline_revisiones": null,
           "modulos": 6,
           "inscritos": 72,
           "tas": [
