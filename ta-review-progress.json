@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T18:00:03",
+  "updated": "2026-06-23T10:00:04",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -8,13 +8,13 @@
       },
       "chilemass": {
         "reviewed": 355,
-        "to_review": 58
+        "to_review": 59
       }
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 699,
-        "to_review": 148
+        "reviewed": 703,
+        "to_review": 143
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -27,8 +27,8 @@
         "to_review": 2
       },
       "inacap": {
-        "reviewed": 274,
-        "to_review": 42
+        "reviewed": 273,
+        "to_review": 46
       },
       "slep2": {
         "reviewed": 5,
@@ -50,7 +50,7 @@
       },
       "slep2": {
         "reviewed": 9,
-        "to_review": 2
+        "to_review": 3
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
@@ -69,12 +69,12 @@
         "to_review": 0
       },
       "san-benito": {
-        "reviewed": 204,
-        "to_review": 0
+        "reviewed": 203,
+        "to_review": 1
       },
       "inacap": {
         "reviewed": 185,
-        "to_review": 5
+        "to_review": 6
       }
     },
     "teacherdan.eng@gmail.com": {
@@ -83,8 +83,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 407,
-        "to_review": 1
+        "reviewed": 406,
+        "to_review": 3
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -98,11 +98,11 @@
       },
       "chilemass": {
         "reviewed": 426,
-        "to_review": 0
+        "to_review": 2
       },
       "slep2": {
         "reviewed": 103,
-        "to_review": 1
+        "to_review": 2
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -111,12 +111,12 @@
         "to_review": 3
       },
       "inacap": {
-        "reviewed": 321,
-        "to_review": 44
+        "reviewed": 322,
+        "to_review": 48
       },
       "slep2": {
-        "reviewed": 79,
-        "to_review": 11
+        "reviewed": 84,
+        "to_review": 6
       }
     }
   }
