@@ -252,6 +252,9 @@
       "temporada": "otoño 2026",
       "estado": "activa",
       "carpeta": "IA-PUC-otoño-2026",
+      "contraparte": {
+        "to": ["maringler@uc.cl", "jdgarcia@uc.cl"]
+      },
       "match": {
         "inicio": "2026-04-20",
         "fin": "2026-04-24"
