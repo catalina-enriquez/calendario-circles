@@ -1,6 +1,7 @@
 {
   "_meta": {
     "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
+    "campos_no_corregir": "Lista de personas cuyas entregas NO deben ser corregidas por el TA. Formato: {email, course_id, convocatoria, motivo?}. Se excluyen de conteos pendientes y urgentes, y se muestra sección informativa en el correo.",
     "campos_curso": {
       "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
       "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
@@ -57,6 +58,7 @@
       "horas_semana": 8
     }
   ],
+  "no_corregir_entregas": [],
   "personas_autorizadas_solas": [
     {
       "email": "lcastro@cambridge.cl",
