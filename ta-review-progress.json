@@ -1,10 +1,10 @@
 {
-  "updated": "2026-06-26T10:00:05",
+  "updated": "2026-06-26T18:10:25",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 229,
-        "to_review": 3
+        "reviewed": 232,
+        "to_review": 0
       },
       "chilemass": {
         "reviewed": 433,
@@ -13,8 +13,8 @@
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 802,
-        "to_review": 40
+        "reviewed": 801,
+        "to_review": 45
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -27,12 +27,12 @@
         "to_review": 4
       },
       "inacap": {
-        "reviewed": 296,
-        "to_review": 26
+        "reviewed": 317,
+        "to_review": 6
       },
       "slep2": {
         "reviewed": 5,
-        "to_review": 32
+        "to_review": 33
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -45,12 +45,12 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 964,
+        "reviewed": 965,
         "to_review": 2
       },
       "slep2": {
         "reviewed": 15,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
@@ -83,8 +83,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 405,
-        "to_review": 20
+        "reviewed": 424,
+        "to_review": 2
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -97,12 +97,12 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 440,
-        "to_review": 2
+        "reviewed": 442,
+        "to_review": 1
       },
       "slep2": {
-        "reviewed": 75,
-        "to_review": 13
+        "reviewed": 91,
+        "to_review": 0
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -111,12 +111,12 @@
         "to_review": 3
       },
       "inacap": {
-        "reviewed": 334,
+        "reviewed": 335,
         "to_review": 48
       },
       "slep2": {
         "reviewed": 90,
-        "to_review": 18
+        "to_review": 20
       }
     }
   }
