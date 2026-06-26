@@ -1,0 +1,616 @@
+{
+  "_meta": {
+    "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
+    "campos_no_corregir": "Lista de personas cuyas entregas NO deben ser corregidas por el TA. Formato: {email, course_id, convocatoria, motivo?}. Se excluyen de conteos pendientes y urgentes, y se muestra sección informativa en el correo.",
+    "campos_curso": {
+      "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
+      "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
+      "tareas_revision_automatica": "Lista de sequence_order de tareas con revisión automática (External URL, ej. lab.getcircles.org). No cuentan como revisiones pendientes de TA.",
+      "excepciones_deadline": "Lista de emails de estudiantes cuyas entregas tardías deben revisarse igual (excepción al deadline).",
+      "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles."
+    },
+    "actualizado": "2026-06-25",
+    "ubicacion": "Operations/convocatorias-activas.json"
+  },
+  "tas": [
+    {
+      "nombre": "Victoria Marcenaro",
+      "email": "victoriamarcenaro@gmail.com",
+      "horas_semana": 15
+    },
+    {
+      "nombre": "Pamela Opazo",
+      "email": "pamela.opazo@gmail.com",
+      "horas_semana": 7
+    },
+    {
+      "nombre": "Daniela García",
+      "email": "dmgarciamolina@gmail.com",
+      "horas_semana": 15
+    },
+    {
+      "nombre": "Evelyn Duarte",
+      "email": "evelyn.duarte.leiva@gmail.com",
+      "horas_semana": 20
+    },
+    {
+      "nombre": "Víctor Gálvez",
+      "email": "vgalvezvargas@gmail.com",
+      "horas_semana": 20
+    },
+    {
+      "nombre": "Denisse Campusano",
+      "email": "denisse.circles@gmail.com",
+      "horas_semana": 30
+    },
+    {
+      "nombre": "Dafne Polanco",
+      "email": "dafnayal@gmail.com",
+      "horas_semana": 10
+    },
+    {
+      "nombre": "Daniel Martínez",
+      "email": "teacherdan.eng@gmail.com",
+      "horas_semana": 10
+    },
+    {
+      "nombre": "Joseph Fuentealba",
+      "email": "joseph.fuentealba@inacapmail.cl",
+      "horas_semana": 8
+    }
+  ],
+  "no_corregir_entregas": [
+    {
+      "email": "juan.burgos23@inacapmail.cl",
+      "course_id": "01KRW3R257TNJSMP0V43VAKC01",
+      "convocatoria": "inacap-otono-2026"
+    }
+  ],
+  "personas_autorizadas_solas": [
+    {
+      "email": "lcastro@cambridge.cl",
+      "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
+      "convocatoria": "chilemass-otono-2026"
+    },
+    {
+      "email": "claudio.salinas07@inacapmail.cl",
+      "course_id": "01KRW3PQDV34TDA72EZ6Q1668Y",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "jessica.alarcon11@inacapmail.cl",
+      "course_id": "01KRW3N8093ETBCN5R3560MDXW",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "jrguerra@uc.cl",
+      "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
+      "convocatoria": "ia-puc-otono-2026"
+    },
+    {
+      "email": "patricio.pasten05@inacapmail.cl",
+      "course_id": "01KRW3PA04X51DD1JMX053C875",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "ricardo.guzman05@inacapmail.cl",
+      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "julio.parra03@inacapmail.cl",
+      "course_id": "01KRW3QTNBBE6HDHN83D7JKECA",
+      "convocatoria": "inacap-otono-2026"
+    }
+  ],
+  "convocatorias": [
+    {
+      "id": "sip-otono-2026",
+      "nombre": "SIP",
+      "cliente": "SIP Red de Colegios",
+      "temporada": "otoño 2026",
+      "estado": "cerrando",
+      "carpeta": "SIP-otoño-2026",
+      "match": {
+        "inicio": "2026-03-30",
+        "fin": "2026-04-03"
+      },
+      "cursos": [
+        {
+          "nombre": "Modelo de clase efectiva en la práctica docente",
+          "course_id": "01KJ59XSTVGZ3BWCZGJKX8MCS7",
+          "inicio": "2026-04-06",
+          "cierre": "2026-06-19",
+          "deadline_revisiones": "2026-06-19",
+          "modulos": 4,
+          "inscritos": 1362,
+          "tas": [
+            "Victoria Marcenaro",
+            "Pamela Opazo",
+            "Dafne Polanco",
+            "Daniel Martínez",
+            "Evelyn Duarte"
+          ],
+          "cierre_publico": "2026-06-05",
+          "certificados": {
+            "primera_emision": "2026-06-08",
+            "emitidos": "parcial",
+            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
+          },
+          "abreviacion": "MCE Doc"
+        },
+        {
+          "nombre": "Modelo de clase efectiva: fundamentos (Asistentes)",
+          "course_id": "01KKW7RC8NF412HDDWKETNWTT6",
+          "inicio": "2026-04-06",
+          "cierre": "2026-06-19",
+          "deadline_revisiones": "2026-06-19",
+          "modulos": 2,
+          "inscritos": 277,
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "cierre_publico": "2026-06-05",
+          "certificados": {
+            "primera_emision": "2026-06-08",
+            "emitidos": "parcial",
+            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
+          },
+          "abreviacion": "MCE Asist"
+        },
+        {
+          "nombre": "Modelo de clase efectiva para el liderazgo pedagógico (Líderes)",
+          "course_id": "01KJ69REFY73YZ71ZA80F0444R",
+          "inicio": "2026-07-27",
+          "cierre": "2026-08-23",
+          "modulos": 3,
+          "inscritos": 40,
+          "tas": [],
+          "abreviacion": "MCE Líd"
+        }
+      ]
+    },
+    {
+      "id": "ia-puc-otono-2026",
+      "nombre": "IA PUC",
+      "cliente": "Pontificia Universidad Católica de Chile",
+      "temporada": "otoño 2026",
+      "estado": "activa",
+      "carpeta": "IA-PUC-otoño-2026",
+      "contraparte": {
+        "to": [
+          "maringler@uc.cl",
+          "jdgarcia@uc.cl"
+        ]
+      },
+      "match": {
+        "inicio": "2026-04-20",
+        "fin": "2026-04-24"
+      },
+      "cursos": [
+        {
+          "nombre": "IA para la educación superior",
+          "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
+          "inicio": "2026-04-27",
+          "cierre": "2026-07-03",
+          "deadline_revisiones": null,
+          "modulos": 6,
+          "inscritos": 72,
+          "tas": [
+            "Daniela García"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": "parcial",
+            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
+          },
+          "abreviacion": "PUC IA"
+        }
+      ]
+    },
+    {
+      "id": "chilemass-otono-2026",
+      "nombre": "IA ChileMass",
+      "cliente": "ChileMass",
+      "temporada": "otoño 2026",
+      "estado": "activa",
+      "carpeta": "IA-ChileMass-otoño-2026",
+      "match": {
+        "inicio": "2026-05-08",
+        "fin": "2026-05-10"
+      },
+      "cursos": [
+        {
+          "nombre": "IA para la educación",
+          "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
+          "inicio": "2026-05-11",
+          "cierre": "2026-07-10",
+          "tareas_revision_automatica": [
+            2,
+            3
+          ],
+          "modulos": 6,
+          "inscritos": 4018,
+          "tas": [
+            "Evelyn Duarte",
+            "Denisse Campusano"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "IA Bás"
+        },
+        {
+          "nombre": "IA para la educación - Avanzado",
+          "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
+          "inicio": "2026-05-11",
+          "cierre": "2026-07-10",
+          "tareas_revision_automatica": [
+            2
+          ],
+          "modulos": 6,
+          "inscritos": 2197,
+          "tas": [
+            "Víctor Gálvez",
+            "Daniel Martínez",
+            "Dafne Polanco"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "IA Avz"
+        }
+      ]
+    },
+    {
+      "id": "inacap-otono-2026",
+      "nombre": "INACAP",
+      "cliente": "INACAP",
+      "temporada": "otoño 2026",
+      "estado": "activa",
+      "carpeta": "INACAP-otoño-2026",
+      "contraparte": {
+        "to": [
+          "ascappini@inacap.cl"
+        ],
+        "cc": [
+          "mgallardoj@inacap.cl"
+        ]
+      },
+      "match": {
+        "inicio": "2026-05-19",
+        "fin": "2026-05-29"
+      },
+      "cursos": [
+        {
+          "nombre": "Evaluación",
+          "course_id": "01KRW3N8093ETBCN5R3560MDXW",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 54,
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "Eval"
+        },
+        {
+          "nombre": "Estrategias didácticas",
+          "course_id": "01KRW3ND7G6H1ZTABF4251PXVQ",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 81,
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "EstDid"
+        },
+        {
+          "nombre": "Elaboración de proyectos",
+          "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 62,
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "ElabProy"
+        },
+        {
+          "nombre": "Diversidad, Género e Inclusión II",
+          "course_id": "01KRW3PA04X51DD1JMX053C875",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 41,
+          "tas": [
+            "Daniela García"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "DGI2"
+        },
+        {
+          "nombre": "Competencias digitales",
+          "course_id": "01KRW3PQDV34TDA72EZ6Q1668Y",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 52,
+          "tas": [
+            "Pamela Opazo"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "CompDig"
+        },
+        {
+          "nombre": "Elaboración y revisión de productos con IA",
+          "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 121,
+          "tas": [
+            "Daniela García"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "ERPIA"
+        },
+        {
+          "nombre": "Innovación pedagógica I",
+          "course_id": "01KRW3QN84VS32XM3F29S80R3R",
+          "inicio": "2026-05-25",
+          "cierre": "2026-06-22",
+          "modulos": 4,
+          "inscritos": 48,
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-23",
+            "emitidos": false
+          },
+          "abreviacion": "InnovP1"
+        },
+        {
+          "nombre": "Innovación pedagógica II",
+          "course_id": "01KRW3QTNBBE6HDHN83D7JKECA",
+          "inicio": "2026-05-25",
+          "cierre": "2026-06-22",
+          "modulos": 4,
+          "inscritos": 59,
+          "tas": [
+            "Pamela Opazo"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-23",
+            "emitidos": false
+          },
+          "abreviacion": "InnovP2"
+        },
+        {
+          "nombre": "Gestión de proyectos",
+          "course_id": "01KRW3R257TNJSMP0V43VAKC01",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 32,
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "GestProy"
+        },
+        {
+          "nombre": "Estrategias didácticas para cursos online",
+          "course_id": "01KRXRFZ18SSV1VC7C04MYA2H3",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 30,
+          "tas": [
+            "Daniela García"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "EstDidOn"
+        }
+      ]
+    },
+    {
+      "id": "obs-acomp-ia-otono-2026",
+      "nombre": "Obs y acomp docente IA",
+      "cliente": "Caja Los Andes / ChileMass",
+      "temporada": "otoño 2026",
+      "estado": "activa",
+      "carpeta": "Obs-acomp-docente-IA-otoño-2026",
+      "match": {
+        "inicio": "2026-05-18",
+        "fin": "2026-05-22"
+      },
+      "cursos": [
+        {
+          "nombre": "Observación y acompañamiento docente con IA",
+          "course_id": "01KRPRTWXNBFMDQ5F5THD7NQ2H",
+          "inicio": "2026-05-25",
+          "cierre": "2026-07-03",
+          "modulos": 4,
+          "inscritos": 83,
+          "tas": [
+            "Joseph Fuentealba"
+          ],
+          "cierre_publico": "2026-06-19",
+          "certificados": {
+            "primera_emision": "2026-06-22",
+            "emitidos": false
+          },
+          "abreviacion": "ObsIA"
+        }
+      ]
+    },
+    {
+      "id": "slep-tamarugal-2-otono-2026",
+      "nombre": "SLEP Tamarugal 2",
+      "cliente": "SLEP Tamarugal",
+      "temporada": "otoño 2026",
+      "estado": "activa",
+      "carpeta": "SLEP-Tamarugal-2-otoño-2026",
+      "contraparte": {
+        "to": [
+          "javiera.vergara@sleptamarugal.gob.cl",
+          "paula.olivares@sleptamarugal.gob.cl"
+        ],
+        "cc": [
+          "andrea.osorio@sleptamarugal.gob.cl",
+          "samuel.diaz@sleptamarugal.gob.cl"
+        ]
+      },
+      "match": {
+        "inicio": "2026-05-25",
+        "fin": "2026-05-29"
+      },
+      "cursos": [
+        {
+          "nombre": "Observación y retroalimentación de clases con IA",
+          "course_id": "01KS934NNA8R8FRW3EZGDR1JWY",
+          "inicio": "2026-06-01",
+          "cierre": "2026-07-10",
+          "modulos": 4,
+          "inscritos": 69,
+          "tas": [
+            "Evelyn Duarte",
+            "Víctor Gálvez",
+            "Dafne Polanco",
+            "Daniel Martínez"
+          ],
+          "cierre_publico": "2026-06-26",
+          "certificados": {
+            "primera_emision": "2026-06-29",
+            "emitidos": false
+          },
+          "abreviacion": "Obs IA SLEP 2"
+        },
+        {
+          "nombre": "Estrategias didácticas de aprendizaje activo",
+          "course_id": "01KS94PE87S6H56AZ29T2EEJ1Q",
+          "inicio": "2026-06-01",
+          "cierre": "2026-07-10",
+          "modulos": 4,
+          "inscritos": 120,
+          "tas": [
+            "Evelyn Duarte",
+            "Víctor Gálvez",
+            "Dafne Polanco",
+            "Daniel Martínez"
+          ],
+          "cierre_publico": "2026-06-26",
+          "certificados": {
+            "primera_emision": "2026-06-29",
+            "emitidos": false
+          },
+          "abreviacion": "Est. did."
+        },
+        {
+          "nombre": "Convivencia escolar y regulación emocional",
+          "course_id": "01KS94V91FX3DWKDEAYZ4MV5NK",
+          "inicio": "2026-06-01",
+          "cierre": "2026-07-10",
+          "modulos": 4,
+          "inscritos": 162,
+          "tas": [
+            "Evelyn Duarte",
+            "Víctor Gálvez",
+            "Dafne Polanco",
+            "Daniel Martínez"
+          ],
+          "cierre_publico": "2026-06-26",
+          "certificados": {
+            "primera_emision": "2026-06-29",
+            "emitidos": false
+          },
+          "abreviacion": "Convivencia"
+        },
+        {
+          "nombre": "IA para la educación",
+          "course_id": "01KS94W4C7ENEBZ233A88WP64M",
+          "inicio": "2026-06-01",
+          "cierre": "2026-07-10",
+          "modulos": 4,
+          "inscritos": 264,
+          "tas": [
+            "Evelyn Duarte",
+            "Víctor Gálvez",
+            "Dafne Polanco",
+            "Daniel Martínez"
+          ],
+          "cierre_publico": "2026-06-26",
+          "certificados": {
+            "primera_emision": "2026-06-29",
+            "emitidos": false
+          },
+          "abreviacion": "IA edu"
+        },
+        {
+          "nombre": "Estrategias didácticas de aprendizaje activo (Jardines)",
+          "course_id": "01KS44F7JD1HX500JMW7FZQB82",
+          "inicio": "2026-05-22",
+          "cierre": null,
+          "modulos": 3,
+          "inscritos": 44,
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "cierre_publico": null,
+          "certificados": {
+            "primera_emision": null,
+            "emitidos": false,
+            "nota": "Sin fecha límite. Activo todo el año en jornadas intensivas por jardines."
+          },
+          "abreviacion": "Est. did. Jardines"
+        }
+      ]
+    }
+  ]
+}
