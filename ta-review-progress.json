@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T10:08:28",
+  "updated": "2026-06-30T18:26:06",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -13,8 +13,8 @@
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 843,
-        "to_review": 14
+        "reviewed": 854,
+        "to_review": 6
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -32,7 +32,7 @@
       },
       "slep2": {
         "reviewed": 5,
-        "to_review": 36
+        "to_review": 40
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -45,12 +45,12 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 973,
+        "reviewed": 975,
         "to_review": 4
       },
       "slep2": {
-        "reviewed": 16,
-        "to_review": 0
+        "reviewed": 15,
+        "to_review": 2
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
@@ -84,7 +84,7 @@
       },
       "chilemass": {
         "reviewed": 424,
-        "to_review": 14
+        "to_review": 15
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -98,11 +98,11 @@
       },
       "chilemass": {
         "reviewed": 443,
-        "to_review": 4
+        "to_review": 8
       },
       "slep2": {
-        "reviewed": 91,
-        "to_review": 2
+        "reviewed": 93,
+        "to_review": 4
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -112,11 +112,11 @@
       },
       "inacap": {
         "reviewed": 387,
-        "to_review": 7
+        "to_review": 8
       },
       "slep2": {
         "reviewed": 111,
-        "to_review": 1
+        "to_review": 6
       }
     }
   }
