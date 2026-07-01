@@ -6,10 +6,10 @@
       "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
       "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
       "tareas_revision_automatica": "Lista de sequence_order de tareas con revisión automática (External URL, ej. lab.getcircles.org). No cuentan como revisiones pendientes de TA.",
-      "excepciones_deadline": "Lista de emails de estudiantes cuyas entregas tardías deben revisarse igual (excepción al deadline).",
+      "excepciones_deadline": "Lista de excepciones al deadline. Formato nuevo: [{email, deadline}] con deadline individual por persona (CLT). Formato legacy: [email, ...] sin deadline individual.",
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles."
     },
-    "actualizado": "2026-06-25",
+    "actualizado": "2026-06-30",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -66,6 +66,14 @@
       "convocatoria": "inacap-otono-2026"
     }
   ],
+  "recordatorios": [
+    {
+      "fecha": "2026-07-08",
+      "mensaje": "Enviar correo de extensión de plazo a 29 líderes pedagógicos SIP que no completaron MCE Docentes. Extensión hasta el 24 de julio.",
+      "convocatoria": "sip-otono-2026",
+      "mostrado": false
+    }
+  ],
   "personas_autorizadas_solas": [
     {
       "email": "lcastro@cambridge.cl",
@@ -116,6 +124,11 @@
       "email": "cgreene@colegiosanbenito.org",
       "course_id": "01KPEHG62JB3N1WYN34NKYSBNV",
       "convocatoria": "san-benito-otono-2026"
+    },
+    {
+      "email": "angel.bravo@eplicancabur.cl",
+      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
+      "convocatoria": "chilemass-otono-2026"
     }
   ],
   "convocatorias": [
@@ -152,6 +165,37 @@
             "emitidos": "parcial",
             "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
           },
+          "excepciones_deadline": [
+            {"email": "lieselotte.platzer@sip.cl", "deadline": "2026-07-24"},
+            {"email": "makarena.castillo@sip.cl", "deadline": "2026-07-24"},
+            {"email": "ameneses@sip.cl", "deadline": "2026-07-24"},
+            {"email": "tolivares@sip.cl", "deadline": "2026-07-24"},
+            {"email": "azuniga@sip.cl", "deadline": "2026-07-24"},
+            {"email": "barbara.araya@sip.cl", "deadline": "2026-07-24"},
+            {"email": "jvergara@sip.cl", "deadline": "2026-07-24"},
+            {"email": "loreto.isla@sip.cl", "deadline": "2026-07-24"},
+            {"email": "camila.araya@sip.cl", "deadline": "2026-07-24"},
+            {"email": "claudia.onell@sip.cl", "deadline": "2026-07-24"},
+            {"email": "rescalona@sip.cl", "deadline": "2026-07-24"},
+            {"email": "consuelo.costas@sip.cl", "deadline": "2026-07-24"},
+            {"email": "daniela.fernandez@sip.cl", "deadline": "2026-07-24"},
+            {"email": "daniela.sandoval@sip.cl", "deadline": "2026-07-24"},
+            {"email": "dchamorro@sip.cl", "deadline": "2026-07-24"},
+            {"email": "natalia.bravo@sip.cl", "deadline": "2026-07-24"},
+            {"email": "marcia.gonzalez@sip.cl", "deadline": "2026-07-24"},
+            {"email": "eperez@sip.cl", "deadline": "2026-07-24"},
+            {"email": "grace.reveco@sip.cl", "deadline": "2026-07-24"},
+            {"email": "imunoz@sip.cl", "deadline": "2026-07-24"},
+            {"email": "jmuller@sip.cl", "deadline": "2026-07-24"},
+            {"email": "bethsaida.seguel@sip.cl", "deadline": "2026-07-24"},
+            {"email": "alvaro.jofre@sip.cl", "deadline": "2026-07-24"},
+            {"email": "doris.castillo@sip.cl", "deadline": "2026-07-24"},
+            {"email": "jacqueline.loaiza@sip.cl", "deadline": "2026-07-24"},
+            {"email": "dpollak@sip.cl", "deadline": "2026-07-24"},
+            {"email": "alejandra.vega@sip.cl", "deadline": "2026-07-24"},
+            {"email": "claudia.ortiz@sip.cl", "deadline": "2026-07-24"},
+            {"email": "andres.diaz@sip.cl", "deadline": "2026-07-24"}
+          ],
           "abreviacion": "MCE Doc"
         },
         {
@@ -171,6 +215,11 @@
             "emitidos": "parcial",
             "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
           },
+          "excepciones_deadline": [
+            {"email": "karolina.santis@sip.cl", "deadline": "2026-07-15"},
+            {"email": "maria.daboin@sip.cl", "deadline": "2026-07-15"},
+            {"email": "afernandez@sip.cl", "deadline": "2026-07-15"}
+          ],
           "abreviacion": "MCE Asist"
         },
         {
@@ -415,6 +464,8 @@
             "Victoria Marcenaro"
           ],
           "cierre_publico": "2026-06-19",
+          "finalizado": true,
+          "deadline_revisiones": "2026-06-22",
           "certificados": {
             "primera_emision": "2026-06-23",
             "emitidos": false
@@ -432,6 +483,8 @@
             "Pamela Opazo"
           ],
           "cierre_publico": "2026-06-19",
+          "finalizado": true,
+          "deadline_revisiones": "2026-06-22",
           "certificados": {
             "primera_emision": "2026-06-23",
             "emitidos": false
