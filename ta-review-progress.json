@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T18:26:06",
+  "updated": "2026-07-01T10:00:04",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -7,14 +7,14 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 433,
-        "to_review": 3
+        "reviewed": 436,
+        "to_review": 0
       }
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 854,
-        "to_review": 6
+        "reviewed": 858,
+        "to_review": 9
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -23,16 +23,16 @@
         "to_review": 0
       },
       "puc": {
-        "reviewed": 125,
-        "to_review": 5
+        "reviewed": 131,
+        "to_review": 0
       },
       "inacap": {
-        "reviewed": 320,
-        "to_review": 7
+        "reviewed": 326,
+        "to_review": 3
       },
       "slep2": {
-        "reviewed": 5,
-        "to_review": 40
+        "reviewed": 37,
+        "to_review": 8
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -45,12 +45,12 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 975,
-        "to_review": 4
+        "reviewed": 980,
+        "to_review": 2
       },
       "slep2": {
-        "reviewed": 15,
-        "to_review": 2
+        "reviewed": 17,
+        "to_review": 0
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
@@ -69,8 +69,8 @@
         "to_review": 0
       },
       "san-benito": {
-        "reviewed": 203,
-        "to_review": 1
+        "reviewed": 204,
+        "to_review": 0
       },
       "inacap": {
         "reviewed": 192,
@@ -84,7 +84,7 @@
       },
       "chilemass": {
         "reviewed": 424,
-        "to_review": 15
+        "to_review": 16
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -97,26 +97,26 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 443,
-        "to_review": 8
+        "reviewed": 454,
+        "to_review": 2
       },
       "slep2": {
-        "reviewed": 93,
-        "to_review": 4
+        "reviewed": 97,
+        "to_review": 0
       }
     },
     "victoriamarcenaro@gmail.com": {
       "sip": {
         "reviewed": 285,
-        "to_review": 3
+        "to_review": 5
       },
       "inacap": {
         "reviewed": 387,
-        "to_review": 8
+        "to_review": 9
       },
       "slep2": {
         "reviewed": 111,
-        "to_review": 6
+        "to_review": 7
       }
     }
   }
