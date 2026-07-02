@@ -9,7 +9,7 @@
       "excepciones_deadline": "Lista de excepciones al deadline. Formato nuevo: [{email, deadline}] con deadline individual por persona (CLT). Formato legacy: [email, ...] sin deadline individual.",
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles."
     },
-    "actualizado": "2026-06-30",
+    "actualizado": "2026-07-02",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -64,12 +64,72 @@
       "email": "juan.burgos23@inacapmail.cl",
       "course_id": "01KRW3R257TNJSMP0V43VAKC01",
       "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "marcelo.gonzalez48@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "No participó nunca, marcaron sin querer"
+    },
+    {
+      "email": "mariela.figueroa03@inacapmail.cl",
+      "course_id": "01KRW3ND7G6H1ZTABF4251PXVQ",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "No participó nunca, marcaron sin querer"
+    },
+    {
+      "email": "emilia.vargas@inacapmail.cl",
+      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "No participó de todas las entregas, solo al principio"
+    },
+    {
+      "email": "constanza.grossi@inacapmail.cl",
+      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "No participó de todas las entregas, solo al principio"
+    },
+    {
+      "email": "jorge.figueroa15@inacapmail.cl",
+      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó, marcaron sin querer"
+    },
+    {
+      "email": "sebastian.lopez10@inacapmail.cl",
+      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó, marcaron sin querer"
+    },
+    {
+      "email": "cristian.vieille@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó"
+    },
+    {
+      "email": "pablo.constancio02@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó"
+    },
+    {
+      "email": "jose.bravo63@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó"
+    },
+    {
+      "email": "jaime.brito@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026",
+      "motivo": "Nunca participó"
     }
   ],
   "recordatorios": [
     {
       "fecha": "2026-07-08",
-      "mensaje": "Enviar correo de extensión de plazo a 29 líderes pedagógicos SIP que no completaron MCE Docentes. Extensión hasta el 24 de julio.",
+      "mensaje": "Emitir TODOS los certificados pendientes de SIP (MCE Docentes + MCE Asistentes). 2da tanda post-extensión.",
       "convocatoria": "sip-otono-2026",
       "mostrado": false
     }
@@ -129,6 +189,31 @@
       "email": "angel.bravo@eplicancabur.cl",
       "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
       "convocatoria": "chilemass-otono-2026"
+    },
+    {
+      "email": "cesar.ahumada05@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "paula.ramirez@colegiosab.cl",
+      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
+      "convocatoria": "chilemass-otono-2026"
+    },
+    {
+      "email": "gustavomartinez@liceosannicolas.cl",
+      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
+      "convocatoria": "chilemass-otono-2026"
+    },
+    {
+      "email": "pilar.vidal02@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "david.contreras12@inacapmail.cl",
+      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
+      "convocatoria": "inacap-otono-2026"
     }
   ],
   "convocatorias": [
@@ -137,7 +222,7 @@
       "nombre": "SIP",
       "cliente": "SIP Red de Colegios",
       "temporada": "otoño 2026",
-      "estado": "cerrando",
+      "estado": "activa",
       "carpeta": "SIP-otoño-2026",
       "match": {
         "inicio": "2026-03-30",
@@ -160,10 +245,12 @@
             "Evelyn Duarte"
           ],
           "cierre_publico": "2026-06-05",
+          "excluir_de_reportes": true,
           "certificados": {
             "primera_emision": "2026-06-08",
             "emitidos": "parcial",
-            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
+            "nota": "1ra tanda emitida. 2da tanda: emitir el 8 de julio.",
+            "suprimir_alerta_hasta": "2026-07-08"
           },
           "excepciones_deadline": [
             {"email": "lieselotte.platzer@sip.cl", "deadline": "2026-07-24"},
@@ -210,10 +297,12 @@
             "Víctor Gálvez"
           ],
           "cierre_publico": "2026-06-05",
+          "excluir_de_reportes": true,
           "certificados": {
             "primera_emision": "2026-06-08",
             "emitidos": "parcial",
-            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
+            "nota": "1ra tanda emitida. 2da tanda: emitir el 8 de julio.",
+            "suprimir_alerta_hasta": "2026-07-08"
           },
           "excepciones_deadline": [
             {"email": "karolina.santis@sip.cl", "deadline": "2026-07-15"},
@@ -647,24 +736,68 @@
             "emitidos": false
           },
           "abreviacion": "IA edu"
-        },
+        }
+      ]
+    },
+    {
+      "id": "slep-jardines-2026",
+      "nombre": "SLEP Jardines",
+      "cliente": "SLEP Tamarugal",
+      "temporada": "2026",
+      "estado": "activa",
+      "carpeta": "SLEP-Jardines-2026",
+      "formato": "jornadas-unicas",
+      "contraparte": {
+        "to": [
+          "javiera.vergara@sleptamarugal.gob.cl",
+          "paula.olivares@sleptamarugal.gob.cl"
+        ]
+      },
+      "cursos": [
         {
-          "nombre": "Estrategias didácticas de aprendizaje activo (Jardines)",
+          "nombre": "Estrategias didácticas de aprendizaje activo",
           "course_id": "01KS44F7JD1HX500JMW7FZQB82",
-          "inicio": "2026-05-22",
-          "cierre": null,
           "modulos": 3,
-          "inscritos": 44,
+          "inscritos": 46,
           "tas": [
             "Víctor Gálvez"
           ],
-          "cierre_publico": null,
-          "certificados": {
-            "primera_emision": null,
-            "emitidos": false,
-            "nota": "Sin fecha límite. Activo todo el año en jornadas intensivas por jardines."
-          },
-          "abreviacion": "Est. did. Jardines"
+          "abreviacion": "Est. did.",
+          "jornadas": [
+            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-05-22" },
+            { "jardin": "Semillita", "comuna": "Camiña", "fecha": "2026-05-28" },
+            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-06-30" }
+          ]
+        },
+        {
+          "nombre": "Diversificación de la enseñanza",
+          "course_id": null,
+          "modulos": 3,
+          "inscritos": 46,
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "abreviacion": "Divers.",
+          "jornadas": [
+            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-08-27" },
+            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-08-28" },
+            { "jardin": "Semillita", "comuna": "Camiña", "fecha": "2026-08-28" }
+          ]
+        },
+        {
+          "nombre": "Toma de decisiones basada en evidencias (PME)",
+          "course_id": null,
+          "modulos": 3,
+          "inscritos": 46,
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "abreviacion": "PME",
+          "jornadas": [
+            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-12-11" },
+            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-12-29" }
+          ],
+          "nota": "Semillita - Camiña: sin fecha por ahora"
         }
       ]
     }

@@ -30,6 +30,9 @@
     --obsia: #f97316;
     --obsia-light: #fff7ed;
     --obsia-mid: #fdba74;
+    --slep-jardines: #e11d48;
+    --slep-jardines-light: #ffe4e6;
+    --slep-jardines-mid: #fb7185;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,6 +124,8 @@
   .tab[data-tab="inacap"].active { border-bottom-color: var(--inacap); color: var(--inacap); }
   .tab[data-tab="obsia"] .tab-dot { background: var(--obsia); }
   .tab[data-tab="obsia"].active { border-bottom-color: var(--obsia); color: var(--obsia); }
+  .tab[data-tab="slep-jardines"] .tab-dot { background: var(--slep-jardines); }
+  .tab[data-tab="slep-jardines"].active { border-bottom-color: var(--slep-jardines); color: var(--slep-jardines); }
 
   /* MONTH NAV */
   .controls {
@@ -303,6 +308,7 @@
 
   .event.match { color: white; font-weight: 700; }
   .event.ext { opacity: 0.55; font-style: italic; }
+  .event.jornada { font-weight: 700; font-size: 9px; border-left: 3px solid; }
   .event.oh { border-left: 3px solid; background: transparent !important; font-weight: 600; font-size: 9px; }
   .event.deadline { background: #dc2626; color: white; font-weight: 700; border: none; font-size: 9px; }
 
@@ -330,6 +336,9 @@
   .event[data-project="obsia"] { background: var(--obsia-light); color: #9a3412; }
   .event[data-project="obsia"].match { background: var(--obsia); color: white; }
   .event[data-project="obsia"].oh { border-color: var(--obsia); color: var(--obsia); }
+  .event[data-project="slep-jardines"] { background: var(--slep-jardines-light); color: #881337; }
+  .event[data-project="slep-jardines"].match { background: var(--slep-jardines); color: white; }
+  .event[data-project="slep-jardines"].oh { border-color: var(--slep-jardines); color: var(--slep-jardines); }
 
   .more-events {
     font-size: 9px;
@@ -442,6 +451,7 @@
   .course-card[data-project="slep2"] { border-left-color: var(--slep2); }
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
   .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
+  .course-card[data-project="slep-jardines"] { border-left-color: var(--slep-jardines); }
 
   .course-card h3 {
     font-size: 14px;
@@ -494,6 +504,8 @@
   .phase-bar[data-project="inacap"] .ext-phase { background: var(--inacap-mid); }
   .phase-bar[data-project="obsia"] .week-phase { background: var(--obsia); }
   .phase-bar[data-project="obsia"] .ext-phase { background: var(--obsia-mid); }
+  .phase-bar[data-project="slep-jardines"] .week-phase { background: var(--slep-jardines); }
+  .phase-bar[data-project="slep-jardines"] .ext-phase { background: var(--slep-jardines-mid); }
 
   /* ===== View toggle (Cursos / Revisiones por TA) ===== */
   .view-toggle {
@@ -920,6 +932,9 @@
   </button>
   <button class="tab" data-tab="obsia" onclick="switchTab('obsia')">
     <span class="tab-dot"></span> ObsIA
+  </button>
+  <button class="tab" data-tab="slep-jardines" onclick="switchTab('slep-jardines')">
+    <span class="tab-dot"></span> SLEP Jardines
   </button>
 </div>
 
@@ -1447,6 +1462,40 @@ const courses = [
     officeHours: ["2026-06-01T15:00", "2026-06-23T15:00"],
     deadline: "2026-07-03"
   },
+  // ======== SLEP Jardines — Jornadas 2026 ========
+  {
+    id: "slep-jardines-ed", project: "slep-jardines", projectLabel: "SLEP Jardines",
+    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est.did.", students: 46,
+    period: { start: "2026-05-22", end: "2026-06-30" },
+    match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
+    jornadas: [
+      { jardin: "Inti Jalsu", comuna: "Colchane", fecha: "2026-05-22" },
+      { jardin: "Semillita", comuna: "Camiña", fecha: "2026-05-28" },
+      { jardin: "Piqueñitos", comuna: "Pica", fecha: "2026-06-30" },
+    ]
+  },
+  {
+    id: "slep-jardines-div", project: "slep-jardines", projectLabel: "SLEP Jardines",
+    name: "Diversificación de la enseñanza", shortName: "Divers.", students: 46,
+    period: { start: "2026-08-27", end: "2026-08-28" },
+    match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
+    jornadas: [
+      { jardin: "Piqueñitos", comuna: "Pica", fecha: "2026-08-27" },
+      { jardin: "Inti Jalsu", comuna: "Colchane", fecha: "2026-08-28" },
+      { jardin: "Semillita", comuna: "Camiña", fecha: "2026-08-28" },
+    ]
+  },
+  {
+    id: "slep-jardines-pme", project: "slep-jardines", projectLabel: "SLEP Jardines",
+    name: "Toma de decisiones basada en evidencias (PME)", shortName: "PME", students: 46,
+    period: { start: "2026-12-11", end: "2026-12-29" },
+    match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
+    jornadas: [
+      { jardin: "Inti Jalsu", comuna: "Colchane", fecha: "2026-12-11" },
+      { jardin: "Piqueñitos", comuna: "Pica", fecha: "2026-12-29" },
+      // Semillita - Camiña: sin fecha por ahora
+    ]
+  },
 ];
 
 const projectNames = {
@@ -1457,7 +1506,8 @@ const projectNames = {
   "slep": "SLEP Tamarugal",
   "slep2": "SLEP Tamarugal 2",
   "inacap": "INACAP Otoño 2026",
-  "obsia": "Observación y acompañamiento docente con IA"
+  "obsia": "Observación y acompañamiento docente con IA",
+  "slep-jardines": "SLEP Jardines"
 };
 
 // ============ FERIADOS CHILE 2026 ============
@@ -1518,7 +1568,6 @@ const taAssignments = [
       { project: "sip", course: "Modelo de clase efectiva: fundamentos (Asistentes)", peak: 92 },
       { project: "chilemass", course: "IA para la educación - Avanzado", peak: 244 },
       { project: "slep2", course: "Convivencia escolar y regulación emocional", peak: 54 },
-      { project: "slep2", course: "Estrategias didácticas de aprendizaje activo (Jardines)", peak: 14 },
     ]
   },
   { name: "Denisse Campusano", email: "denisse.circles@gmail.com", capacity: 300,
@@ -1738,6 +1787,19 @@ function getEventsForDate(dateString) {
       }
     }
 
+    // Jornadas (SLEP Jardines - eventos de un día)
+    if (course.jornadas) {
+      for (const j of course.jornadas) {
+        if (dateString === j.fecha) {
+          events.push({
+            type: "jornada", label: `${prefix} ${j.jardin}`,
+            project: course.project,
+            detail: `${course.projectLabel}: ${course.name}\nJornada: ${j.jardin} (${j.comuna})\n${formatDate(j.fecha)}`
+          });
+        }
+      }
+    }
+
     // Deadline
     if (course.deadline && dateString === course.deadline) {
       events.push({
@@ -1748,8 +1810,8 @@ function getEventsForDate(dateString) {
     }
   }
 
-  const order = { match: 0, deadline: 1, week: 2, ext: 3, oh: 4 };
-  events.sort((a, b) => order[a.type] - order[b.type]);
+  const order = { match: 0, jornada: 1, deadline: 2, week: 3, ext: 4, oh: 5 };
+  events.sort((a, b) => (order[a.type] ?? 99) - (order[b.type] ?? 99));
   return events;
 }
 
@@ -1951,8 +2013,9 @@ function renderDayCell(grid, date, otherMonth) {
   const events = getEventsForDate(ds);
   // Prioridad de visibilidad: 1) OH (tutorías), 2) Match, 3) resto
   // OH y Match SIEMPRE visibles — nunca se esconden en "+N más"
-  const priorityEvents = events.filter(e => e.type === "oh" || e.type === "match" || e.type === "deadline");
-  const restEvents = events.filter(e => e.type !== "oh" && e.type !== "match" && e.type !== "deadline");
+  const priorityTypes = new Set(["oh", "match", "deadline", "jornada"]);
+  const priorityEvents = events.filter(e => priorityTypes.has(e.type));
+  const restEvents = events.filter(e => !priorityTypes.has(e.type));
   const maxVis = activeTabs.has("all") ? 3 : 5;
   const slotsForRest = Math.max(0, maxVis - priorityEvents.length);
   const visibleRest = restEvents.slice(0, slotsForRest);
@@ -2077,19 +2140,38 @@ function renderCoursePanel() {
       ? c.officeHours.map(oh => { const [d,t] = oh.split("T"); return `${formatDate(d)} ${t}`; }).join(", ")
       : "Sin OH";
 
-    card.innerHTML = `
-      <h3>${c.name}</h3>
-      <div class="course-meta">
+    let metaHtml, phaseHtml;
+    if (c.jornadas) {
+      // Formato especial para cursos de jornadas únicas
+      const jornadasList = c.jornadas.map(j =>
+        `<span style="display:inline-block;margin-right:8px">${j.jardin}: <strong>${formatDate(j.fecha)}</strong></span>`
+      ).join("");
+      metaHtml = `
+        <strong>${c.projectLabel}</strong> &middot; ${c.students} inscritos<br>
+        <span style="font-size:11px;color:#64748b">Jornadas únicas por jardín:</span><br>
+        ${jornadasList}
+      `;
+      phaseHtml = `<div class="phase-bar" data-project="${c.project}">
+        ${c.jornadas.map(() => '<div class="phase week-phase"></div>').join("")}
+      </div>`;
+    } else {
+      metaHtml = `
         <strong>${c.projectLabel}</strong> &middot; ${c.students} alumnos<br>
         ${c.match ? `Match: ${formatDate(c.match.start)} → ${formatDate(c.match.end)}<br>` : ''}
         Semanas: ${c.weeks.length} &middot; Extensiones: ${c.extensions.length}<br>
         OH: ${ohList}
-      </div>
-      <div class="phase-bar" data-project="${c.project}">
+      `;
+      phaseHtml = `<div class="phase-bar" data-project="${c.project}">
         <div class="phase match-phase"></div>
         ${c.weeks.map(() => '<div class="phase week-phase"></div>').join("")}
         ${c.extensions.map(() => '<div class="phase ext-phase"></div>').join("")}
-      </div>
+      </div>`;
+    }
+
+    card.innerHTML = `
+      <h3>${c.name}</h3>
+      <div class="course-meta">${metaHtml}</div>
+      ${phaseHtml}
     `;
 
     card.addEventListener("click", () => {
