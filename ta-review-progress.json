@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T18:00:05",
+  "updated": "2026-07-02T10:00:05",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -8,13 +8,13 @@
       },
       "chilemass": {
         "reviewed": 436,
-        "to_review": 1
+        "to_review": 4
       }
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
         "reviewed": 867,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -24,11 +24,11 @@
       },
       "puc": {
         "reviewed": 131,
-        "to_review": 1
+        "to_review": 3
       },
       "inacap": {
         "reviewed": 326,
-        "to_review": 3
+        "to_review": 4
       },
       "slep2": {
         "reviewed": 37,
@@ -45,8 +45,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 977,
-        "to_review": 21
+        "reviewed": 975,
+        "to_review": 24
       },
       "slep2": {
         "reviewed": 17,
@@ -84,7 +84,7 @@
       },
       "chilemass": {
         "reviewed": 424,
-        "to_review": 21
+        "to_review": 22
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -97,11 +97,11 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 454,
-        "to_review": 7
+        "reviewed": 457,
+        "to_review": 4
       },
       "slep2": {
-        "reviewed": 97,
+        "reviewed": 100,
         "to_review": 0
       }
     },
@@ -111,12 +111,12 @@
         "to_review": 5
       },
       "inacap": {
-        "reviewed": 384,
-        "to_review": 12
+        "reviewed": 390,
+        "to_review": 7
       },
       "slep2": {
-        "reviewed": 111,
-        "to_review": 7
+        "reviewed": 119,
+        "to_review": 0
       }
     }
   }
