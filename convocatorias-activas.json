@@ -648,12 +648,12 @@
       ]
     },
     {
-      "id": "slep-tamarugal-2-otono-2026",
-      "nombre": "SLEP Tamarugal 2",
+      "id": "slep-tamarugal-2-invierno-2026",
+      "nombre": "SLEP Tamarugal Invierno 2026",
       "cliente": "SLEP Tamarugal",
-      "temporada": "otoño 2026",
+      "temporada": "invierno 2026",
       "estado": "activa",
-      "carpeta": "SLEP-Tamarugal-2-otoño-2026",
+      "carpeta": "SLEP-Tamarugal-2-invierno-2026",
       "contraparte": {
         "to": [
           "javiera.vergara@sleptamarugal.gob.cl",
