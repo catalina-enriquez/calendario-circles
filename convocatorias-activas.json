@@ -1,13 +1,14 @@
 {
   "_meta": {
-    "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
+    "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, SAs (asistentes de soporte), deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
     "campos_no_corregir": "Lista de personas cuyas entregas NO deben ser corregidas por el TA. Formato: {email, course_id, convocatoria, motivo?}. Se excluyen de conteos pendientes y urgentes, y se muestra sección informativa en el correo.",
     "campos_curso": {
       "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
       "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
       "tareas_revision_automatica": "Lista de sequence_order de tareas con revisión automática (External URL, ej. lab.getcircles.org). No cuentan como revisiones pendientes de TA.",
       "excepciones_deadline": "Lista de excepciones al deadline. Formato nuevo: [{email, deadline}] con deadline individual por persona (CLT). Formato legacy: [email, ...] sin deadline individual.",
-      "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles."
+      "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
+      "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
     "actualizado": "2026-07-02",
     "ubicacion": "Operations/convocatorias-activas.json"
@@ -57,6 +58,38 @@
       "nombre": "Joseph Fuentealba",
       "email": "joseph.fuentealba@inacapmail.cl",
       "horas_semana": 8
+    }
+  ],
+  "sas": [
+    {
+      "nombre": "Lucas",
+      "key": "lucas",
+      "email": "lucasa.circles@gmail.com"
+    },
+    {
+      "nombre": "Renzo",
+      "key": "renzo",
+      "email": "renzo.circles@gmail.com"
+    },
+    {
+      "nombre": "Giuliana",
+      "key": "giuliana",
+      "email": "giuliana.circles@gmail.com"
+    },
+    {
+      "nombre": "Fernando",
+      "key": "fernando",
+      "email": "fernando.circles@gmail.com"
+    },
+    {
+      "nombre": "Florencia",
+      "key": "florencia",
+      "email": "florencia.contardo@getcircles.org"
+    },
+    {
+      "nombre": "María Ignacia",
+      "key": "maria-ignacia",
+      "email": "mariaignacia@getcircles.org"
     }
   ],
   "no_corregir_entregas": [
@@ -214,6 +247,12 @@
       "email": "david.contreras12@inacapmail.cl",
       "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
       "convocatoria": "inacap-otono-2026"
+    },
+    {
+      "email": "katherine.morales.z@gmail.com",
+      "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
+      "convocatoria": "chilemass-otono-2026",
+      "motivo": "Entró tarde al círculo, difícil encontrar compañeros, pero se comunicó siempre"
     }
   ],
   "convocatorias": [
@@ -369,6 +408,7 @@
       "temporada": "otoño 2026",
       "estado": "activa",
       "carpeta": "IA-ChileMass-otoño-2026",
+      "circulos_1_autorizados": true,
       "match": {
         "inicio": "2026-05-08",
         "fin": "2026-05-10"
