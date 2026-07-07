@@ -292,35 +292,122 @@
             "suprimir_alerta_hasta": "2026-07-08"
           },
           "excepciones_deadline": [
-            {"email": "lieselotte.platzer@sip.cl", "deadline": "2026-07-24"},
-            {"email": "makarena.castillo@sip.cl", "deadline": "2026-07-24"},
-            {"email": "ameneses@sip.cl", "deadline": "2026-07-24"},
-            {"email": "tolivares@sip.cl", "deadline": "2026-07-24"},
-            {"email": "azuniga@sip.cl", "deadline": "2026-07-24"},
-            {"email": "barbara.araya@sip.cl", "deadline": "2026-07-24"},
-            {"email": "jvergara@sip.cl", "deadline": "2026-07-24"},
-            {"email": "loreto.isla@sip.cl", "deadline": "2026-07-24"},
-            {"email": "camila.araya@sip.cl", "deadline": "2026-07-24"},
-            {"email": "claudia.onell@sip.cl", "deadline": "2026-07-24"},
-            {"email": "rescalona@sip.cl", "deadline": "2026-07-24"},
-            {"email": "consuelo.costas@sip.cl", "deadline": "2026-07-24"},
-            {"email": "daniela.fernandez@sip.cl", "deadline": "2026-07-24"},
-            {"email": "daniela.sandoval@sip.cl", "deadline": "2026-07-24"},
-            {"email": "dchamorro@sip.cl", "deadline": "2026-07-24"},
-            {"email": "natalia.bravo@sip.cl", "deadline": "2026-07-24"},
-            {"email": "marcia.gonzalez@sip.cl", "deadline": "2026-07-24"},
-            {"email": "eperez@sip.cl", "deadline": "2026-07-24"},
-            {"email": "grace.reveco@sip.cl", "deadline": "2026-07-24"},
-            {"email": "imunoz@sip.cl", "deadline": "2026-07-24"},
-            {"email": "jmuller@sip.cl", "deadline": "2026-07-24"},
-            {"email": "bethsaida.seguel@sip.cl", "deadline": "2026-07-24"},
-            {"email": "alvaro.jofre@sip.cl", "deadline": "2026-07-24"},
-            {"email": "doris.castillo@sip.cl", "deadline": "2026-07-24"},
-            {"email": "jacqueline.loaiza@sip.cl", "deadline": "2026-07-24"},
-            {"email": "dpollak@sip.cl", "deadline": "2026-07-24"},
-            {"email": "alejandra.vega@sip.cl", "deadline": "2026-07-24"},
-            {"email": "claudia.ortiz@sip.cl", "deadline": "2026-07-24"},
-            {"email": "andres.diaz@sip.cl", "deadline": "2026-07-24"}
+            {
+              "email": "lieselotte.platzer@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "makarena.castillo@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "ameneses@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "tolivares@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "azuniga@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "barbara.araya@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "jvergara@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "loreto.isla@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "camila.araya@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "claudia.onell@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "rescalona@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "consuelo.costas@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "daniela.fernandez@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "daniela.sandoval@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "dchamorro@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "natalia.bravo@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "marcia.gonzalez@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "eperez@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "grace.reveco@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "imunoz@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "jmuller@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "bethsaida.seguel@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "alvaro.jofre@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "doris.castillo@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "jacqueline.loaiza@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "dpollak@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "alejandra.vega@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "claudia.ortiz@sip.cl",
+              "deadline": "2026-07-24"
+            },
+            {
+              "email": "andres.diaz@sip.cl",
+              "deadline": "2026-07-24"
+            }
           ],
           "abreviacion": "MCE Doc"
         },
@@ -344,9 +431,18 @@
             "suprimir_alerta_hasta": "2026-07-08"
           },
           "excepciones_deadline": [
-            {"email": "karolina.santis@sip.cl", "deadline": "2026-07-15"},
-            {"email": "maria.daboin@sip.cl", "deadline": "2026-07-15"},
-            {"email": "afernandez@sip.cl", "deadline": "2026-07-15"}
+            {
+              "email": "karolina.santis@sip.cl",
+              "deadline": "2026-07-15"
+            },
+            {
+              "email": "maria.daboin@sip.cl",
+              "deadline": "2026-07-15"
+            },
+            {
+              "email": "afernandez@sip.cl",
+              "deadline": "2026-07-15"
+            }
           ],
           "abreviacion": "MCE Asist"
         },
@@ -804,10 +900,28 @@
           ],
           "abreviacion": "Est. did.",
           "jornadas": [
-            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-05-22" },
-            { "jardin": "Semillita", "comuna": "Camiña", "fecha": "2026-05-28" },
-            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-06-30" }
-          ]
+            {
+              "jardin": "Inti Jalsu",
+              "comuna": "Colchane",
+              "fecha": "2026-05-22"
+            },
+            {
+              "jardin": "Semillita",
+              "comuna": "Camiña",
+              "fecha": "2026-05-28"
+            },
+            {
+              "jardin": "Piqueñitos",
+              "comuna": "Pica",
+              "fecha": "2026-06-30"
+            }
+          ],
+          "certificados": {
+            "primera_emision": "2026-07-07",
+            "emitidos": true,
+            "fecha_emision": "2026-07-07",
+            "cantidad": 28
+          }
         },
         {
           "nombre": "Diversificación de la enseñanza",
@@ -819,9 +933,21 @@
           ],
           "abreviacion": "Divers.",
           "jornadas": [
-            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-08-27" },
-            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-08-28" },
-            { "jardin": "Semillita", "comuna": "Camiña", "fecha": "2026-08-28" }
+            {
+              "jardin": "Piqueñitos",
+              "comuna": "Pica",
+              "fecha": "2026-08-27"
+            },
+            {
+              "jardin": "Inti Jalsu",
+              "comuna": "Colchane",
+              "fecha": "2026-08-28"
+            },
+            {
+              "jardin": "Semillita",
+              "comuna": "Camiña",
+              "fecha": "2026-08-28"
+            }
           ]
         },
         {
@@ -834,8 +960,16 @@
           ],
           "abreviacion": "PME",
           "jornadas": [
-            { "jardin": "Inti Jalsu", "comuna": "Colchane", "fecha": "2026-12-11" },
-            { "jardin": "Piqueñitos", "comuna": "Pica", "fecha": "2026-12-29" }
+            {
+              "jardin": "Inti Jalsu",
+              "comuna": "Colchane",
+              "fecha": "2026-12-11"
+            },
+            {
+              "jardin": "Piqueñitos",
+              "comuna": "Pica",
+              "fecha": "2026-12-29"
+            }
           ],
           "nota": "Semillita - Camiña: sin fecha por ahora"
         }
