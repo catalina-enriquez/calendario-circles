@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendario Circles Learning - Otoño 2026</title>
+<title>Calendario Circles Learning</title>
 <style>
   :root {
     --san-benito: #3b82f6;
@@ -33,6 +33,12 @@
     --slep-jardines: #e11d48;
     --slep-jardines-light: #ffe4e6;
     --slep-jardines-mid: #fb7185;
+    --inacap-inv: #0891b2;
+    --inacap-inv-light: #cffafe;
+    --inacap-inv-mid: #22d3ee;
+    --slep3: #b91c1c;
+    --slep3-light: #fee2e2;
+    --slep3-mid: #f87171;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -126,6 +132,10 @@
   .tab[data-tab="obsia"].active { border-bottom-color: var(--obsia); color: var(--obsia); }
   .tab[data-tab="slep-jardines"] .tab-dot { background: var(--slep-jardines); }
   .tab[data-tab="slep-jardines"].active { border-bottom-color: var(--slep-jardines); color: var(--slep-jardines); }
+  .tab[data-tab="inacap-inv"] .tab-dot { background: var(--inacap-inv); }
+  .tab[data-tab="inacap-inv"].active { border-bottom-color: var(--inacap-inv); color: var(--inacap-inv); }
+  .tab[data-tab="slep3"] .tab-dot { background: var(--slep3); }
+  .tab[data-tab="slep3"].active { border-bottom-color: var(--slep3); color: var(--slep3); }
 
   /* MONTH NAV */
   .controls {
@@ -339,6 +349,12 @@
   .event[data-project="slep-jardines"] { background: var(--slep-jardines-light); color: #881337; }
   .event[data-project="slep-jardines"].match { background: var(--slep-jardines); color: white; }
   .event[data-project="slep-jardines"].oh { border-color: var(--slep-jardines); color: var(--slep-jardines); }
+  .event[data-project="inacap-inv"] { background: var(--inacap-inv-light); color: #155e75; }
+  .event[data-project="inacap-inv"].match { background: var(--inacap-inv); color: white; }
+  .event[data-project="inacap-inv"].oh { border-color: var(--inacap-inv); color: var(--inacap-inv); }
+  .event[data-project="slep3"] { background: var(--slep3-light); color: #7f1d1d; }
+  .event[data-project="slep3"].match { background: var(--slep3); color: white; }
+  .event[data-project="slep3"].oh { border-color: var(--slep3); color: var(--slep3); }
 
   .more-events {
     font-size: 9px;
@@ -452,6 +468,8 @@
   .course-card[data-project="inacap"] { border-left-color: var(--inacap); }
   .course-card[data-project="obsia"] { border-left-color: var(--obsia); }
   .course-card[data-project="slep-jardines"] { border-left-color: var(--slep-jardines); }
+  .course-card[data-project="inacap-inv"] { border-left-color: var(--inacap-inv); }
+  .course-card[data-project="slep3"] { border-left-color: var(--slep3); }
 
   .course-card h3 {
     font-size: 14px;
@@ -506,6 +524,10 @@
   .phase-bar[data-project="obsia"] .ext-phase { background: var(--obsia-mid); }
   .phase-bar[data-project="slep-jardines"] .week-phase { background: var(--slep-jardines); }
   .phase-bar[data-project="slep-jardines"] .ext-phase { background: var(--slep-jardines-mid); }
+  .phase-bar[data-project="inacap-inv"] .week-phase { background: var(--inacap-inv); }
+  .phase-bar[data-project="inacap-inv"] .ext-phase { background: var(--inacap-inv-mid); }
+  .phase-bar[data-project="slep3"] .week-phase { background: var(--slep3); }
+  .phase-bar[data-project="slep3"] .ext-phase { background: var(--slep3-mid); }
 
   /* ===== View toggle (Cursos / Revisiones por TA) ===== */
   .view-toggle {
@@ -625,6 +647,44 @@
     color: #0f172a;
   }
   .ta-card .ta-totals .ta-totals-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .ta-pending-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 12px;
+  }
+  .ta-pending-row:last-of-type { border-bottom: none; }
+  .ta-pending-label {
+    color: #475569;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .ta-pending-num {
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    margin-left: 8px;
+  }
+  .ta-pending-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #e2e8f0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+  }
+  .ta-pending-big {
+    font-size: 22px;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
   }
   .ta-card .ta-capacity {
@@ -828,6 +888,32 @@
     padding: 12px 0;
   }
 
+  /* ===== Status tabs (Activas / Futuras / Cerradas) ===== */
+  .status-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .status-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    transition: background 0.15s, color 0.15s;
+  }
+  .status-btn:hover {
+    background: #cbd5e1;
+    color: #334155;
+  }
+  .status-btn.active {
+    background: #1e293b;
+    color: white;
+  }
+
   @media (max-width: 768px) {
     .day-cell { min-height: 70px; }
     .event { font-size: 8px; padding: 1px 2px; }
@@ -895,8 +981,14 @@
 <body>
 
 <div class="header">
-  <h1>Circles Learning — Calendario Otoño 2026</h1>
-  <p>22 cursos &middot; Febrero a Septiembre 2026</p>
+  <h1>Calendario Circles Learning</h1>
+  <p>Oto&ntilde;o-Invierno 2026</p>
+</div>
+
+<div class="status-tabs" id="statusTabs">
+  <button class="status-btn active" data-status="activas" onclick="switchStatus('activas')">Convocatorias activas</button>
+  <button class="status-btn" data-status="futuras" onclick="switchStatus('futuras')">Convocatorias futuras</button>
+  <button class="status-btn" data-status="cerradas" onclick="switchStatus('cerradas')">Convocatorias cerradas</button>
 </div>
 
 <div class="view-toggle" id="viewToggle">
@@ -936,6 +1028,12 @@
   <button class="tab" data-tab="slep-jardines" onclick="switchTab('slep-jardines')">
     <span class="tab-dot"></span> SLEP Jardines
   </button>
+  <button class="tab" data-tab="inacap-inv" onclick="switchTab('inacap-inv')">
+    <span class="tab-dot"></span> INACAP Inv
+  </button>
+  <button class="tab" data-tab="slep3" onclick="switchTab('slep3')">
+    <span class="tab-dot"></span> SLEP Tamarugal 3
+  </button>
 </div>
 
 <div class="controls">
@@ -968,7 +1066,7 @@
 const courses = [
   {
     id: "sb-ia-edu", project: "san-benito", projectLabel: "San Benito",
-    name: "IA para la educación", shortName: "IA Edu", students: 115,
+    name: "IA para la educación", shortName: "IA Edu", students: 115, status: "cerrada",
     period: { start: "2026-02-24", end: "2026-04-03" },
     match: { start: "2026-02-24", end: "2026-02-26" },
     weeks: [
@@ -985,7 +1083,7 @@ const courses = [
   },
   {
     id: "sb-ia-avz", project: "san-benito", projectLabel: "San Benito",
-    name: "IA Avanzado", shortName: "IA Avz", students: 45,
+    name: "IA Avanzado", shortName: "IA Avz", students: 45, status: "cerrada",
     period: { start: "2026-02-24", end: "2026-04-03" },
     match: { start: "2026-02-24", end: "2026-02-26" },
     weeks: [
@@ -1002,7 +1100,7 @@ const courses = [
   },
   {
     id: "sb-gw", project: "san-benito", projectLabel: "San Benito",
-    name: "Google Workspace", shortName: "G.Work", students: 52,
+    name: "Google Workspace", shortName: "G.Work", students: 52, status: "cerrada",
     period: { start: "2026-04-14", end: "2026-05-29" },
     match: { start: "2026-04-14", end: "2026-04-17" },
     weeks: [
@@ -1020,7 +1118,7 @@ const courses = [
   },
   {
     id: "sb-cl", project: "san-benito", projectLabel: "San Benito",
-    name: "Comprensión lectora", shortName: "Comp.L", students: 20,
+    name: "Comprensión lectora", shortName: "Comp.L", students: 20, status: "cerrada",
     period: { start: "2026-04-21", end: "2026-06-05" },
     match: { start: "2026-04-21", end: "2026-04-24" },
     weeks: [
@@ -1038,7 +1136,7 @@ const courses = [
   },
   {
     id: "sip-mce-doc", project: "sip", projectLabel: "SIP",
-    name: "MCE Docentes", shortName: "MCE Doc", students: 1200,
+    name: "MCE Docentes", shortName: "MCE Doc", students: 1200, status: "activa",
     period: { start: "2026-03-30", end: "2026-05-29" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -1058,7 +1156,7 @@ const courses = [
   },
   {
     id: "sip-mce-ast", project: "sip", projectLabel: "SIP",
-    name: "MCE Asistentes educación", shortName: "MCE Asist", students: 450,
+    name: "MCE Asistentes educación", shortName: "MCE Asist", students: 450, status: "activa",
     period: { start: "2026-03-30", end: "2026-05-15" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -1076,25 +1174,30 @@ const courses = [
   },
   {
     id: "sip-mce-lid", project: "sip", projectLabel: "SIP",
-    name: "MCE Líderes", shortName: "MCE Líd", students: 0,
-    period: { start: "2026-07-20", end: "2026-09-11" },
-    match: { start: "2026-07-20", end: "2026-07-24" },
+    name: "MCE Líderes", shortName: "MCE Líd", students: 40, status: "activa",
+    period: { start: "2026-07-27", end: "2026-10-30" },
+    match: { start: "2026-07-27", end: "2026-07-31" },
     weeks: [
-      { sem: 1, start: "2026-07-27", end: "2026-07-31", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-08-03", end: "2026-08-07", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 1, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-17", end: "2026-08-21", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
     ],
     extensions: [
-      { ext: 1, start: "2026-08-17", end: "2026-08-21" },
-      { ext: 2, start: "2026-08-24", end: "2026-08-28" },
-      { ext: 3, start: "2026-08-31", end: "2026-09-04" },
-      { ext: 4, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 1, start: "2026-08-31", end: "2026-09-04" },
+      { ext: 2, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 3, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 4, start: "2026-09-28", end: "2026-10-02" },
+      { ext: 5, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 6, start: "2026-10-12", end: "2026-10-16" },
+      { ext: 7, start: "2026-10-19", end: "2026-10-23" },
+      { ext: 8, start: "2026-10-26", end: "2026-10-30" },
     ],
-    officeHours: ["2026-08-03T16:00", "2026-08-10T16:00"]
+    officeHours: ["2026-08-27T16:00", "2026-10-01T16:00"],
+    deadline: "2026-10-09"
   },
   {
     id: "cm-ia-basico", project: "chilemass", projectLabel: "ChileMass",
-    name: "IA básico", shortName: "IA Bás", students: 3000,
+    name: "IA básico", shortName: "IA Bás", students: 3000, status: "activa",
     period: { start: "2026-05-04", end: "2026-07-10" },
     match: { start: "2026-05-04", end: "2026-05-08" },
     weeks: [
@@ -1115,7 +1218,7 @@ const courses = [
   },
   {
     id: "cm-ia-avz", project: "chilemass", projectLabel: "ChileMass",
-    name: "IA Avanzado", shortName: "IA Avz", students: 3000,
+    name: "IA Avanzado", shortName: "IA Avz", students: 3000, status: "activa",
     period: { start: "2026-05-04", end: "2026-07-10" },
     match: { start: "2026-05-04", end: "2026-05-08" },
     weeks: [
@@ -1136,7 +1239,7 @@ const courses = [
   },
   {
     id: "puc-ia", project: "puc", projectLabel: "Curso IA PUC",
-    name: "IA para la educación superior", shortName: "PUC IA", students: 100,
+    name: "IA para la educación superior", shortName: "PUC IA", students: 100, status: "activa",
     period: { start: "2026-04-20", end: "2026-06-12" },
     match: { start: "2026-04-20", end: "2026-04-24" },
     weeks: [
@@ -1155,7 +1258,7 @@ const courses = [
   },
   {
     id: "slep-r0", project: "slep", projectLabel: "SLEP Tamarugal",
-    name: "Ruta 0 Docentes", shortName: "Ruta 0", students: 700,
+    name: "Ruta 0 Docentes", shortName: "Ruta 0", students: 700, status: "cerrada",
     period: { start: "2026-03-30", end: "2026-05-15" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -1173,7 +1276,7 @@ const courses = [
   },
   {
     id: "slep-c1", project: "slep", projectLabel: "SLEP Tamarugal",
-    name: "Curso 1 Líderes", shortName: "Curso 1", students: 100,
+    name: "Curso 1 Líderes", shortName: "Curso 1", students: 100, status: "cerrada",
     period: { start: "2026-03-30", end: "2026-05-15" },
     match: { start: "2026-03-30", end: "2026-04-03" },
     weeks: [
@@ -1192,7 +1295,7 @@ const courses = [
   // ======== SLEP Tamarugal 2 — Otoño 2026 (4 cursos) ========
   {
     id: "slep2-obs", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Obs y retro IA", shortName: "Obs IA SLEP 2", students: 64,
+    name: "Obs y retro IA", shortName: "Obs IA SLEP 2", students: 64, status: "activa",
     period: { start: "2026-05-25", end: "2026-07-10" },
     match: { start: "2026-05-25", end: "2026-05-29" },
     weeks: [
@@ -1210,7 +1313,7 @@ const courses = [
   },
   {
     id: "slep2-ed", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Estrategias didácticas", shortName: "Est. did.", students: 106,
+    name: "Estrategias didácticas", shortName: "Est. did.", students: 106, status: "activa",
     period: { start: "2026-05-25", end: "2026-07-10" },
     match: { start: "2026-05-25", end: "2026-05-29" },
     weeks: [
@@ -1228,7 +1331,7 @@ const courses = [
   },
   {
     id: "slep2-ia", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "IA para la educación", shortName: "IA edu", students: 230,
+    name: "IA para la educación", shortName: "IA edu", students: 230, status: "activa",
     period: { start: "2026-05-25", end: "2026-07-10" },
     match: { start: "2026-05-25", end: "2026-05-29" },
     weeks: [
@@ -1246,7 +1349,7 @@ const courses = [
   },
   {
     id: "slep2-conv", project: "slep2", projectLabel: "SLEP Tamarugal 2",
-    name: "Convivencia escolar", shortName: "Convivencia", students: 141,
+    name: "Convivencia escolar", shortName: "Convivencia", students: 141, status: "activa",
     period: { start: "2026-05-25", end: "2026-07-10" },
     match: { start: "2026-05-25", end: "2026-05-29" },
     weeks: [
@@ -1265,7 +1368,7 @@ const courses = [
   // ======== INACAP — Otoño 2026 (10 cursos) ========
   {
     id: "inacap-ip1", project: "inacap", projectLabel: "INACAP",
-    name: "Innovación pedagógica I", shortName: "InnovP1", students: 0,
+    name: "Innovación pedagógica I", shortName: "InnovP1", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1283,7 +1386,7 @@ const courses = [
   },
   {
     id: "inacap-ip2", project: "inacap", projectLabel: "INACAP",
-    name: "Innovación pedagógica II", shortName: "InnovP2", students: 0,
+    name: "Innovación pedagógica II", shortName: "InnovP2", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1301,7 +1404,7 @@ const courses = [
   },
   {
     id: "inacap-dgi", project: "inacap", projectLabel: "INACAP",
-    name: "Diversidad, Género e Inclusión II", shortName: "DGI2", students: 0,
+    name: "Diversidad, Género e Inclusión II", shortName: "DGI2", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1319,7 +1422,7 @@ const courses = [
   },
   {
     id: "inacap-cd", project: "inacap", projectLabel: "INACAP",
-    name: "Competencias digitales", shortName: "CompDig", students: 0,
+    name: "Competencias digitales", shortName: "CompDig", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1337,7 +1440,7 @@ const courses = [
   },
   {
     id: "inacap-ep", project: "inacap", projectLabel: "INACAP",
-    name: "Elaboración de Proyectos", shortName: "ElabProy", students: 0,
+    name: "Elaboración de Proyectos", shortName: "ElabProy", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1355,7 +1458,7 @@ const courses = [
   },
   {
     id: "inacap-ev", project: "inacap", projectLabel: "INACAP",
-    name: "Evaluación", shortName: "Eval", students: 0,
+    name: "Evaluación", shortName: "Eval", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1373,7 +1476,7 @@ const courses = [
   },
   {
     id: "inacap-erpia", project: "inacap", projectLabel: "INACAP",
-    name: "Elaboración y revisión de productos con Inteligencia Artificial", shortName: "ERPIA", students: 0,
+    name: "Elaboración y revisión de productos con Inteligencia Artificial", shortName: "ERPIA", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1391,7 +1494,7 @@ const courses = [
   },
   {
     id: "inacap-ed", project: "inacap", projectLabel: "INACAP",
-    name: "Estrategias didácticas", shortName: "EstDid", students: 0,
+    name: "Estrategias didácticas", shortName: "EstDid", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1409,7 +1512,7 @@ const courses = [
   },
   {
     id: "inacap-edo", project: "inacap", projectLabel: "INACAP",
-    name: "Estrategias didácticas para cursos online", shortName: "EstDidOn", students: 0,
+    name: "Estrategias didácticas para cursos online", shortName: "EstDidOn", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1427,7 +1530,7 @@ const courses = [
   },
   {
     id: "inacap-gp", project: "inacap", projectLabel: "INACAP",
-    name: "Gestión de Proyectos", shortName: "GestProy", students: 0,
+    name: "Gestión de Proyectos", shortName: "GestProy", students: 0, status: "activa",
     period: { start: "2026-05-19", end: "2026-07-03" },
     match: { start: "2026-05-19", end: "2026-05-29" },
     weeks: [
@@ -1446,7 +1549,7 @@ const courses = [
   // ======== Observación de aula con IA ========
   {
     id: "obsia-1", project: "obsia", projectLabel: "ObsIA",
-    name: "Observación y acompañamiento docente con IA", shortName: "ObsIA", students: 0,
+    name: "Observación y acompañamiento docente con IA", shortName: "ObsIA", students: 0, status: "activa",
     period: { start: "2026-05-18", end: "2026-07-03" },
     match: { start: "2026-05-18", end: "2026-05-22" },
     weeks: [
@@ -1465,7 +1568,7 @@ const courses = [
   // ======== SLEP Jardines — Jornadas 2026 ========
   {
     id: "slep-jardines-ed", project: "slep-jardines", projectLabel: "SLEP Jardines",
-    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est.did.", students: 46,
+    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est.did.", students: 46, status: "activa",
     period: { start: "2026-05-22", end: "2026-06-30" },
     match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
     jornadas: [
@@ -1476,7 +1579,7 @@ const courses = [
   },
   {
     id: "slep-jardines-div", project: "slep-jardines", projectLabel: "SLEP Jardines",
-    name: "Diversificación de la enseñanza", shortName: "Divers.", students: 46,
+    name: "Diversificación de la enseñanza", shortName: "Divers.", students: 46, status: "activa",
     period: { start: "2026-08-27", end: "2026-08-28" },
     match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
     jornadas: [
@@ -1487,7 +1590,7 @@ const courses = [
   },
   {
     id: "slep-jardines-pme", project: "slep-jardines", projectLabel: "SLEP Jardines",
-    name: "Toma de decisiones basada en evidencias (PME)", shortName: "PME", students: 46,
+    name: "Toma de decisiones basada en evidencias (PME)", shortName: "PME", students: 46, status: "activa",
     period: { start: "2026-12-11", end: "2026-12-29" },
     match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
     jornadas: [
@@ -1495,6 +1598,242 @@ const courses = [
       { jardin: "Piqueñitos", comuna: "Pica", fecha: "2026-12-29" },
       // Semillita - Camiña: sin fecha por ahora
     ]
+  },
+  // ======== INACAP Invierno 2026 (9 cursos) ========
+  {
+    id: "inacap-inv-iae", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "IA para la Educación", shortName: "IAE", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-08-31T16:30", "2026-09-14T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-iaea", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "IA para la Educación Avanzado", shortName: "IAEA", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-08-31T18:00", "2026-09-14T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-ed", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Estrategias Didácticas", shortName: "ED", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-01T16:30", "2026-09-15T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-cd", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Competencias Digitales", shortName: "CD", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-01T18:00", "2026-09-15T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-ep", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Elaboración de Proyectos", shortName: "EP", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-02T16:30", "2026-09-16T16:30"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-gp", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Gestión de Proyectos", shortName: "GP", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-02T18:00", "2026-09-16T18:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-erpia", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "ERPIA", shortName: "ERPIA", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-03T18:00", "2026-09-16T15:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-edo", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Estrategias Didácticas Online", shortName: "EDO", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-03T16:30", "2026-09-15T15:00"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "inacap-inv-ev", project: "inacap-inv", projectLabel: "INACAP Invierno",
+    name: "Evaluación", shortName: "Ev", students: 0, status: "futura",
+    period: { start: "2026-08-18", end: "2026-10-02" },
+    match: { start: "2026-08-18", end: "2026-08-21" },
+    weeks: [
+      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 2, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
+      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
+    ],
+    officeHours: ["2026-09-04T16:30", "2026-09-14T15:00"],
+    deadline: "2026-10-02"
+  },
+  // ======== SLEP Tamarugal 3 — Invierno 2026 (4 cursos) ========
+  {
+    id: "slep3-tde", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Toma de decisiones basada en evidencia", shortName: "TDE", students: 0, status: "futura",
+    period: { start: "2026-08-03", end: "2026-09-25" },
+    match: { start: "2026-08-03", end: "2026-08-07" },
+    weeks: [
+      { sem: 1, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-17", end: "2026-08-21", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 2, start: "2026-09-14", end: "2026-09-18" },
+      { ext: 3, start: "2026-09-21", end: "2026-09-25" },
+    ],
+    officeHours: []
+  },
+  {
+    id: "slep3-incdiv", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Inclusión y diversidad en el aula", shortName: "IncDiv", students: 0, status: "futura",
+    period: { start: "2026-08-03", end: "2026-09-25" },
+    match: { start: "2026-08-03", end: "2026-08-07" },
+    weeks: [
+      { sem: 1, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-17", end: "2026-08-21", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 2, start: "2026-09-14", end: "2026-09-18" },
+      { ext: 3, start: "2026-09-21", end: "2026-09-25" },
+    ],
+    officeHours: []
+  },
+  {
+    id: "slep3-evalform", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Evaluación formativa", shortName: "EvalForm", students: 0, status: "futura",
+    period: { start: "2026-08-03", end: "2026-09-25" },
+    match: { start: "2026-08-03", end: "2026-08-07" },
+    weeks: [
+      { sem: 1, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-17", end: "2026-08-21", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 2, start: "2026-09-14", end: "2026-09-18" },
+      { ext: 3, start: "2026-09-21", end: "2026-09-25" },
+    ],
+    officeHours: []
+  },
+  {
+    id: "slep3-multigrado", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Enseñanza en contexto multigrado", shortName: "Multigrado", students: 0, status: "futura",
+    period: { start: "2026-08-03", end: "2026-09-25" },
+    match: { start: "2026-08-03", end: "2026-08-07" },
+    weeks: [
+      { sem: 1, start: "2026-08-10", end: "2026-08-14", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-08-17", end: "2026-08-21", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-09-07", end: "2026-09-11" },
+      { ext: 2, start: "2026-09-14", end: "2026-09-18" },
+      { ext: 3, start: "2026-09-21", end: "2026-09-25" },
+    ],
+    officeHours: []
   },
 ];
 
@@ -1507,7 +1846,9 @@ const projectNames = {
   "slep2": "SLEP Tamarugal 2",
   "inacap": "INACAP Otoño 2026",
   "obsia": "Observación y acompañamiento docente con IA",
-  "slep-jardines": "SLEP Jardines"
+  "slep-jardines": "SLEP Jardines",
+  "inacap-inv": "INACAP Invierno 2026",
+  "slep3": "SLEP Tamarugal 3"
 };
 
 // ============ FERIADOS CHILE 2026 ============
@@ -1521,6 +1862,7 @@ const holidays = {
   "2026-08-15": "Asunción de la Virgen",
   "2026-09-18": "Fiestas Patrias",
   "2026-09-19": "Glorias del Ejército",
+  "2026-10-12": "Día del Encuentro de Dos Mundos",
 };
 
 // ============ TA ASSIGNMENTS ============
@@ -1596,10 +1938,12 @@ let currentYear = 2026;
 let currentMonth = new Date().getMonth(); // mes actual automático
 let activeTabs = new Set(["all"]); // multi-select tabs
 let hiddenCourses = new Set(); // composite keys "project::name" — cursos ocultos del calendario
+let currentStatus = "activas"; // "activas" | "futuras" | "cerradas"
 let viewMode = "courses"; // "courses" | "tas"
 let selectedTaKey = null; // email del TA seleccionado en vista TA, o null
 let taProgressData = null; // datos de avance real, cargados desde JSON
 const today = new Date();
+const statusMap = { activas: "activa", futuras: "futura", cerradas: "cerrada" };
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 // ============ HELPERS ============
@@ -1621,8 +1965,9 @@ function courseKey(c) {
 }
 
 function getCoursesByTab() {
-  if (activeTabs.has("all")) return courses;
-  return courses.filter(c => activeTabs.has(c.project));
+  const statusFiltered = courses.filter(c => (c.status || "activa") === statusMap[currentStatus]);
+  if (activeTabs.has("all")) return statusFiltered;
+  return statusFiltered.filter(c => activeTabs.has(c.project));
 }
 
 function getFilteredCourses() {
@@ -1644,18 +1989,21 @@ function computeAssignmentMetrics(a) {
 }
 
 function getVisibleTAs() {
-  // Filtra TAs por las pestañas activas. Cuando hay un filtro de convocatoria,
-  // solo muestra TAs con asignaciones en esa(s) convocatoria(s) y solo cuenta
-  // esas asignaciones para los totales (opción "a" del diseño).
+  // Filtra TAs por las pestañas activas y el status actual.
+  const statusProjects = new Set(courses.filter(c => (c.status || "activa") === statusMap[currentStatus]).map(c => c.project));
   if (activeTabs.has("all")) {
     return taAssignments
       .filter(t => t.assignments.length > 0)
-      .map(t => ({ ta: t, visibleAssignments: t.assignments }));
+      .map(t => ({
+        ta: t,
+        visibleAssignments: t.assignments.filter(a => statusProjects.has(a.project))
+      }))
+      .filter(x => x.visibleAssignments.length > 0);
   }
   return taAssignments
     .map(t => ({
       ta: t,
-      visibleAssignments: t.assignments.filter(a => activeTabs.has(a.project))
+      visibleAssignments: t.assignments.filter(a => activeTabs.has(a.project) && statusProjects.has(a.project))
     }))
     .filter(x => x.visibleAssignments.length > 0);
 }
@@ -2088,11 +2436,10 @@ function renderStats() {
     const me = `${currentYear}-${String(currentMonth+1).padStart(2,"0")}-${new Date(currentYear,currentMonth+1,0).getDate()}`;
 
     const filtered = getFilteredCourses();
-    let active = 0, students = 0, matches = 0, ohs = 0;
+    let active = 0, students = 0, ohs = 0;
 
     for (const c of filtered) {
       if (c.period.start <= me && c.period.end >= ms) { active++; students += c.students; }
-      if (c.match && c.match.start >= ms && c.match.start <= me) matches++;
       for (const oh of c.officeHours) {
         const d = oh.split("T")[0];
         if (d >= ms && d <= me) ohs++;
@@ -2102,7 +2449,6 @@ function renderStats() {
     cards = [
       { n: active, l: "Cursos activos" },
       { n: students.toLocaleString("es-CL"), l: "Alumnos" },
-      { n: matches, l: "Matches" },
       { n: ohs, l: "Office Hours" }
     ];
   }
@@ -2263,7 +2609,6 @@ function renderTaPanel() {
     let totalReviewed = 0, totalPending = 0;
 
     if (taData) {
-      // Get unique projects from both assignments and JSON data
       const projects = new Set([
         ...Object.keys(taData),
         ...visibleAssignments.map(a => a.project)
@@ -2272,38 +2617,44 @@ function renderTaPanel() {
       for (const proj of projects) {
         const progData = taData[proj];
         if (!progData) continue;
-        const rev = progData.reviewed;
         const pend = progData.to_review;
-        totalReviewed += rev;
         totalPending += pend;
-        const pct = (rev + pend) > 0 ? Math.round(rev / (rev + pend) * 100) : 100;
-        const cc = progressColorClass(pct);
+        totalReviewed += progData.reviewed;
         const projLabel = projectNames[proj] || proj;
+        const pendColor = pend === 0 ? "#10b981" : pend >= 50 ? "#ef4444" : pend >= 20 ? "#f59e0b" : "#475569";
         cardRows += `
-          <div class="ta-progress-row">
-            <div class="ta-progress-label">${projLabel}</div>
-            <div class="ta-progress-bar"><div class="ta-progress-fill ${cc}" style="width:${pct}%"></div></div>
-            <div class="ta-progress-nums">
-              <span><strong>${pct}%</strong> al día</span>
-              <span>${rev} hechas · ${pend} pendientes</span>
-            </div>
+          <div class="ta-pending-row">
+            <span class="ta-pending-label">${projLabel}</span>
+            <span class="ta-pending-num" style="color:${pendColor}"><strong>${pend}</strong></span>
           </div>`;
       }
 
-      const totPct = (totalReviewed + totalPending) > 0 ? Math.round(totalReviewed / (totalReviewed + totalPending) * 100) : 100;
-      const tcc = progressColorClass(totPct);
+      const totalColor = totalPending === 0 ? "#10b981" : totalPending >= 100 ? "#ef4444" : totalPending >= 40 ? "#f59e0b" : "#0f172a";
       cardRows += `
-        <div class="ta-progress-total">
-          <div class="ta-progress-label">TOTAL</div>
-          <div class="ta-progress-bar"><div class="ta-progress-fill ${tcc}" style="width:${totPct}%"></div></div>
-          <div class="ta-progress-nums">
-            <span><strong>${totPct}%</strong> al día</span>
-            <span>${totalReviewed} hechas · ${totalPending} pendientes</span>
-          </div>
+        <div class="ta-pending-total">
+          <span>Pendientes</span>
+          <span class="ta-pending-big" style="color:${totalColor}">${totalPending}</span>
         </div>`;
       if (updated) cardRows += `<div class="ta-back-updated">Actualizado: ${updated}</div>`;
     } else {
-      cardRows = `<div class="ta-no-data">Sin datos de avance</div>`;
+      // Sin datos JSON: mostrar carga estimada por asignación
+      let totalPeak = 0;
+      for (const a of visibleAssignments) {
+        const m = computeAssignmentMetrics(a);
+        totalPeak += m.peak;
+        const course = findCourse(a.project, a.course);
+        const projLabel = course ? course.projectLabel : a.project;
+        cardRows += `
+          <div class="ta-pending-row">
+            <span class="ta-pending-label">${projLabel}: ${course ? course.shortName : a.course}</span>
+            <span class="ta-pending-num"><strong>${m.peak}</strong>/sem</span>
+          </div>`;
+      }
+      cardRows += `
+        <div class="ta-pending-total">
+          <span>Carga estimada</span>
+          <span class="ta-pending-big">${totalPeak}/sem</span>
+        </div>`;
     }
 
     const frontHtml = `
@@ -2378,14 +2729,14 @@ function renderSummary() {
     renderSummaryTable(panel, convocatoriasData);
   } else {
     panel.innerHTML = `<p style="color:#94a3b8;text-align:center;padding:40px">Cargando datos...</p>`;
-    fetch("convocatorias.json")
+    fetch("convocatorias-activas.json")
       .then(r => r.json())
       .then(data => {
         convocatoriasData = data;
         renderSummaryTable(panel, data);
       })
       .catch(() => {
-        panel.innerHTML = `<p style="color:#ef4444;text-align:center;padding:40px">Error cargando convocatorias.json</p>`;
+        panel.innerHTML = `<p style="color:#ef4444;text-align:center;padding:40px">Error cargando convocatorias-activas.json</p>`;
       });
   }
 }
@@ -2446,7 +2797,7 @@ function renderSummaryTable(panel, data) {
 
   panel.innerHTML = `
     <div class="summary-header">
-      <h2>Convocatorias activas — Otoño 2026</h2>
+      <h2>${({ activas: "Convocatorias activas", futuras: "Convocatorias futuras", cerradas: "Convocatorias cerradas" })[currentStatus] || "Convocatorias activas"} — Otoño-Invierno 2026</h2>
       <p>Actualización: ${now}</p>
     </div>
     <table class="summary-table">
@@ -2457,6 +2808,38 @@ function renderSummaryTable(panel, data) {
       <tbody>${rows}</tbody>
     </table>
   `;
+}
+
+// ============ STATUS TABS ============
+function switchStatus(status) {
+  currentStatus = status;
+  document.querySelectorAll(".status-btn").forEach(b => {
+    b.classList.toggle("active", b.getAttribute("data-status") === status);
+  });
+  // Reset tabs and hidden courses when switching status
+  activeTabs.clear();
+  activeTabs.add("all");
+  hiddenCourses.clear();
+  selectedTaKey = null;
+  document.querySelectorAll(".tab").forEach(t => {
+    t.classList.toggle("active", t.getAttribute("data-tab") === "all");
+  });
+  updateProjectTabsVisibility();
+  if (viewMode === "summary") {
+    renderSummary();
+  } else {
+    render();
+  }
+}
+
+function updateProjectTabsVisibility() {
+  const statusCourses = courses.filter(c => (c.status || "activa") === statusMap[currentStatus]);
+  const activeProjects = new Set(statusCourses.map(c => c.project));
+  activeProjects.add("all"); // always show "Vista unificada"
+  document.querySelectorAll("#tabsContainer .tab").forEach(t => {
+    const tab = t.getAttribute("data-tab");
+    t.style.display = activeProjects.has(tab) ? "" : "none";
+  });
 }
 
 // ============ TABS ============
@@ -2549,10 +2932,10 @@ function renderSummaryPanel() {
     const cc = progressColorClass(t.pct);
     const isSelected = selectedTaKey === getTaKey(ta);
     const rowCls = `clickable${isSelected ? " selected-row" : ""}`;
+    const pendColor = t.to_review === 0 ? "color:#10b981" : t.to_review >= 50 ? "color:#ef4444;font-weight:700" : t.to_review >= 20 ? "color:#f59e0b" : "";
     rows += `<tr class="${rowCls}" data-ta-email="${ta.email}">
       <td>${ta.name}</td>
-      <td>${t.reviewed}</td>
-      <td>${t.to_review}</td>
+      <td style="${pendColor}">${t.to_review}</td>
       <td><span class="mini-bar"><span class="mini-fill ${cc}" style="width:${t.pct}%"></span></span>${t.pct}%</td>
     </tr>`;
   }
@@ -2569,12 +2952,12 @@ function renderSummaryPanel() {
       </div>
       <table>
         <thead><tr>
-          <th>TA</th><th>Rev. hechas</th><th>Rev. pendientes</th><th>% al día</th>
+          <th>TA</th><th>Pendientes</th><th>% al día</th>
         </tr></thead>
         <tbody>
           ${rows}
           <tr class="total-row">
-            <td>TOTAL</td><td>${grandRev}</td><td>${grandPend}</td>
+            <td>TOTAL</td><td>${grandPend}</td>
             <td><span class="mini-bar"><span class="mini-fill ${grandCc}" style="width:${grandPct}%"></span></span>${grandPct}%</td>
           </tr>
         </tbody>
@@ -2603,6 +2986,7 @@ function changeMonth(delta) {
 
 // ============ INIT ============
 render();
+updateProjectTabsVisibility();
 
 // Cargar datos de avance de revisiones (JSON estático, actualizado por
 // export-ta-review-progress.py). Si el fetch falla, el calendario funciona

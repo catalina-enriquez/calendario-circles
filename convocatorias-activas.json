@@ -2,6 +2,12 @@
   "_meta": {
     "descripcion": "Fuente de verdad centralizada de todas las convocatorias, cursos, fechas, TAs, SAs (asistentes de soporte), deadlines de revisión, personas autorizadas a trabajar solas, y configuración de reportes. Usado por scripts, calendario GitHub Pages y reportes.",
     "campos_no_corregir": "Lista de personas cuyas entregas NO deben ser corregidas por el TA. Formato: {email, course_id, convocatoria, motivo?}. Se excluyen de conteos pendientes y urgentes, y se muestra sección informativa en el correo.",
+    "campos_restricciones_comunicacion": {
+      "horario_permitido": "Rango horario en que se pueden enviar comunicaciones (hora Chile CLT). null = sin restricción.",
+      "fechas_bloqueadas": "Lista de rangos de fechas en que NO se puede enviar ninguna comunicación. Formato: [{inicio, fin, motivo}].",
+      "aplica_a": "A quiénes aplica la restricción: 'inscritos', 'contraparte', o 'todos'.",
+      "tipos_bloqueados": "Tipos de comunicación bloqueados: 'todos' = correo, WhatsApp, llamada, etc."
+    },
     "campos_curso": {
       "deadline_revisiones": "Fecha CLT (YYYY-MM-DD) hasta la cual se aceptan entregas para revisión. Las entregas después de esta fecha no cuentan como pendientes. null = sin deadline.",
       "excluir_de_reportes": "true = curso excluido de reportes de revisiones pendientes y calidad de feedback (curso cerrado/terminado).",
@@ -10,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-07-02",
+    "actualizado": "2026-07-07",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -263,6 +269,33 @@
       "temporada": "otoño 2026",
       "estado": "activa",
       "carpeta": "SIP-otoño-2026",
+      "restricciones_comunicacion": {
+        "horario_permitido": {
+          "dias": ["lunes", "martes", "miercoles", "jueves", "viernes"],
+          "hora_inicio": "08:00",
+          "hora_fin": "17:00"
+        },
+        "fechas_bloqueadas": [
+          {
+            "inicio": "2026-07-16",
+            "fin": "2026-07-17",
+            "motivo": "Vacaciones de invierno"
+          },
+          {
+            "inicio": "2026-09-14",
+            "fin": "2026-09-18",
+            "motivo": "Fiestas Patrias"
+          },
+          {
+            "inicio": "2026-10-12",
+            "fin": "2026-10-12",
+            "motivo": "Día del Encuentro de Dos Mundos"
+          }
+        ],
+        "aplica_a": "inscritos",
+        "tipos_bloqueados": "todos",
+        "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
+      },
       "match": {
         "inicio": "2026-03-30",
         "fin": "2026-04-03"
@@ -449,12 +482,22 @@
         {
           "nombre": "Modelo de clase efectiva para el liderazgo pedagógico (Líderes)",
           "course_id": "01KJ69REFY73YZ71ZA80F0444R",
-          "inicio": "2026-07-27",
-          "cierre": "2026-08-23",
+          "inicio": "2026-08-10",
+          "cierre": "2026-10-30",
+          "cierre_publico": "2026-10-09",
           "modulos": 3,
           "inscritos": 40,
           "tas": [],
-          "abreviacion": "MCE Líd"
+          "abreviacion": "MCE Líd",
+          "match": {
+            "inicio": "2026-07-27",
+            "fin": "2026-07-31"
+          },
+          "office_hours": [
+            "2026-08-27T16:00",
+            "2026-10-01T16:00"
+          ],
+          "nota": "Correo con info de tutorías lo envía Circles directamente."
         }
       ]
     },
