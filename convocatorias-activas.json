@@ -170,7 +170,7 @@
       "fecha": "2026-07-08",
       "mensaje": "Emitir TODOS los certificados pendientes de SIP (MCE Docentes + MCE Asistentes). 2da tanda post-extensión.",
       "convocatoria": "sip-otono-2026",
-      "mostrado": false
+      "mostrado": true
     }
   ],
   "personas_autorizadas_solas": [
@@ -271,7 +271,13 @@
       "carpeta": "SIP-otoño-2026",
       "restricciones_comunicacion": {
         "horario_permitido": {
-          "dias": ["lunes", "martes", "miercoles", "jueves", "viernes"],
+          "dias": [
+            "lunes",
+            "martes",
+            "miercoles",
+            "jueves",
+            "viernes"
+          ],
           "hora_inicio": "08:00",
           "hora_fin": "17:00"
         },
