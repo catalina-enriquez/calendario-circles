@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T18:08:54",
+  "updated": "2026-07-14T19:13:13",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -7,14 +7,14 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 443,
-        "to_review": 48
+        "reviewed": 445,
+        "to_review": 46
       }
     },
     "denisse.circles@gmail.com": {
       "chilemass": {
-        "reviewed": 951,
-        "to_review": 13
+        "reviewed": 963,
+        "to_review": 1
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -32,7 +32,7 @@
       },
       "slep2": {
         "reviewed": 49,
-        "to_review": 2
+        "to_review": 3
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -46,7 +46,7 @@
       },
       "chilemass": {
         "reviewed": 1083,
-        "to_review": 0
+        "to_review": 1
       },
       "slep2": {
         "reviewed": 19,
@@ -65,8 +65,8 @@
         "to_review": 0
       },
       "san-benito": {
-        "reviewed": 203,
-        "to_review": 1
+        "reviewed": 204,
+        "to_review": 0
       },
       "inacap": {
         "reviewed": 194,
@@ -76,11 +76,11 @@
     "teacherdan.eng@gmail.com": {
       "sip": {
         "reviewed": 206,
-        "to_review": 0
+        "to_review": 2
       },
       "chilemass": {
-        "reviewed": 455,
-        "to_review": 47
+        "reviewed": 502,
+        "to_review": 0
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -93,8 +93,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 515,
-        "to_review": 1
+        "reviewed": 516,
+        "to_review": 0
       },
       "slep2": {
         "reviewed": 108,
@@ -103,15 +103,15 @@
     },
     "victoriamarcenaro@gmail.com": {
       "sip": {
-        "reviewed": 287,
-        "to_review": 4
+        "reviewed": 288,
+        "to_review": 3
       },
       "inacap": {
-        "reviewed": 395,
-        "to_review": 5
+        "reviewed": 396,
+        "to_review": 4
       },
       "slep2": {
-        "reviewed": 128,
+        "reviewed": 127,
         "to_review": 0
       }
     }
