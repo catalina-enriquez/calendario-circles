@@ -16,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-07-07",
+    "actualizado": "2026-07-14",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -98,73 +98,7 @@
       "email": "mariaignacia@getcircles.org"
     }
   ],
-  "no_corregir_entregas": [
-    {
-      "email": "juan.burgos23@inacapmail.cl",
-      "course_id": "01KRW3R257TNJSMP0V43VAKC01",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "marcelo.gonzalez48@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "No participó nunca, marcaron sin querer"
-    },
-    {
-      "email": "mariela.figueroa03@inacapmail.cl",
-      "course_id": "01KRW3ND7G6H1ZTABF4251PXVQ",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "No participó nunca, marcaron sin querer"
-    },
-    {
-      "email": "emilia.vargas@inacapmail.cl",
-      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "No participó de todas las entregas, solo al principio"
-    },
-    {
-      "email": "constanza.grossi@inacapmail.cl",
-      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "No participó de todas las entregas, solo al principio"
-    },
-    {
-      "email": "jorge.figueroa15@inacapmail.cl",
-      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó, marcaron sin querer"
-    },
-    {
-      "email": "sebastian.lopez10@inacapmail.cl",
-      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó, marcaron sin querer"
-    },
-    {
-      "email": "cristian.vieille@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó"
-    },
-    {
-      "email": "pablo.constancio02@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó"
-    },
-    {
-      "email": "jose.bravo63@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó"
-    },
-    {
-      "email": "jaime.brito@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026",
-      "motivo": "Nunca participó"
-    }
-  ],
+  "no_corregir_entregas": [],
   "recordatorios": [
     {
       "fecha": "2026-07-08",
@@ -180,46 +114,6 @@
       "convocatoria": "chilemass-otono-2026"
     },
     {
-      "email": "claudio.salinas07@inacapmail.cl",
-      "course_id": "01KRW3PQDV34TDA72EZ6Q1668Y",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "jessica.alarcon11@inacapmail.cl",
-      "course_id": "01KRW3N8093ETBCN5R3560MDXW",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "jrguerra@uc.cl",
-      "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
-      "convocatoria": "ia-puc-otono-2026"
-    },
-    {
-      "email": "patricio.pasten05@inacapmail.cl",
-      "course_id": "01KRW3PA04X51DD1JMX053C875",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "ricardo.guzman05@inacapmail.cl",
-      "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "julio.parra03@inacapmail.cl",
-      "course_id": "01KRW3QTNBBE6HDHN83D7JKECA",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "tamara.laibe@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "eduardo.marquez05@inacapmail.cl",
-      "course_id": "01KRW3R257TNJSMP0V43VAKC01",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
       "email": "cgreene@colegiosanbenito.org",
       "course_id": "01KPEHG62JB3N1WYN34NKYSBNV",
       "convocatoria": "san-benito-otono-2026"
@@ -230,11 +124,6 @@
       "convocatoria": "chilemass-otono-2026"
     },
     {
-      "email": "cesar.ahumada05@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
       "email": "paula.ramirez@colegiosab.cl",
       "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
       "convocatoria": "chilemass-otono-2026"
@@ -243,16 +132,6 @@
       "email": "gustavomartinez@liceosannicolas.cl",
       "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
       "convocatoria": "chilemass-otono-2026"
-    },
-    {
-      "email": "pilar.vidal02@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026"
-    },
-    {
-      "email": "david.contreras12@inacapmail.cl",
-      "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-      "convocatoria": "inacap-otono-2026"
     },
     {
       "email": "katherine.morales.z@gmail.com",
@@ -508,45 +387,6 @@
       ]
     },
     {
-      "id": "ia-puc-otono-2026",
-      "nombre": "IA PUC",
-      "cliente": "Pontificia Universidad Católica de Chile",
-      "temporada": "otoño 2026",
-      "estado": "activa",
-      "carpeta": "IA-PUC-otoño-2026",
-      "contraparte": {
-        "to": [
-          "maringler@uc.cl",
-          "jdgarcia@uc.cl"
-        ]
-      },
-      "match": {
-        "inicio": "2026-04-20",
-        "fin": "2026-04-24"
-      },
-      "cursos": [
-        {
-          "nombre": "IA para la educación superior",
-          "course_id": "01KP6HYCR5RR6C9T755Q6MMW7E",
-          "inicio": "2026-04-27",
-          "cierre": "2026-07-03",
-          "deadline_revisiones": null,
-          "modulos": 6,
-          "inscritos": 72,
-          "tas": [
-            "Daniela García"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": "parcial",
-            "nota": "1ra tanda emitida. Falta 2da tanda post-extensión."
-          },
-          "abreviacion": "PUC IA"
-        }
-      ]
-    },
-    {
       "id": "chilemass-otono-2026",
       "nombre": "IA ChileMass",
       "cliente": "ChileMass",
@@ -564,6 +404,7 @@
           "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
           "inicio": "2026-05-11",
           "cierre": "2026-07-10",
+          "deadline_revisiones": "2026-07-10",
           "tareas_revision_automatica": [
             2,
             3
@@ -586,6 +427,7 @@
           "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
           "inicio": "2026-05-11",
           "cierre": "2026-07-10",
+          "deadline_revisiones": "2026-07-10",
           "tareas_revision_automatica": [
             2
           ],
@@ -602,233 +444,6 @@
             "emitidos": false
           },
           "abreviacion": "IA Avz"
-        }
-      ]
-    },
-    {
-      "id": "inacap-otono-2026",
-      "nombre": "INACAP",
-      "cliente": "INACAP",
-      "temporada": "otoño 2026",
-      "estado": "activa",
-      "carpeta": "INACAP-otoño-2026",
-      "contraparte": {
-        "to": [
-          "ascappini@inacap.cl"
-        ],
-        "cc": [
-          "mgallardoj@inacap.cl"
-        ]
-      },
-      "match": {
-        "inicio": "2026-05-19",
-        "fin": "2026-05-29"
-      },
-      "cursos": [
-        {
-          "nombre": "Evaluación",
-          "course_id": "01KRW3N8093ETBCN5R3560MDXW",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 54,
-          "tas": [
-            "Victoria Marcenaro"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "Eval"
-        },
-        {
-          "nombre": "Estrategias didácticas",
-          "course_id": "01KRW3ND7G6H1ZTABF4251PXVQ",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 81,
-          "tas": [
-            "Victoria Marcenaro"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "EstDid"
-        },
-        {
-          "nombre": "Elaboración de proyectos",
-          "course_id": "01KRW3NSQTEQCMCQ7E20BQWC3B",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 62,
-          "tas": [
-            "Victoria Marcenaro"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "ElabProy"
-        },
-        {
-          "nombre": "Diversidad, Género e Inclusión II",
-          "course_id": "01KRW3PA04X51DD1JMX053C875",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 41,
-          "tas": [
-            "Daniela García"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "DGI2"
-        },
-        {
-          "nombre": "Competencias digitales",
-          "course_id": "01KRW3PQDV34TDA72EZ6Q1668Y",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 52,
-          "tas": [
-            "Pamela Opazo"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "CompDig"
-        },
-        {
-          "nombre": "Elaboración y revisión de productos con IA",
-          "course_id": "01KRW3Q2MYRCCM4A1KR7KA66VW",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 121,
-          "tas": [
-            "Daniela García"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "ERPIA"
-        },
-        {
-          "nombre": "Innovación pedagógica I",
-          "course_id": "01KRW3QN84VS32XM3F29S80R3R",
-          "inicio": "2026-05-25",
-          "cierre": "2026-06-22",
-          "modulos": 4,
-          "inscritos": 48,
-          "tas": [
-            "Victoria Marcenaro"
-          ],
-          "cierre_publico": "2026-06-19",
-          "finalizado": true,
-          "deadline_revisiones": "2026-06-22",
-          "certificados": {
-            "primera_emision": "2026-06-23",
-            "emitidos": false
-          },
-          "abreviacion": "InnovP1"
-        },
-        {
-          "nombre": "Innovación pedagógica II",
-          "course_id": "01KRW3QTNBBE6HDHN83D7JKECA",
-          "inicio": "2026-05-25",
-          "cierre": "2026-06-22",
-          "modulos": 4,
-          "inscritos": 59,
-          "tas": [
-            "Pamela Opazo"
-          ],
-          "cierre_publico": "2026-06-19",
-          "finalizado": true,
-          "deadline_revisiones": "2026-06-22",
-          "certificados": {
-            "primera_emision": "2026-06-23",
-            "emitidos": false
-          },
-          "abreviacion": "InnovP2"
-        },
-        {
-          "nombre": "Gestión de proyectos",
-          "course_id": "01KRW3R257TNJSMP0V43VAKC01",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 32,
-          "tas": [
-            "Victoria Marcenaro"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "GestProy"
-        },
-        {
-          "nombre": "Estrategias didácticas para cursos online",
-          "course_id": "01KRXRFZ18SSV1VC7C04MYA2H3",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 30,
-          "tas": [
-            "Daniela García"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "EstDidOn"
-        }
-      ]
-    },
-    {
-      "id": "obs-acomp-ia-otono-2026",
-      "nombre": "Obs y acomp docente IA",
-      "cliente": "Caja Los Andes / ChileMass",
-      "temporada": "otoño 2026",
-      "estado": "activa",
-      "carpeta": "Obs-acomp-docente-IA-otoño-2026",
-      "match": {
-        "inicio": "2026-05-18",
-        "fin": "2026-05-22"
-      },
-      "cursos": [
-        {
-          "nombre": "Observación y acompañamiento docente con IA",
-          "course_id": "01KRPRTWXNBFMDQ5F5THD7NQ2H",
-          "inicio": "2026-05-25",
-          "cierre": "2026-07-03",
-          "modulos": 4,
-          "inscritos": 83,
-          "tas": [
-            "Joseph Fuentealba"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "ObsIA"
         }
       ]
     },
