@@ -16,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-07-14",
+    "actualizado": "2026-07-15",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -108,37 +108,6 @@
     }
   ],
   "personas_autorizadas_solas": [
-    {
-      "email": "lcastro@cambridge.cl",
-      "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
-      "convocatoria": "chilemass-otono-2026"
-    },
-    {
-      "email": "cgreene@colegiosanbenito.org",
-      "course_id": "01KPEHG62JB3N1WYN34NKYSBNV",
-      "convocatoria": "san-benito-otono-2026"
-    },
-    {
-      "email": "angel.bravo@eplicancabur.cl",
-      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
-      "convocatoria": "chilemass-otono-2026"
-    },
-    {
-      "email": "paula.ramirez@colegiosab.cl",
-      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
-      "convocatoria": "chilemass-otono-2026"
-    },
-    {
-      "email": "gustavomartinez@liceosannicolas.cl",
-      "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
-      "convocatoria": "chilemass-otono-2026"
-    },
-    {
-      "email": "katherine.morales.z@gmail.com",
-      "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
-      "convocatoria": "chilemass-otono-2026",
-      "motivo": "Entró tarde al círculo, difícil encontrar compañeros, pero se comunicó siempre"
-    }
   ],
   "convocatorias": [
     {
@@ -383,67 +352,6 @@
             "2026-10-01T16:00"
           ],
           "nota": "Correo con info de tutorías lo envía Circles directamente."
-        }
-      ]
-    },
-    {
-      "id": "chilemass-otono-2026",
-      "nombre": "IA ChileMass",
-      "cliente": "ChileMass",
-      "temporada": "otoño 2026",
-      "estado": "activa",
-      "carpeta": "IA-ChileMass-otoño-2026",
-      "circulos_1_autorizados": true,
-      "match": {
-        "inicio": "2026-05-08",
-        "fin": "2026-05-10"
-      },
-      "cursos": [
-        {
-          "nombre": "IA para la educación",
-          "course_id": "01KQCZK6AW41J0SC1HYHGS0JYN",
-          "inicio": "2026-05-11",
-          "cierre": "2026-07-10",
-          "deadline_revisiones": "2026-07-10",
-          "tareas_revision_automatica": [
-            2,
-            3
-          ],
-          "modulos": 6,
-          "inscritos": 4018,
-          "tas": [
-            "Evelyn Duarte",
-            "Denisse Campusano"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "IA Bás"
-        },
-        {
-          "nombre": "IA para la educación - Avanzado",
-          "course_id": "01KQDSEYH7R6E76TKR9RKWM64P",
-          "inicio": "2026-05-11",
-          "cierre": "2026-07-10",
-          "deadline_revisiones": "2026-07-10",
-          "tareas_revision_automatica": [
-            2
-          ],
-          "modulos": 6,
-          "inscritos": 2197,
-          "tas": [
-            "Víctor Gálvez",
-            "Daniel Martínez",
-            "Dafne Polanco"
-          ],
-          "cierre_publico": "2026-06-19",
-          "certificados": {
-            "primera_emision": "2026-06-22",
-            "emitidos": false
-          },
-          "abreviacion": "IA Avz"
         }
       ]
     },
