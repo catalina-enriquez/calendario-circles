@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T18:00:03",
+  "updated": "2026-07-22T10:13:59",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -38,7 +38,7 @@
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
         "reviewed": 97,
-        "to_review": 0
+        "to_review": 1
       },
       "slep": {
         "reviewed": 265,
@@ -65,8 +65,8 @@
         "to_review": 0
       },
       "san-benito": {
-        "reviewed": 204,
-        "to_review": 0
+        "reviewed": 203,
+        "to_review": 1
       },
       "inacap": {
         "reviewed": 194,
@@ -80,7 +80,7 @@
       },
       "chilemass": {
         "reviewed": 502,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -93,8 +93,8 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 516,
-        "to_review": 10
+        "reviewed": 515,
+        "to_review": 11
       },
       "slep2": {
         "reviewed": 108,
@@ -107,8 +107,8 @@
         "to_review": 4
       },
       "inacap": {
-        "reviewed": 396,
-        "to_review": 4
+        "reviewed": 395,
+        "to_review": 5
       },
       "slep2": {
         "reviewed": 128,
