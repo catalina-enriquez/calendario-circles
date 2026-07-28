@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27T18:00:05",
+  "updated": "2026-07-28T10:00:07",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -50,7 +50,7 @@
       },
       "slep2": {
         "reviewed": 19,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "joseph.fuentealba@inacapmail.cl": {
@@ -93,12 +93,12 @@
         "to_review": 0
       },
       "chilemass": {
-        "reviewed": 515,
-        "to_review": 11
+        "reviewed": 516,
+        "to_review": 10
       },
       "slep2": {
         "reviewed": 108,
-        "to_review": 0
+        "to_review": 1
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -107,12 +107,12 @@
         "to_review": 4
       },
       "inacap": {
-        "reviewed": 393,
-        "to_review": 7
+        "reviewed": 395,
+        "to_review": 5
       },
       "slep2": {
         "reviewed": 128,
-        "to_review": 0
+        "to_review": 3
       }
     }
   }
