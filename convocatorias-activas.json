@@ -160,7 +160,7 @@
           "course_id": "01KJ59XSTVGZ3BWCZGJKX8MCS7",
           "inicio": "2026-04-06",
           "cierre": "2026-06-19",
-          "deadline_revisiones": "2026-06-19",
+          "deadline_revisiones": "2026-07-19",
           "modulos": 4,
           "inscritos": 1362,
           "tas": [
@@ -217,7 +217,7 @@
             },
             {
               "email": "claudia.onell@sip.cl",
-              "deadline": "2026-07-24"
+              "deadline": "2026-08-07"
             },
             {
               "email": "rescalona@sip.cl",
@@ -269,7 +269,7 @@
             },
             {
               "email": "alvaro.jofre@sip.cl",
-              "deadline": "2026-07-24"
+              "deadline": "2026-08-07"
             },
             {
               "email": "doris.castillo@sip.cl",
@@ -285,7 +285,7 @@
             },
             {
               "email": "alejandra.vega@sip.cl",
-              "deadline": "2026-07-24"
+              "deadline": "2026-08-07"
             },
             {
               "email": "claudia.ortiz@sip.cl",
@@ -303,7 +303,7 @@
           "course_id": "01KKW7RC8NF412HDDWKETNWTT6",
           "inicio": "2026-04-06",
           "cierre": "2026-06-19",
-          "deadline_revisiones": "2026-06-19",
+          "deadline_revisiones": "2026-07-19",
           "modulos": 2,
           "inscritos": 277,
           "tas": [
