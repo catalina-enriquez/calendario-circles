@@ -107,8 +107,7 @@
       "mostrado": true
     }
   ],
-  "personas_autorizadas_solas": [
-  ],
+  "personas_autorizadas_solas": [],
   "convocatorias": [
     {
       "id": "sip-otono-2026",
@@ -294,6 +293,10 @@
             {
               "email": "andres.diaz@sip.cl",
               "deadline": "2026-07-24"
+            },
+            {
+              "email": "claudio.cifuentes@sip.cl",
+              "deadline": "2026-08-07"
             }
           ],
           "abreviacion": "MCE Doc"
@@ -392,7 +395,8 @@
             "primera_emision": "2026-06-29",
             "emitidos": false
           },
-          "abreviacion": "Obs IA SLEP 2"
+          "abreviacion": "Obs IA SLEP 2",
+          "deadline_revisiones": "2026-08-07"
         },
         {
           "nombre": "Estrategias didácticas de aprendizaje activo",
@@ -409,7 +413,8 @@
             "primera_emision": "2026-06-29",
             "emitidos": false
           },
-          "abreviacion": "Est. did."
+          "abreviacion": "Est. did.",
+          "deadline_revisiones": "2026-08-07"
         },
         {
           "nombre": "Convivencia escolar y regulación emocional",
@@ -426,7 +431,8 @@
             "primera_emision": "2026-06-29",
             "emitidos": false
           },
-          "abreviacion": "Convivencia"
+          "abreviacion": "Convivencia",
+          "deadline_revisiones": "2026-08-07"
         },
         {
           "nombre": "IA para la educación",
@@ -443,7 +449,8 @@
             "primera_emision": "2026-06-29",
             "emitidos": false
           },
-          "abreviacion": "IA edu"
+          "abreviacion": "IA edu",
+          "deadline_revisiones": "2026-08-07"
         }
       ]
     },
