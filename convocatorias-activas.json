@@ -16,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-07-15",
+    "actualizado": "2026-08-04",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -384,7 +384,7 @@
           "nombre": "Observación y retroalimentación de clases con IA",
           "course_id": "01KS934NNA8R8FRW3EZGDR1JWY",
           "inicio": "2026-06-01",
-          "cierre": "2026-07-31",
+          "cierre": "2026-08-07",
           "modulos": 4,
           "inscritos": 69,
           "tas": [
@@ -402,7 +402,7 @@
           "nombre": "Estrategias didácticas de aprendizaje activo",
           "course_id": "01KS94PE87S6H56AZ29T2EEJ1Q",
           "inicio": "2026-06-01",
-          "cierre": "2026-07-31",
+          "cierre": "2026-08-07",
           "modulos": 4,
           "inscritos": 120,
           "tas": [
@@ -420,7 +420,7 @@
           "nombre": "Convivencia escolar y regulación emocional",
           "course_id": "01KS94V91FX3DWKDEAYZ4MV5NK",
           "inicio": "2026-06-01",
-          "cierre": "2026-07-31",
+          "cierre": "2026-08-07",
           "modulos": 4,
           "inscritos": 162,
           "tas": [
@@ -438,7 +438,7 @@
           "nombre": "IA para la educación",
           "course_id": "01KS94W4C7ENEBZ233A88WP64M",
           "inicio": "2026-06-01",
-          "cierre": "2026-07-31",
+          "cierre": "2026-08-07",
           "modulos": 4,
           "inscritos": 264,
           "tas": [
@@ -551,6 +551,283 @@
             }
           ],
           "nota": "Semillita - Camiña: sin fecha por ahora"
+        }
+      ]
+    },
+    {
+      "id": "inacap-invierno-2026",
+      "nombre": "INACAP Invierno",
+      "cliente": "INACAP",
+      "temporada": "invierno 2026",
+      "estado": "activa",
+      "carpeta": "INACAP-invierno-2026",
+      "contraparte": {
+        "to": [
+          "ascappini@inacap.cl"
+        ],
+        "cc": [
+          "mgallardoj@inacap.cl"
+        ]
+      },
+      "match": {
+        "inicio": "2026-08-18",
+        "fin": "2026-08-21"
+      },
+      "sesion_0": {
+        "alternativas": [
+          "2026-08-17T18:00",
+          "2026-08-18T10:00",
+          "2026-08-18T18:00"
+        ]
+      },
+      "cursos": [
+        {
+          "nombre": "IA para la Educación",
+          "course_id": null,
+          "abreviacion": "IAE",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-08-31T16:30",
+            "2026-09-14T16:30"
+          ]
+        },
+        {
+          "nombre": "IA para la Educación Avanzado",
+          "course_id": null,
+          "abreviacion": "IAEA",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-08-31T18:00",
+            "2026-09-14T18:00"
+          ]
+        },
+        {
+          "nombre": "Estrategias Didácticas",
+          "course_id": null,
+          "abreviacion": "ED",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-01T16:30",
+            "2026-09-15T16:30"
+          ]
+        },
+        {
+          "nombre": "Competencias Digitales",
+          "course_id": null,
+          "abreviacion": "CD",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-01T18:00",
+            "2026-09-15T18:00"
+          ]
+        },
+        {
+          "nombre": "Elaboración de Proyectos",
+          "course_id": null,
+          "abreviacion": "EP",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-02T16:30",
+            "2026-09-16T16:30"
+          ]
+        },
+        {
+          "nombre": "Gestión de Proyectos",
+          "course_id": null,
+          "abreviacion": "GP",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-02T18:00",
+            "2026-09-16T18:00"
+          ]
+        },
+        {
+          "nombre": "Elaboración y Revisión de Productos con Inteligencia Artificial",
+          "course_id": null,
+          "abreviacion": "ERPIA",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-03T18:00",
+            "2026-09-16T15:00"
+          ]
+        },
+        {
+          "nombre": "Estrategias Didácticas para Educación Online",
+          "course_id": null,
+          "abreviacion": "EDO",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-03T16:30",
+            "2026-09-15T15:00"
+          ]
+        },
+        {
+          "nombre": "Evaluación",
+          "course_id": null,
+          "abreviacion": "Ev",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-02",
+          "cierre_publico": "2026-09-16",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [
+            "2026-09-04T16:30",
+            "2026-09-14T15:00"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slep-tamarugal-3-invierno-2026",
+      "nombre": "SLEP Tamarugal 3",
+      "cliente": "SLEP Tamarugal",
+      "temporada": "invierno 2026",
+      "estado": "activa",
+      "carpeta": "SLEP-Tamarugal-3-invierno-2026",
+      "contraparte": {
+        "to": [
+          "javiera.vergara@sleptamarugal.gob.cl",
+          "paula.olivares@sleptamarugal.gob.cl"
+        ],
+        "cc": [
+          "andrea.osorio@sleptamarugal.gob.cl",
+          "samuel.diaz@sleptamarugal.gob.cl"
+        ]
+      },
+      "match": {
+        "inicio": "2026-08-03",
+        "fin": "2026-08-07"
+      },
+      "cursos": [
+        {
+          "nombre": "Toma de decisiones basada en evidencia",
+          "course_id": null,
+          "abreviacion": "TDE",
+          "inicio": "2026-08-10",
+          "cierre": "2026-09-25",
+          "cierre_publico": "2026-09-04",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": [],
+          "nota": "Curso para líderes"
+        },
+        {
+          "nombre": "Inclusión y diversidad en el aula",
+          "course_id": null,
+          "abreviacion": "IncDiv",
+          "inicio": "2026-08-10",
+          "cierre": "2026-09-25",
+          "cierre_publico": "2026-09-04",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": []
+        },
+        {
+          "nombre": "Evaluación formativa",
+          "course_id": null,
+          "abreviacion": "EvalForm",
+          "inicio": "2026-08-10",
+          "cierre": "2026-09-25",
+          "cierre_publico": "2026-09-04",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": []
+        },
+        {
+          "nombre": "Enseñanza en contexto multigrado",
+          "course_id": null,
+          "abreviacion": "Multigrado",
+          "inicio": "2026-08-10",
+          "cierre": "2026-09-25",
+          "cierre_publico": "2026-09-04",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": [],
+          "office_hours": []
+        }
+      ]
+    },
+    {
+      "id": "fundacion-luksic-2026",
+      "nombre": "Fundación Luksic",
+      "cliente": "Fundación Luksic",
+      "temporada": "2026",
+      "estado": "activa",
+      "carpeta": "Fundacion-Luksic-2026",
+      "match": {
+        "inicio": "2026-08-10",
+        "fin": "2026-08-14"
+      },
+      "cursos": [
+        {
+          "nombre": "Habilidades socioemocionales para el deporte: Parte 1",
+          "course_id": "01KXGVFSAP75142HWA34BVH829",
+          "abreviacion": "HSE Dep 1",
+          "inicio": "2026-08-17",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-09-11",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": []
+        },
+        {
+          "nombre": "Habilidades socioemocionales para el deporte: Parte 2",
+          "course_id": "01KY5NYMJRTMFMSSQTFWSB0EJX",
+          "abreviacion": "HSE Dep 2",
+          "inicio": "2026-09-21",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-10-16",
+          "modulos": 4,
+          "inscritos": 50,
+          "tas": [],
+          "match": {
+            "inicio": "2026-09-14",
+            "fin": "2026-09-18"
+          }
         }
       ]
     }
