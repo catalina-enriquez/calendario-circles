@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-05T18:00:04",
+  "updated": "2026-08-06T10:00:03",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -31,14 +31,14 @@
         "to_review": 0
       },
       "slep2": {
-        "reviewed": 53,
-        "to_review": 7
+        "reviewed": 60,
+        "to_review": 2
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
         "reviewed": 106,
-        "to_review": 0
+        "to_review": 2
       },
       "slep": {
         "reviewed": 265,
