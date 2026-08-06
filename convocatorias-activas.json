@@ -23,7 +23,7 @@
     {
       "nombre": "Victoria Marcenaro",
       "email": "victoriamarcenaro@gmail.com",
-      "horas_semana": 15
+      "horas_semana": 20
     },
     {
       "nombre": "Pamela Opazo",
@@ -33,17 +33,17 @@
     {
       "nombre": "Daniela García",
       "email": "dmgarciamolina@gmail.com",
-      "horas_semana": 15
+      "horas_semana": 20
     },
     {
       "nombre": "Evelyn Duarte",
       "email": "evelyn.duarte.leiva@gmail.com",
-      "horas_semana": 20
+      "horas_semana": 30
     },
     {
       "nombre": "Víctor Gálvez",
       "email": "vgalvezvargas@gmail.com",
-      "horas_semana": 20
+      "horas_semana": 30
     },
     {
       "nombre": "Denisse Campusano",
@@ -53,12 +53,12 @@
     {
       "nombre": "Dafne Polanco",
       "email": "dafnayal@gmail.com",
-      "horas_semana": 10
+      "horas_semana": 20
     },
     {
       "nombre": "Daniel Martínez",
       "email": "teacherdan.eng@gmail.com",
-      "horas_semana": 10
+      "horas_semana": 15
     },
     {
       "nombre": "Joseph Fuentealba",
@@ -160,6 +160,7 @@
             "Pamela Opazo"
           ],
           "abreviacion": "MCE Líd",
+          "tipo_entregas": ["I", "G", "I"],
           "match": {
             "inicio": "2026-07-27",
             "fin": "2026-08-07"
@@ -222,6 +223,9 @@
           "modulos": 4,
           "inscritos": 1000,
           "tas": [],
+          "tipo_entregas": ["G", "G", "I", "G"],
+          "tareas_revision_automatica": [1, 2, 3, 4],
+          "nota_entregas": "Todas las entregas son actividades externas (lab.getcircles.org) con feedback de IA. No requieren revisión de TA.",
           "office_hours": [
             "2026-09-22T16:00",
             "2026-10-14T16:00",
@@ -465,6 +469,7 @@
           "modulos": 4,
           "inscritos": 74,
           "tas": [],
+          "tipo_entregas": ["G", "I", "G", "G"],
           "office_hours": [
             "2026-08-31T16:30",
             "2026-09-14T16:30"
@@ -480,6 +485,7 @@
           "modulos": 4,
           "inscritos": 57,
           "tas": [],
+          "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": [
             "2026-08-31T18:00",
             "2026-09-14T18:00"
@@ -495,6 +501,7 @@
           "modulos": 4,
           "inscritos": 43,
           "tas": [],
+          "tipo_entregas": ["G", "I", "I", "G"],
           "office_hours": [
             "2026-09-01T16:30",
             "2026-09-15T16:30"
@@ -510,6 +517,7 @@
           "modulos": 4,
           "inscritos": 42,
           "tas": [],
+          "tipo_entregas": ["G", "G", "I", "G"],
           "office_hours": [
             "2026-09-01T18:00",
             "2026-09-15T18:00"
@@ -525,6 +533,7 @@
           "modulos": 4,
           "inscritos": 44,
           "tas": [],
+          "tipo_entregas": ["I", "G", "G", "G"],
           "office_hours": [
             "2026-09-02T16:30",
             "2026-09-16T16:30"
@@ -540,6 +549,7 @@
           "modulos": 4,
           "inscritos": 45,
           "tas": [],
+          "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": [
             "2026-09-02T18:00",
             "2026-09-16T18:00"
@@ -555,6 +565,7 @@
           "modulos": 4,
           "inscritos": 80,
           "tas": [],
+          "tipo_entregas": ["I", "I", "I", "G"],
           "office_hours": [
             "2026-09-03T18:00",
             "2026-09-16T15:00"
@@ -570,6 +581,7 @@
           "modulos": 4,
           "inscritos": 25,
           "tas": [],
+          "tipo_entregas": ["G", "I", "I", "I"],
           "office_hours": [
             "2026-09-03T16:30",
             "2026-09-15T15:00"
@@ -585,6 +597,7 @@
           "modulos": 4,
           "inscritos": 23,
           "tas": [],
+          "tipo_entregas": ["G", "I", "G", "I"],
           "office_hours": [
             "2026-09-04T16:30",
             "2026-09-14T15:00"
@@ -624,6 +637,8 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [],
+          "tipo_entregas": ["G", "I", "G"],
+          "nota_entregas": "Curso de 3 sesiones con entrega (s1 grupal, s2 individual, s3 grupal). El 4° módulo podría no tener entrega.",
           "office_hours": []
         },
         {
@@ -636,6 +651,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [],
+          "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": []
         },
         {
@@ -648,6 +664,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [],
+          "tipo_entregas": ["I", "G", "G", "G"],
           "office_hours": []
         },
         {
@@ -660,6 +677,8 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [],
+          "tipo_entregas": ["G", "I", "G", "I"],
+          "nota_entregas": "S1-S3 tienen actividad externa especificada pero pendiente de desarrollo. Por ahora requieren revisión TA.",
           "office_hours": []
         }
       ]
@@ -692,7 +711,8 @@
           "cierre_publico": "2026-09-11",
           "modulos": 4,
           "inscritos": 50,
-          "tas": []
+          "tas": [],
+          "tipo_entregas": ["G", "G", "I", "I"]
         },
         {
           "nombre": "Habilidades socioemocionales para el deporte: Parte 2",
@@ -704,6 +724,7 @@
           "modulos": 4,
           "inscritos": 50,
           "tas": [],
+          "tipo_entregas": ["G", "I", "G", "I"],
           "match": {
             "inicio": "2026-09-14",
             "fin": "2026-09-18"
