@@ -16,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-08-04",
+    "actualizado": "2026-08-05",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -99,14 +99,7 @@
     }
   ],
   "no_corregir_entregas": [],
-  "recordatorios": [
-    {
-      "fecha": "2026-07-08",
-      "mensaje": "Emitir TODOS los certificados pendientes de SIP (MCE Docentes + MCE Asistentes). 2da tanda post-extensión.",
-      "convocatoria": "sip-otono-2026",
-      "mostrado": true
-    }
-  ],
+  "recordatorios": [],
   "personas_autorizadas_solas": [],
   "convocatorias": [
     {
@@ -115,7 +108,7 @@
       "cliente": "SIP Red de Colegios",
       "temporada": "otoño 2026",
       "estado": "activa",
-      "carpeta": "SIP-otoño-2026",
+      "carpeta": "SIP-MCE-2026",
       "restricciones_comunicacion": {
         "horario_permitido": {
           "dias": [
@@ -155,206 +148,87 @@
       },
       "cursos": [
         {
-          "nombre": "Modelo de clase efectiva en la práctica docente",
-          "course_id": "01KJ59XSTVGZ3BWCZGJKX8MCS7",
-          "inicio": "2026-04-06",
-          "cierre": "2026-06-19",
-          "deadline_revisiones": "2026-07-19",
-          "modulos": 4,
-          "inscritos": 1362,
-          "tas": [
-            "Victoria Marcenaro",
-            "Pamela Opazo",
-            "Dafne Polanco",
-            "Daniel Martínez",
-            "Evelyn Duarte"
-          ],
-          "cierre_publico": "2026-06-05",
-          "excluir_de_reportes": true,
-          "certificados": {
-            "primera_emision": "2026-06-08",
-            "emitidos": "parcial",
-            "nota": "1ra tanda emitida. 2da tanda: emitir el 8 de julio.",
-            "suprimir_alerta_hasta": "2026-07-08"
-          },
-          "excepciones_deadline": [
-            {
-              "email": "lieselotte.platzer@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "makarena.castillo@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "ameneses@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "tolivares@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "azuniga@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "barbara.araya@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "jvergara@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "loreto.isla@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "camila.araya@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "claudia.onell@sip.cl",
-              "deadline": "2026-08-07"
-            },
-            {
-              "email": "rescalona@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "consuelo.costas@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "daniela.fernandez@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "daniela.sandoval@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "dchamorro@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "natalia.bravo@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "marcia.gonzalez@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "eperez@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "grace.reveco@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "imunoz@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "jmuller@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "bethsaida.seguel@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "alvaro.jofre@sip.cl",
-              "deadline": "2026-08-07"
-            },
-            {
-              "email": "doris.castillo@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "jacqueline.loaiza@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "dpollak@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "alejandra.vega@sip.cl",
-              "deadline": "2026-08-07"
-            },
-            {
-              "email": "claudia.ortiz@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "andres.diaz@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "claudio.cifuentes@sip.cl",
-              "deadline": "2026-08-07"
-            }
-          ],
-          "abreviacion": "MCE Doc"
-        },
-        {
-          "nombre": "Modelo de clase efectiva: fundamentos (Asistentes)",
-          "course_id": "01KKW7RC8NF412HDDWKETNWTT6",
-          "inicio": "2026-04-06",
-          "cierre": "2026-06-19",
-          "deadline_revisiones": "2026-07-19",
-          "modulos": 2,
-          "inscritos": 277,
-          "tas": [
-            "Víctor Gálvez"
-          ],
-          "cierre_publico": "2026-06-05",
-          "excluir_de_reportes": true,
-          "certificados": {
-            "primera_emision": "2026-06-08",
-            "emitidos": "parcial",
-            "nota": "1ra tanda emitida. 2da tanda: emitir el 8 de julio.",
-            "suprimir_alerta_hasta": "2026-07-08"
-          },
-          "excepciones_deadline": [
-            {
-              "email": "karolina.santis@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "maria.daboin@sip.cl",
-              "deadline": "2026-07-24"
-            },
-            {
-              "email": "afernandez@sip.cl",
-              "deadline": "2026-07-24"
-            }
-          ],
-          "abreviacion": "MCE Asist"
-        },
-        {
           "nombre": "Modelo de clase efectiva para el liderazgo pedagógico (Líderes)",
           "course_id": "01KJ69REFY73YZ71ZA80F0444R",
           "inicio": "2026-08-10",
           "cierre": "2026-10-30",
-          "cierre_publico": "2026-10-09",
+          "cierre_publico": "2026-08-28",
           "modulos": 3,
-          "inscritos": 40,
-          "tas": [],
+          "inscritos": 353,
+          "tas": [
+            "Victoria Marcenaro",
+            "Pamela Opazo"
+          ],
           "abreviacion": "MCE Líd",
           "match": {
             "inicio": "2026-07-27",
-            "fin": "2026-07-31"
+            "fin": "2026-08-07"
           },
           "office_hours": [
             "2026-08-27T16:00",
             "2026-10-01T16:00"
           ],
           "nota": "Correo con info de tutorías lo envía Circles directamente."
+        }
+      ]
+    },
+    {
+      "id": "sip-primavera-2026",
+      "nombre": "SIP Primavera",
+      "cliente": "SIP Red de Colegios",
+      "temporada": "primavera 2026",
+      "estado": "activa",
+      "carpeta": "SIP-autismo-2026",
+      "restricciones_comunicacion": {
+        "horario_permitido": {
+          "dias": [
+            "lunes",
+            "martes",
+            "miercoles",
+            "jueves",
+            "viernes"
+          ],
+          "hora_inicio": "08:00",
+          "hora_fin": "17:00"
+        },
+        "fechas_bloqueadas": [
+          {
+            "inicio": "2026-09-14",
+            "fin": "2026-09-18",
+            "motivo": "Fiestas Patrias"
+          },
+          {
+            "inicio": "2026-10-12",
+            "fin": "2026-10-12",
+            "motivo": "Día del Encuentro de Dos Mundos"
+          }
+        ],
+        "aplica_a": "inscritos",
+        "tipos_bloqueados": "todos",
+        "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
+      },
+      "match": {
+        "inicio": "2026-08-24",
+        "fin": "2026-08-28"
+      },
+      "cursos": [
+        {
+          "nombre": "Acompañamiento de estudiantes autistas en la escuela",
+          "course_id": "01KZ4AP7GQ5AY5AS4T0CZKZC9J",
+          "abreviacion": "Autismo",
+          "inicio": "2026-08-31",
+          "cierre": "2026-11-27",
+          "cierre_publico": "2026-09-25",
+          "modulos": 4,
+          "inscritos": 1000,
+          "tas": [],
+          "office_hours": [
+            "2026-09-22T16:00",
+            "2026-10-14T16:00",
+            "2026-11-03T16:00",
+            "2026-11-11T16:00"
+          ],
+          "nota_office_hours": "OH 1 y 3 cubren módulos 1-2, OH 2 y 4 cubren módulos 3-4. Se repite cada tutoría en 2 fechas porque los grupos avanzan en fechas diferentes."
         }
       ]
     },
@@ -589,7 +463,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 74,
           "tas": [],
           "office_hours": [
             "2026-08-31T16:30",
@@ -604,7 +478,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 57,
           "tas": [],
           "office_hours": [
             "2026-08-31T18:00",
@@ -619,7 +493,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 43,
           "tas": [],
           "office_hours": [
             "2026-09-01T16:30",
@@ -634,7 +508,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 42,
           "tas": [],
           "office_hours": [
             "2026-09-01T18:00",
@@ -649,7 +523,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 44,
           "tas": [],
           "office_hours": [
             "2026-09-02T16:30",
@@ -664,7 +538,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 45,
           "tas": [],
           "office_hours": [
             "2026-09-02T18:00",
@@ -679,7 +553,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 80,
           "tas": [],
           "office_hours": [
             "2026-09-03T18:00",
@@ -694,7 +568,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 25,
           "tas": [],
           "office_hours": [
             "2026-09-03T16:30",
@@ -709,7 +583,7 @@
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 23,
           "tas": [],
           "office_hours": [
             "2026-09-04T16:30",
@@ -736,56 +610,55 @@
         ]
       },
       "match": {
-        "inicio": "2026-08-03",
-        "fin": "2026-08-07"
+        "inicio": "2026-08-17",
+        "fin": "2026-08-21"
       },
       "cursos": [
         {
-          "nombre": "Toma de decisiones basada en evidencia",
-          "course_id": null,
-          "abreviacion": "TDE",
-          "inicio": "2026-08-10",
-          "cierre": "2026-09-25",
-          "cierre_publico": "2026-09-04",
+          "nombre": "IA para la educación",
+          "course_id": "01KYJEDJT8B5VH69YPVH6M7R8G",
+          "abreviacion": "IA edu",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-09",
+          "cierre_publico": "2026-09-18",
           "modulos": 4,
-          "inscritos": null,
-          "tas": [],
-          "office_hours": [],
-          "nota": "Curso para líderes"
-        },
-        {
-          "nombre": "Inclusión y diversidad en el aula",
-          "course_id": null,
-          "abreviacion": "IncDiv",
-          "inicio": "2026-08-10",
-          "cierre": "2026-09-25",
-          "cierre_publico": "2026-09-04",
-          "modulos": 4,
-          "inscritos": null,
+          "inscritos": 150,
           "tas": [],
           "office_hours": []
         },
         {
-          "nombre": "Evaluación formativa",
-          "course_id": null,
-          "abreviacion": "EvalForm",
-          "inicio": "2026-08-10",
-          "cierre": "2026-09-25",
-          "cierre_publico": "2026-09-04",
+          "nombre": "Convivencia escolar y regulación emocional",
+          "course_id": "01KYJED9CDDJBEHSH3SQQ33Q8R",
+          "abreviacion": "Convivencia",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-09",
+          "cierre_publico": "2026-09-18",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 150,
           "tas": [],
           "office_hours": []
         },
         {
-          "nombre": "Enseñanza en contexto multigrado",
-          "course_id": null,
-          "abreviacion": "Multigrado",
-          "inicio": "2026-08-10",
-          "cierre": "2026-09-25",
-          "cierre_publico": "2026-09-04",
+          "nombre": "Estrategias didácticas de aprendizaje activo",
+          "course_id": "01KYJED0KYS87YCGK3SJJ3VR48",
+          "abreviacion": "Est. did.",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-09",
+          "cierre_publico": "2026-09-18",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 150,
+          "tas": [],
+          "office_hours": []
+        },
+        {
+          "nombre": "Diseño Universal de Aprendizaje",
+          "course_id": "01KYJEC1794D9XJCXJ2XZFE3ZW",
+          "abreviacion": "DUA",
+          "inicio": "2026-08-24",
+          "cierre": "2026-10-09",
+          "cierre_publico": "2026-09-18",
+          "modulos": 4,
+          "inscritos": 150,
           "tas": [],
           "office_hours": []
         }
@@ -798,6 +671,13 @@
       "temporada": "2026",
       "estado": "activa",
       "carpeta": "Fundacion-Luksic-2026",
+      "contraparte": {
+        "to": [
+          "jsilva@fundacionluksic.cl",
+          "rdonoso@fundacionluksic.cl",
+          "fabarca@fundacionluksic.cl"
+        ]
+      },
       "match": {
         "inicio": "2026-08-10",
         "fin": "2026-08-14"
@@ -811,7 +691,7 @@
           "cierre": "2026-10-23",
           "cierre_publico": "2026-09-11",
           "modulos": 4,
-          "inscritos": null,
+          "inscritos": 50,
           "tas": []
         },
         {
