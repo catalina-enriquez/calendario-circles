@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-06T18:00:06",
+  "updated": "2026-08-07T10:01:28",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -97,8 +97,8 @@
         "to_review": 0
       },
       "slep2": {
-        "reviewed": 115,
-        "to_review": 1
+        "reviewed": 116,
+        "to_review": 0
       }
     },
     "victoriamarcenaro@gmail.com": {
@@ -112,7 +112,7 @@
       },
       "slep2": {
         "reviewed": 134,
-        "to_review": 1
+        "to_review": 2
       }
     }
   }
