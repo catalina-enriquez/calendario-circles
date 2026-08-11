@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10T18:00:05",
+  "updated": "2026-08-11T10:16:24",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -31,8 +31,8 @@
         "to_review": 0
       },
       "slep2": {
-        "reviewed": 60,
-        "to_review": 2
+        "reviewed": 62,
+        "to_review": 0
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -65,8 +65,8 @@
         "to_review": 0
       },
       "san-benito": {
-        "reviewed": 203,
-        "to_review": 1
+        "reviewed": 204,
+        "to_review": 0
       },
       "inacap": {
         "reviewed": 194,
