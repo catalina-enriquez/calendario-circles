@@ -274,7 +274,15 @@
             "emitidos": false
           },
           "abreviacion": "Obs IA SLEP 2",
-          "deadline_revisiones": "2026-08-07"
+          "deadline_revisiones": "2026-08-07",
+          "excepciones_deadline": [
+            {"email": "gabriela.briceno@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "katherine.catalan.jara@gmail.com", "deadline": "2026-08-24"},
+            {"email": "camila.flores@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "maribel.mamani@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "camila.rojas@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+          ],
+          "nota_excepciones": "La Huayca — extensión por problemas de conectividad"
         },
         {
           "nombre": "Estrategias didácticas de aprendizaje activo",
@@ -292,7 +300,16 @@
             "emitidos": false
           },
           "abreviacion": "Est. did.",
-          "deadline_revisiones": "2026-08-07"
+          "deadline_revisiones": "2026-08-07",
+          "excepciones_deadline": [
+            {"email": "cinthia.araya@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "paulinabravo85@gmail.com", "deadline": "2026-08-24"},
+            {"email": "krisna.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "jhonny.irrazabal@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "carolina.quintana@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "lilian.taucare.o@gmail.com", "deadline": "2026-08-24"}
+          ],
+          "nota_excepciones": "La Huayca — extensión por problemas de conectividad. Lilian Taucare (Oasis En El Desierto) incluida por compartir círculo con La Huayca."
         },
         {
           "nombre": "Convivencia escolar y regulación emocional",
@@ -310,7 +327,13 @@
             "emitidos": false
           },
           "abreviacion": "Convivencia",
-          "deadline_revisiones": "2026-08-07"
+          "deadline_revisiones": "2026-08-07",
+          "excepciones_deadline": [
+            {"email": "fernando.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "franceska.hidalgo@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "simon.vergara@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+          ],
+          "nota_excepciones": "La Huayca — extensión por problemas de conectividad. Simón Vergara (La Tirana) incluido por compartir círculo con La Huayca."
         },
         {
           "nombre": "IA para la educación",
@@ -328,7 +351,19 @@
             "emitidos": false
           },
           "abreviacion": "IA edu",
-          "deadline_revisiones": "2026-08-07"
+          "deadline_revisiones": "2026-08-07",
+          "excepciones_deadline": [
+            {"email": "marjorie.castro@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "daniel.aliaga@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "judith.castro@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "tiburcio.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "daniela.gonzalez.b@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "scarlett.jara@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
+            {"email": "grimanesa.85@gmail.com", "deadline": "2026-08-24"},
+            {"email": "mseverinou@gmail.com", "deadline": "2026-08-24"},
+            {"email": "yohanna.ticuna@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+          ],
+          "nota_excepciones": "La Huayca — extensión por problemas de conectividad"
         }
       ]
     },
@@ -623,7 +658,7 @@
         ]
       },
       "match": {
-        "inicio": "2026-08-17",
+        "inicio": "2026-08-18",
         "fin": "2026-08-21"
       },
       "cursos": [
