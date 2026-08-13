@@ -16,7 +16,7 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-08-05",
+    "actualizado": "2026-08-12",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -24,11 +24,6 @@
       "nombre": "Victoria Marcenaro",
       "email": "victoriamarcenaro@gmail.com",
       "horas_semana": 20
-    },
-    {
-      "nombre": "Pamela Opazo",
-      "email": "pamela.opazo@gmail.com",
-      "horas_semana": 7
     },
     {
       "nombre": "Daniela García",
@@ -152,12 +147,12 @@
           "course_id": "01KJ69REFY73YZ71ZA80F0444R",
           "inicio": "2026-08-10",
           "cierre": "2026-10-30",
-          "cierre_publico": "2026-08-28",
+          "cierre_publico": "2026-10-30",
           "modulos": 3,
           "inscritos": 353,
           "tas": [
-            "Victoria Marcenaro",
-            "Pamela Opazo"
+            "Evelyn Duarte",
+            "Dafne Polanco"
           ],
           "abreviacion": "MCE Líd",
           "tipo_entregas": ["I", "G", "I"],
@@ -169,7 +164,7 @@
             "2026-08-27T16:00",
             "2026-10-01T16:00"
           ],
-          "nota": "Correo con info de tutorías lo envía Circles directamente."
+          "nota": "Correo con info de tutorías lo envía Circles directamente. SIP comunicó a sus inscritos la fecha final (30 oct) directamente, no hay distinción cierre público/extensión."
         }
       ]
     },
@@ -496,14 +491,14 @@
       "cursos": [
         {
           "nombre": "IA para la Educación",
-          "course_id": null,
+          "course_id": "01KZVQYZBP0K74MYECY016DZZ9",
           "abreviacion": "IAE",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 74,
-          "tas": [],
+          "tas": ["Daniel Martínez"],
           "tipo_entregas": ["G", "I", "G", "G"],
           "office_hours": [
             "2026-08-31T16:30",
@@ -512,14 +507,14 @@
         },
         {
           "nombre": "IA para la Educación Avanzado",
-          "course_id": null,
+          "course_id": "01KZVQZ2X987S9YGAP2GXGPHBZ",
           "abreviacion": "IAEA",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 57,
-          "tas": [],
+          "tas": ["Daniel Martínez"],
           "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": [
             "2026-08-31T18:00",
@@ -528,14 +523,14 @@
         },
         {
           "nombre": "Estrategias Didácticas",
-          "course_id": null,
+          "course_id": "01KZEWC968R8KG3KQWZ3XA64ZC",
           "abreviacion": "ED",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 43,
-          "tas": [],
+          "tas": ["Victoria Marcenaro"],
           "tipo_entregas": ["G", "I", "I", "G"],
           "office_hours": [
             "2026-09-01T16:30",
@@ -544,14 +539,14 @@
         },
         {
           "nombre": "Competencias Digitales",
-          "course_id": null,
+          "course_id": "01KZESE2S0Q8SMG97ZKFNDZHEG",
           "abreviacion": "CD",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 42,
-          "tas": [],
+          "tas": ["Daniela García"],
           "tipo_entregas": ["G", "G", "I", "G"],
           "office_hours": [
             "2026-09-01T18:00",
@@ -560,14 +555,14 @@
         },
         {
           "nombre": "Elaboración de Proyectos",
-          "course_id": null,
+          "course_id": "01KZEWB3KPRAYSTQMARGPAP90F",
           "abreviacion": "EP",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 44,
-          "tas": [],
+          "tas": ["Victoria Marcenaro"],
           "tipo_entregas": ["I", "G", "G", "G"],
           "office_hours": [
             "2026-09-02T16:30",
@@ -576,14 +571,14 @@
         },
         {
           "nombre": "Gestión de Proyectos",
-          "course_id": null,
+          "course_id": "01KZEWAJVERP55X8G0EXKPNYEK",
           "abreviacion": "GP",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 45,
-          "tas": [],
+          "tas": ["Victoria Marcenaro"],
           "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": [
             "2026-09-02T18:00",
@@ -592,14 +587,14 @@
         },
         {
           "nombre": "Elaboración y Revisión de Productos con Inteligencia Artificial",
-          "course_id": null,
+          "course_id": "01KZESE9DY5AJ9T91QWN049RS8",
           "abreviacion": "ERPIA",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 80,
-          "tas": [],
+          "tas": ["Daniela García"],
           "tipo_entregas": ["I", "I", "I", "G"],
           "office_hours": [
             "2026-09-03T18:00",
@@ -608,14 +603,14 @@
         },
         {
           "nombre": "Estrategias Didácticas para Educación Online",
-          "course_id": null,
+          "course_id": "01KZEWBQCXSZ2K8AR8GNEBWESW",
           "abreviacion": "EDO",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 25,
-          "tas": [],
+          "tas": ["Daniela García"],
           "tipo_entregas": ["G", "I", "I", "I"],
           "office_hours": [
             "2026-09-03T16:30",
@@ -624,14 +619,14 @@
         },
         {
           "nombre": "Evaluación",
-          "course_id": null,
+          "course_id": "01KZEWBZ5MGNSX5HCR1GKGGG4C",
           "abreviacion": "Ev",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 23,
-          "tas": [],
+          "tas": ["Daniel Martínez"],
           "tipo_entregas": ["G", "I", "G", "I"],
           "office_hours": [
             "2026-09-04T16:30",
@@ -667,11 +662,11 @@
           "course_id": "01KYJEDJT8B5VH69YPVH6M7R8G",
           "abreviacion": "IA edu",
           "inicio": "2026-08-24",
-          "cierre": "2026-10-09",
-          "cierre_publico": "2026-09-18",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
-          "tas": [],
+          "tas": ["Denisse Campusano"],
           "tipo_entregas": ["G", "I", "G"],
           "nota_entregas": "Curso de 3 sesiones con entrega (s1 grupal, s2 individual, s3 grupal). El 4° módulo podría no tener entrega.",
           "office_hours": []
@@ -681,11 +676,11 @@
           "course_id": "01KYJED9CDDJBEHSH3SQQ33Q8R",
           "abreviacion": "Convivencia",
           "inicio": "2026-08-24",
-          "cierre": "2026-10-09",
-          "cierre_publico": "2026-09-18",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
-          "tas": [],
+          "tas": ["Víctor Gálvez"],
           "tipo_entregas": ["G", "G", "G", "G"],
           "office_hours": []
         },
@@ -694,11 +689,11 @@
           "course_id": "01KYJED0KYS87YCGK3SJJ3VR48",
           "abreviacion": "Est. did.",
           "inicio": "2026-08-24",
-          "cierre": "2026-10-09",
-          "cierre_publico": "2026-09-18",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
-          "tas": [],
+          "tas": ["Víctor Gálvez"],
           "tipo_entregas": ["I", "G", "G", "G"],
           "office_hours": []
         },
@@ -707,11 +702,11 @@
           "course_id": "01KYJEC1794D9XJCXJ2XZFE3ZW",
           "abreviacion": "DUA",
           "inicio": "2026-08-24",
-          "cierre": "2026-10-09",
-          "cierre_publico": "2026-09-18",
+          "cierre": "2026-10-23",
+          "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
-          "tas": [],
+          "tas": ["Denisse Campusano"],
           "tipo_entregas": ["G", "I", "G", "I"],
           "nota_entregas": "S1-S3 tienen actividad externa especificada pero pendiente de desarrollo. Por ahora requieren revisión TA.",
           "office_hours": []
@@ -746,7 +741,7 @@
           "cierre_publico": "2026-09-11",
           "modulos": 4,
           "inscritos": 50,
-          "tas": [],
+          "tas": ["Joseph Fuentealba"],
           "tipo_entregas": ["G", "G", "I", "I"]
         },
         {
@@ -758,7 +753,7 @@
           "cierre_publico": "2026-10-16",
           "modulos": 4,
           "inscritos": 50,
-          "tas": [],
+          "tas": ["Joseph Fuentealba"],
           "tipo_entregas": ["G", "I", "G", "I"],
           "match": {
             "inicio": "2026-09-14",
