@@ -742,7 +742,8 @@
           "modulos": 4,
           "inscritos": 50,
           "tas": ["Joseph Fuentealba"],
-          "tipo_entregas": ["G", "G", "I", "I"]
+          "tipo_entregas": ["G", "G", "I", "I"],
+          "office_hours": ["2026-08-27T19:30", "2026-09-10T19:30"]
         },
         {
           "nombre": "Habilidades socioemocionales para el deporte: Parte 2",
@@ -755,6 +756,7 @@
           "inscritos": 50,
           "tas": ["Joseph Fuentealba"],
           "tipo_entregas": ["G", "I", "G", "I"],
+          "office_hours": ["2026-10-01T19:30", "2026-10-15T19:30"],
           "match": {
             "inicio": "2026-09-14",
             "fin": "2026-09-18"
