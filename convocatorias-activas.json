@@ -16,7 +16,8 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
     },
-    "actualizado": "2026-08-12",
+    "campos_inscripciones": "Periodo de inscripción de la convocatoria: {inicio, fin} en fechas CLT (YYYY-MM-DD). Opcional; solo presente en convocatorias donde se registró.",
+    "actualizado": "2026-08-19",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -652,17 +653,21 @@
           "samuel.diaz@sleptamarugal.gob.cl"
         ]
       },
+      "inscripciones": {
+        "inicio": "2026-08-12",
+        "fin": "2026-08-26"
+      },
       "match": {
-        "inicio": "2026-08-18",
-        "fin": "2026-08-21"
+        "inicio": "2026-08-24",
+        "fin": "2026-08-28"
       },
       "cursos": [
         {
           "nombre": "IA para la educación",
           "course_id": "01KYJEDJT8B5VH69YPVH6M7R8G",
           "abreviacion": "IA edu",
-          "inicio": "2026-08-24",
-          "cierre": "2026-10-23",
+          "inicio": "2026-08-31",
+          "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
@@ -675,8 +680,8 @@
           "nombre": "Convivencia escolar y regulación emocional",
           "course_id": "01KYJED9CDDJBEHSH3SQQ33Q8R",
           "abreviacion": "Convivencia",
-          "inicio": "2026-08-24",
-          "cierre": "2026-10-23",
+          "inicio": "2026-08-31",
+          "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
@@ -688,8 +693,8 @@
           "nombre": "Estrategias didácticas de aprendizaje activo",
           "course_id": "01KYJED0KYS87YCGK3SJJ3VR48",
           "abreviacion": "Est. did.",
-          "inicio": "2026-08-24",
-          "cierre": "2026-10-23",
+          "inicio": "2026-08-31",
+          "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
@@ -701,8 +706,8 @@
           "nombre": "Diseño Universal de Aprendizaje",
           "course_id": "01KYJEC1794D9XJCXJ2XZFE3ZW",
           "abreviacion": "DUA",
-          "inicio": "2026-08-24",
-          "cierre": "2026-10-23",
+          "inicio": "2026-08-31",
+          "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
           "modulos": 4,
           "inscritos": 150,
