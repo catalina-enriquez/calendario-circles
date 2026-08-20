@@ -14,7 +14,11 @@
       "tareas_revision_automatica": "Lista de sequence_order de tareas con revisión automática (External URL, ej. lab.getcircles.org). No cuentan como revisiones pendientes de TA.",
       "excepciones_deadline": "Lista de excepciones al deadline. Formato nuevo: [{email, deadline}] con deadline individual por persona (CLT). Formato legacy: [email, ...] sin deadline individual.",
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
-      "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria."
+      "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria.",
+      "certificados_desde": "Fecha CLT (YYYY-MM-DD) desde la cual el daily ops summary revisa TODOS los días si quedan certificados por emitir en este curso. Si se omite, se deriva de cierre_publico + 1 día hábil. Solo alerta cuando hay alguien con el curso 100% aprobado (ACCEPTED + is_completed) sin certificate_issued en la DB de admin; si no hay nadie pendiente no aparece nada. Reemplaza al antiguo bloque `certificados` con primera_emision/emitidos, que dependía de un flag manual y se quedaba obsoleto."
+    },
+    "campos_convocatoria": {
+      "cierre_proyecto": "Fecha CLT (YYYY-MM-DD) del cierre del PROYECTO con el cliente. NO es deadline_revisiones ni el plazo final de extensión: es la fecha administrativa en que se da por terminada la convocatoria. Pasada esa fecha el daily ops summary deja de revisar certificados pendientes de esta convocatoria, y la convocatoria pasa a Convocatorias-finalizadas/. null = todavía sin definir; el reporte sigue revisando y avisa en el correo que falta configurarla."
     },
     "campos_inscripciones": "Periodo de inscripción de la convocatoria: {inicio, fin} en fechas CLT (YYYY-MM-DD). Opcional; solo presente en convocatorias donde se registró.",
     "actualizado": "2026-08-19",
@@ -104,6 +108,7 @@
       "cliente": "SIP Red de Colegios",
       "temporada": "otoño 2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "SIP-MCE-2026",
       "restricciones_comunicacion": {
         "horario_permitido": {
@@ -175,6 +180,7 @@
       "cliente": "SIP Red de Colegios",
       "temporada": "primavera 2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "SIP-autismo-2026",
       "restricciones_comunicacion": {
         "horario_permitido": {
@@ -238,6 +244,7 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "invierno 2026",
       "estado": "activa",
+      "cierre_proyecto": "2026-09-01",
       "carpeta": "SLEP-Tamarugal-2-invierno-2026",
       "contraparte": {
         "to": [
@@ -265,10 +272,7 @@
             "Evelyn Duarte"
           ],
           "cierre_publico": "2026-06-26",
-          "certificados": {
-            "primera_emision": "2026-06-29",
-            "emitidos": false
-          },
+          "certificados_desde": "2026-08-25",
           "abreviacion": "Obs IA SLEP 2",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
@@ -291,10 +295,7 @@
             "Victoria Marcenaro"
           ],
           "cierre_publico": "2026-06-26",
-          "certificados": {
-            "primera_emision": "2026-06-29",
-            "emitidos": false
-          },
+          "certificados_desde": "2026-08-25",
           "abreviacion": "Est. did.",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
@@ -318,10 +319,7 @@
             "Víctor Gálvez"
           ],
           "cierre_publico": "2026-06-26",
-          "certificados": {
-            "primera_emision": "2026-06-29",
-            "emitidos": false
-          },
+          "certificados_desde": "2026-08-25",
           "abreviacion": "Convivencia",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
@@ -342,10 +340,7 @@
             "Daniela García"
           ],
           "cierre_publico": "2026-06-26",
-          "certificados": {
-            "primera_emision": "2026-06-29",
-            "emitidos": false
-          },
+          "certificados_desde": "2026-08-25",
           "abreviacion": "IA edu",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
@@ -369,6 +364,7 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "SLEP-Jardines-2026",
       "formato": "jornadas-unicas",
       "contraparte": {
@@ -404,12 +400,7 @@
               "fecha": "2026-06-30"
             }
           ],
-          "certificados": {
-            "primera_emision": "2026-07-07",
-            "emitidos": true,
-            "fecha_emision": "2026-07-07",
-            "cantidad": 28
-          }
+          "certificados_desde": "2026-07-07"
         },
         {
           "nombre": "Diversificación de la enseñanza",
@@ -469,6 +460,7 @@
       "cliente": "INACAP",
       "temporada": "invierno 2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "INACAP-invierno-2026",
       "contraparte": {
         "to": [
@@ -642,6 +634,7 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "invierno 2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "SLEP-Tamarugal-3-invierno-2026",
       "contraparte": {
         "to": [
@@ -674,7 +667,7 @@
           "tas": ["Denisse Campusano"],
           "tipo_entregas": ["G", "I", "G"],
           "nota_entregas": "Curso de 3 sesiones con entrega (s1 grupal, s2 individual, s3 grupal). El 4° módulo podría no tener entrega.",
-          "office_hours": []
+          "office_hours": ["2026-09-09T15:25", "2026-09-30T15:25"]
         },
         {
           "nombre": "Convivencia escolar y regulación emocional",
@@ -687,7 +680,7 @@
           "inscritos": 150,
           "tas": ["Víctor Gálvez"],
           "tipo_entregas": ["G", "G", "G", "G"],
-          "office_hours": []
+          "office_hours": ["2026-09-10T15:25", "2026-10-01T15:25"]
         },
         {
           "nombre": "Estrategias didácticas de aprendizaje activo",
@@ -700,7 +693,7 @@
           "inscritos": 150,
           "tas": ["Víctor Gálvez"],
           "tipo_entregas": ["I", "G", "G", "G"],
-          "office_hours": []
+          "office_hours": ["2026-09-08T15:25", "2026-09-29T15:25"]
         },
         {
           "nombre": "Diseño Universal de Aprendizaje",
@@ -714,7 +707,20 @@
           "tas": ["Denisse Campusano"],
           "tipo_entregas": ["G", "I", "G", "I"],
           "nota_entregas": "S1-S3 tienen actividad externa especificada pero pendiente de desarrollo. Por ahora requieren revisión TA.",
-          "office_hours": []
+          "office_hours": ["2026-09-11T15:25", "2026-10-02T15:25"]
+        },
+        {
+          "nombre": "Toma de decisiones basada en evidencia",
+          "course_id": "01KZV746J6NP108MEGKRM14Q5G",
+          "abreviacion": "Toma dec.",
+          "inicio": "2026-08-31",
+          "cierre": "2026-10-16",
+          "cierre_publico": "2026-10-02",
+          "modulos": 4,
+          "inscritos": null,
+          "tas": ["Evelyn Duarte"],
+          "nota_entregas": "Curso de líderes. Meta de inscritos por definir.",
+          "office_hours": ["2026-09-07T15:25", "2026-09-28T15:25"]
         }
       ]
     },
@@ -724,6 +730,7 @@
       "cliente": "Fundación Luksic",
       "temporada": "2026",
       "estado": "activa",
+      "cierre_proyecto": null,
       "carpeta": "Fundacion-Luksic-2026",
       "contraparte": {
         "to": [
