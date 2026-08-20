@@ -1864,7 +1864,7 @@ const courses = [
   },
   {
     id: "slep3-tde", project: "slep3", projectLabel: "SLEP Tamarugal 3",
-    name: "Toma de decisiones basada en evidencia", shortName: "Toma dec.", students: 0, status: "activa",
+    name: "Toma de decisiones basada en evidencia", shortName: "Toma dec.", students: null, status: "activa",
     period: { start: "2026-08-24", end: "2026-10-16" },
     match: { start: "2026-08-24", end: "2026-08-28" },
     weeks: [
@@ -2065,6 +2065,12 @@ function isInRange(ds, start, end) {
   return ds >= start && ds <= end;
 }
 
+// students === null significa "meta de inscritos todavía sin definir", no cero.
+// Sin esto el calendario mostraba "0 inscritos" y se leía como que no hay carga.
+function studentsText(n, word) {
+  return n == null ? "inscritos por definir" : `${n} ${word}`;
+}
+
 function formatDate(ds) {
   const [y, m, d] = ds.split("-");
   return `${d}/${m}`;
@@ -2173,7 +2179,7 @@ function getEventsForDate(dateString) {
       events.push({
         type: "match", label: `${prefix} Match`,
         project: course.project,
-        detail: `${course.projectLabel}: ${course.name}\nMatch (${course.students} alumnos)`
+        detail: `${course.projectLabel}: ${course.name}\nMatch (${studentsText(course.students, "alumnos")})`
       });
     }
 
@@ -2549,7 +2555,7 @@ function renderStats() {
     let active = 0, students = 0, ohs = 0;
 
     for (const c of filtered) {
-      if (c.period.start <= me && c.period.end >= ms) { active++; students += c.students; }
+      if (c.period.start <= me && c.period.end >= ms) { active++; students += c.students || 0; }
       for (const oh of c.officeHours) {
         const d = oh.split("T")[0];
         if (d >= ms && d <= me) ohs++;
@@ -2599,7 +2605,7 @@ function renderCoursePanel() {
         `<span style="display:inline-block;margin-right:8px">${j.jardin}: <strong>${formatDate(j.fecha)}</strong></span>`
       ).join("");
       metaHtml = `
-        <strong>${c.projectLabel}</strong> &middot; ${c.students} inscritos<br>
+        <strong>${c.projectLabel}</strong> &middot; ${studentsText(c.students, "inscritos")}<br>
         <span style="font-size:11px;color:#64748b">Jornadas únicas por jardín:</span><br>
         ${jornadasList}
       `;
@@ -2608,7 +2614,7 @@ function renderCoursePanel() {
       </div>`;
     } else {
       metaHtml = `
-        <strong>${c.projectLabel}</strong> &middot; ${c.students} alumnos<br>
+        <strong>${c.projectLabel}</strong> &middot; ${studentsText(c.students, "alumnos")}<br>
         ${c.match ? `Match: ${formatDate(c.match.start)} → ${formatDate(c.match.end)}<br>` : ''}
         Semanas: ${c.weeks.length} &middot; Extensiones: ${c.extensions.length}<br>
         OH: ${ohList}
