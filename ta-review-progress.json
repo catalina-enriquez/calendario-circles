@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-19T18:00:15",
+  "updated": "2026-08-20T10:00:07",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
         "reviewed": 233,
-        "to_review": 88
+        "to_review": 97
       },
       "chilemass": {
         "reviewed": 491,
@@ -38,7 +38,7 @@
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
         "reviewed": 201,
-        "to_review": 24
+        "to_review": 30
       },
       "slep": {
         "reviewed": 265,
@@ -107,8 +107,8 @@
         "to_review": 0
       },
       "inacap": {
-        "reviewed": 396,
-        "to_review": 4
+        "reviewed": 394,
+        "to_review": 6
       },
       "slep2": {
         "reviewed": 137,
