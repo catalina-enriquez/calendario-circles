@@ -157,13 +157,13 @@
           "cierre": "2026-10-30",
           "cierre_publico": "2026-10-09",
           "modulos": 3,
-          "inscritos": 353,
+          "inscritos": 351,
           "tas": [
             "Evelyn Duarte",
             "Dafne Polanco"
           ],
           "abreviacion": "MCE Líd",
-          "tipo_entregas": ["I", "G", "I"],
+          "tipo_entregas": ["I", "G", "G"],
           "match": {
             "inicio": "2026-07-27",
             "fin": "2026-08-07"
