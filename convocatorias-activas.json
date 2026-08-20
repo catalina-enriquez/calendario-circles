@@ -20,6 +20,7 @@
     "campos_convocatoria": {
       "cierre_proyecto": "Fecha CLT (YYYY-MM-DD) del cierre del PROYECTO con el cliente. NO es deadline_revisiones ni el plazo final de extensión: es la fecha administrativa en que se da por terminada la convocatoria. Pasada esa fecha el daily ops summary deja de revisar certificados pendientes de esta convocatoria, y la convocatoria pasa a Convocatorias-finalizadas/. null = todavía sin definir; el reporte sigue revisando y avisa en el correo que falta configurarla."
     },
+    "campos_fin_periodo_match": "Ultimo dia INCLUIDO en que la convocatoria se trata como 'en periodo de match' (fecha CLT YYYY-MM-DD). NUNCA es la fecha en que termina el match: es el termino del match MAS AL MENOS 5 DIAS HABILES. Queda una cola tras cerrar el match (gente sin circulo sobre la hora, circulos de 1, cambios de ultimo minuto) en que las sugerencias de match siguen sirviendo y el soporte proactivo todavia no, porque marcaria como baja a quien solo no alcanzo a tener circulo. Los 5 habiles son un PISO, no el valor exacto: se puede estirar. Lo leen sync-consolidado-sheets.py, send-match-suggestion.py y sync-soporte-proactivo.py via streamlit/match_period.py, que avisa por log si la fecha guardada queda bajo el piso.",
     "campos_inscripciones": "Periodo de inscripción de la convocatoria: {inicio, fin} en fechas CLT (YYYY-MM-DD). Opcional; solo presente en convocatorias donde se registró.",
     "actualizado": "2026-08-19",
     "ubicacion": "Operations/convocatorias-activas.json"
@@ -144,9 +145,10 @@
         "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
       },
       "match": {
-        "inicio": "2026-03-30",
-        "fin": "2026-04-03"
+        "inicio": "2026-07-27",
+        "fin": "2026-08-07"
       },
+      "fin_periodo_match": "2026-08-21",
       "cursos": [
         {
           "nombre": "Modelo de clase efectiva para el liderazgo pedagógico (Líderes)",
@@ -182,6 +184,7 @@
       "estado": "activa",
       "cierre_proyecto": null,
       "carpeta": "SIP-autismo-2026",
+      "fin_periodo_match": "2026-09-04",
       "restricciones_comunicacion": {
         "horario_permitido": {
           "dias": [
@@ -462,6 +465,7 @@
       "estado": "activa",
       "cierre_proyecto": null,
       "carpeta": "INACAP-invierno-2026",
+      "fin_periodo_match": "2026-08-28",
       "contraparte": {
         "to": [
           "ascappini@inacap.cl"
@@ -634,8 +638,9 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "invierno 2026",
       "estado": "activa",
-      "cierre_proyecto": null,
+      "cierre_proyecto": "2026-11-01",
       "carpeta": "SLEP-Tamarugal-3-invierno-2026",
+      "fin_periodo_match": "2026-09-04",
       "contraparte": {
         "to": [
           "javiera.vergara@sleptamarugal.gob.cl",
@@ -662,6 +667,7 @@
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
+          "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
           "tas": ["Denisse Campusano"],
@@ -676,6 +682,7 @@
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
+          "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
           "tas": ["Víctor Gálvez"],
@@ -689,6 +696,7 @@
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
+          "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
           "tas": ["Víctor Gálvez"],
@@ -702,6 +710,7 @@
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
+          "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
           "tas": ["Denisse Campusano"],
@@ -716,6 +725,7 @@
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
           "cierre_publico": "2026-10-02",
+          "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": null,
           "tas": ["Evelyn Duarte"],
@@ -732,6 +742,7 @@
       "estado": "activa",
       "cierre_proyecto": null,
       "carpeta": "Fundacion-Luksic-2026",
+      "fin_periodo_match": "2026-08-28",
       "contraparte": {
         "to": [
           "jsilva@fundacionluksic.cl",

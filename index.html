@@ -1787,78 +1787,98 @@ const courses = [
     officeHours: ["2026-09-04T16:30", "2026-09-14T15:00"],
     deadline: "2026-10-02"
   },
-  // ======== SLEP Tamarugal 3 — Invierno 2026 (4 cursos) ========
+  // ======== SLEP Tamarugal 3 — Invierno 2026 (5 cursos) ========
+  // Fechas: convocatorias-activas.json (match 24-28 ago, cursos 31 ago -> 16 oct,
+  // cierre publico 2 oct). Se salta la semana del 14-18 sep (Fiestas Patrias).
+  {
+    id: "slep3-iaedu", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "IA para la educación", shortName: "IA edu", students: 150, status: "activa",
+    period: { start: "2026-08-24", end: "2026-10-16" },
+    match: { start: "2026-08-24", end: "2026-08-28" },
+    weeks: [
+      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 3, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-28", end: "2026-10-02", mod: 1, indiv: 0, grupal: 0 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 2, start: "2026-10-12", end: "2026-10-16" },
+    ],
+    officeHours: ["2026-09-09T15:25", "2026-09-30T15:25"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "slep3-conv", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Convivencia escolar y regulación emocional", shortName: "Convivencia", students: 150, status: "activa",
+    period: { start: "2026-08-24", end: "2026-10-16" },
+    match: { start: "2026-08-24", end: "2026-08-28" },
+    weeks: [
+      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-28", end: "2026-10-02", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 2, start: "2026-10-12", end: "2026-10-16" },
+    ],
+    officeHours: ["2026-09-10T15:25", "2026-10-01T15:25"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "slep3-estdid", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est. did.", students: 150, status: "activa",
+    period: { start: "2026-08-24", end: "2026-10-16" },
+    match: { start: "2026-08-24", end: "2026-08-28" },
+    weeks: [
+      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-28", end: "2026-10-02", mod: 1, indiv: 0, grupal: 1 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 2, start: "2026-10-12", end: "2026-10-16" },
+    ],
+    officeHours: ["2026-09-08T15:25", "2026-09-29T15:25"],
+    deadline: "2026-10-02"
+  },
+  {
+    id: "slep3-dua", project: "slep3", projectLabel: "SLEP Tamarugal 3",
+    name: "Diseño Universal de Aprendizaje", shortName: "DUA", students: 150, status: "activa",
+    period: { start: "2026-08-24", end: "2026-10-16" },
+    match: { start: "2026-08-24", end: "2026-08-28" },
+    weeks: [
+      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 1, grupal: 0 },
+      { sem: 3, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-28", end: "2026-10-02", mod: 1, indiv: 1, grupal: 0 },
+    ],
+    extensions: [
+      { ext: 1, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 2, start: "2026-10-12", end: "2026-10-16" },
+    ],
+    officeHours: ["2026-09-11T15:25", "2026-10-02T15:25"],
+    deadline: "2026-10-02"
+  },
   {
     id: "slep3-tde", project: "slep3", projectLabel: "SLEP Tamarugal 3",
-    name: "IA para la educación", shortName: "IA Edu", students: 150, status: "activa",
-    period: { start: "2026-08-18", end: "2026-10-09" },
-    match: { start: "2026-08-18", end: "2026-08-21" },
+    name: "Toma de decisiones basada en evidencia", shortName: "Toma dec.", students: 0, status: "activa",
+    period: { start: "2026-08-24", end: "2026-10-16" },
+    match: { start: "2026-08-24", end: "2026-08-28" },
     weeks: [
-      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 3, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
+      { sem: 4, start: "2026-09-28", end: "2026-10-02", mod: 1, indiv: 0, grupal: 1 },
     ],
     extensions: [
-      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
-      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
-      { ext: 3, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 1, start: "2026-10-05", end: "2026-10-09" },
+      { ext: 2, start: "2026-10-12", end: "2026-10-16" },
     ],
-    officeHours: []
-  },
-  {
-    id: "slep3-incdiv", project: "slep3", projectLabel: "SLEP Tamarugal 3",
-    name: "Convivencia escolar y regulación emocional", shortName: "Conv Esc", students: 150, status: "activa",
-    period: { start: "2026-08-18", end: "2026-10-09" },
-    match: { start: "2026-08-18", end: "2026-08-21" },
-    weeks: [
-      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
-      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
-      { ext: 3, start: "2026-10-05", end: "2026-10-09" },
-    ],
-    officeHours: []
-  },
-  {
-    id: "slep3-evalform", project: "slep3", projectLabel: "SLEP Tamarugal 3",
-    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est Did", students: 150, status: "activa",
-    period: { start: "2026-08-18", end: "2026-10-09" },
-    match: { start: "2026-08-18", end: "2026-08-21" },
-    weeks: [
-      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
-      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
-      { ext: 3, start: "2026-10-05", end: "2026-10-09" },
-    ],
-    officeHours: []
-  },
-  {
-    id: "slep3-multigrado", project: "slep3", projectLabel: "SLEP Tamarugal 3",
-    name: "Diseño Universal de Aprendizaje", shortName: "DUA", students: 150, status: "activa",
-    period: { start: "2026-08-18", end: "2026-10-09" },
-    match: { start: "2026-08-18", end: "2026-08-21" },
-    weeks: [
-      { sem: 1, start: "2026-08-24", end: "2026-08-28", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-09-21", end: "2026-09-25" },
-      { ext: 2, start: "2026-09-28", end: "2026-10-02" },
-      { ext: 3, start: "2026-10-05", end: "2026-10-09" },
-    ],
-    officeHours: []
+    officeHours: ["2026-09-07T15:25", "2026-09-28T15:25"],
+    deadline: "2026-10-02"
   },
   // ======== SIP Autismo — Primavera 2026 ========
   {
