@@ -669,6 +669,22 @@
     font-size: 12px;
   }
   .ta-pending-row:last-of-type { border-bottom: none; }
+  .curso-terminado { color: #94a3b8; }
+  .ta-pending-head {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin: 6px 0 2px;
+  }
+  .ta-pending-none { color: #94a3b8; }
+  .ta-pending-sub {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 5px;
+  }
   .ta-pending-label {
     color: #475569;
     flex: 1;
@@ -1583,7 +1599,7 @@ const courses = [
   // ======== SLEP Jardines — Jornadas 2026 ========
   {
     id: "slep-jardines-ed", project: "slep-jardines", projectLabel: "SLEP Jardines",
-    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est.did.", students: 46, status: "activa",
+    name: "Estrategias didácticas de aprendizaje activo", shortName: "Est.did.", students: 46, status: "cerrada",
     period: { start: "2026-05-22", end: "2026-06-30" },
     match: null, weeks: [], extensions: [], officeHours: [], deadline: null,
     jornadas: [
@@ -1882,29 +1898,15 @@ const courses = [
   },
   // ======== SIP Autismo — Primavera 2026 ========
   {
-    id: "sip-autismo", project: "sip", projectLabel: "SIP",
+    // Fechas corridas el 21/08/2026: parte el 16/10 y la extensión termina el
+    // 15/12. La grilla semanal, el match y las tutorías quedan PENDIENTES de
+    // reprogramar — se dejan vacíos a propósito para no mostrar las semanas
+    // viejas (31/08–25/09) como si siguieran vigentes.
+    id: "sip-autismo", project: "sip", projectLabel: "SIP autismo",
     name: "Autismo en la escuela", shortName: "Autismo", students: 1000, status: "activa",
-    period: { start: "2026-08-24", end: "2026-11-27" },
-    match: { start: "2026-08-24", end: "2026-08-28" },
-    weeks: [
-      { sem: 1, start: "2026-08-31", end: "2026-09-04", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 2, start: "2026-09-07", end: "2026-09-11", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 3, start: "2026-09-14", end: "2026-09-18", mod: 1, indiv: 0, grupal: 1 },
-      { sem: 4, start: "2026-09-21", end: "2026-09-25", mod: 1, indiv: 0, grupal: 1 },
-    ],
-    extensions: [
-      { ext: 1, start: "2026-09-28", end: "2026-10-02" },
-      { ext: 2, start: "2026-10-05", end: "2026-10-09" },
-      { ext: 3, start: "2026-10-12", end: "2026-10-16" },
-      { ext: 4, start: "2026-10-19", end: "2026-10-23" },
-      { ext: 5, start: "2026-10-26", end: "2026-10-30" },
-      { ext: 6, start: "2026-11-02", end: "2026-11-06" },
-      { ext: 7, start: "2026-11-09", end: "2026-11-13" },
-      { ext: 8, start: "2026-11-16", end: "2026-11-20" },
-      { ext: 9, start: "2026-11-23", end: "2026-11-27" },
-    ],
-    officeHours: ["2026-09-22T16:00", "2026-10-14T16:00", "2026-11-03T16:00", "2026-11-11T16:00"],
-    deadline: "2026-11-27"
+    period: { start: "2026-10-16", end: "2026-12-15" },
+    match: null, weeks: [], extensions: [], officeHours: [],
+    deadline: "2026-12-15"
   },
   // ======== Fundación Luksic 2026 (2 cursos) ========
   {
@@ -1952,11 +1954,11 @@ const courses = [
 // ta-review-progress.json ya no trae las finalizadas. Al abrir una convocatoria
 // nueva, agregar acá su project_id (si falta, cae al id crudo).
 const projectNames = {
-  "sip": "SIP",
-  "slep2": "SLEP Tamarugal 2",
+  "sip": "SIP líderes",
+  "slep2": "SLEP 2",
   "slep3": "SLEP Tamarugal 3",
   "slep-jardines": "SLEP Jardines",
-  "inacap-inv": "INACAP Invierno 2026",
+  "inacap-inv": "INACAP Invierno",
   "luksic": "Fundación Luksic"
 };
 
@@ -2006,7 +2008,6 @@ const taAssignments = [
   { name: "Víctor Gálvez", email: "vgalvezvargas@gmail.com", capacity: 300,
     assignments: [
       { project: "slep2", course: "Convivencia escolar", peak: 54 },
-      { project: "slep-jardines", course: "Estrategias didácticas de aprendizaje activo", peak: 15 },
       { project: "slep-jardines", course: "Diversificación de la enseñanza", peak: 15 },
       { project: "slep-jardines", course: "Toma de decisiones basada en evidencias (PME)", peak: 15 },
       { project: "slep3", course: "Convivencia escolar y regulación emocional", peak: 50 },
@@ -2716,59 +2717,59 @@ function renderTaPanel() {
     wrapper.className = "ta-card-wrapper";
     if (isSelected) wrapper.classList.add("selected-wrapper");
 
-    // Build card content from real review data (JSON) if available
-    const taData = hasProgressData ? taProgressData.tas[ta.email] : null;
+    // La tarjeta lista SIEMPRE las convocatorias que el TA tiene asignadas,
+    // tenga o no revisiones registradas todavía. Antes se recorría solo lo que
+    // traía el JSON de avance, así que un curso recién iniciado (sin entregas
+    // aún) desaparecía y la tarjeta quedaba vacía, sin distinguirse de un TA
+    // sin trabajo asignado.
+    const taData = (hasProgressData && taProgressData.tas[ta.email]) || {};
     let cardRows = "";
-    let totalReviewed = 0, totalPending = 0;
+    let totalPending = 0, totalPeak = 0;
 
-    if (taData) {
-      const projects = new Set([
-        ...Object.keys(taData),
-        ...visibleAssignments.map(a => a.project)
-      ]);
+    const projects = [...new Set([
+      ...visibleAssignments.map(a => a.project),
+      ...Object.keys(taData),
+    ])];
 
-      for (const proj of projects) {
-        const progData = taData[proj];
-        if (!progData) continue;
+    for (const proj of projects) {
+      const progData = taData[proj];
+      const projLabel = projectNames[proj] || proj;
+      const peak = visibleAssignments
+        .filter(a => a.project === proj)
+        .reduce((sum, a) => sum + computeAssignmentMetrics(a).peak, 0);
+      totalPeak += peak;
+
+      let numHtml;
+      if (progData) {
         const pend = progData.to_review;
         totalPending += pend;
-        totalReviewed += progData.reviewed;
-        const projLabel = projectNames[proj] || proj;
         const pendColor = pend === 0 ? "#10b981" : pend >= 50 ? "#ef4444" : pend >= 20 ? "#f59e0b" : "#475569";
-        cardRows += `
-          <div class="ta-pending-row">
-            <span class="ta-pending-label">${projLabel}</span>
-            <span class="ta-pending-num" style="color:${pendColor}"><strong>${pend}</strong></span>
-          </div>`;
+        numHtml = `<span class="ta-pending-num" style="color:${pendColor}"><strong>${pend}</strong></span>`;
+      } else {
+        numHtml = `<span class="ta-pending-num ta-pending-none" title="El curso aún no tiene entregas por revisar">—</span>`;
       }
 
-      const totalColor = totalPending === 0 ? "#10b981" : totalPending >= 100 ? "#ef4444" : totalPending >= 40 ? "#f59e0b" : "#0f172a";
       cardRows += `
-        <div class="ta-pending-total">
-          <span>Pendientes</span>
-          <span class="ta-pending-big" style="color:${totalColor}">${totalPending}</span>
-        </div>`;
-      if (updated) cardRows += `<div class="ta-back-updated">Actualizado: ${updated}</div>`;
-    } else {
-      // Sin datos JSON: mostrar carga estimada por asignación
-      let totalPeak = 0;
-      for (const a of visibleAssignments) {
-        const m = computeAssignmentMetrics(a);
-        totalPeak += m.peak;
-        const course = findCourse(a.project, a.course);
-        const projLabel = course ? course.projectLabel : a.project;
-        cardRows += `
-          <div class="ta-pending-row">
-            <span class="ta-pending-label">${projLabel}: ${course ? course.shortName : a.course}</span>
-            <span class="ta-pending-num"><strong>${m.peak}</strong>/sem</span>
-          </div>`;
-      }
-      cardRows += `
-        <div class="ta-pending-total">
-          <span>Carga estimada</span>
-          <span class="ta-pending-big">${totalPeak}/sem</span>
+        <div class="ta-pending-row">
+          <span class="ta-pending-label">${projLabel}</span>
+          ${numHtml}
         </div>`;
     }
+
+    if (!projects.length) {
+      cardRows += `<div class="ta-pending-row"><span class="ta-pending-label ta-pending-none">Sin asignaciones vigentes</span></div>`;
+    }
+
+    const totalColor = totalPending === 0 ? "#10b981" : totalPending >= 100 ? "#ef4444" : totalPending >= 40 ? "#f59e0b" : "#0f172a";
+    cardRows = `<div class="ta-pending-head">Pendientes por convocatoria</div>` + cardRows + `
+      <div class="ta-pending-total">
+        <span>Pendientes</span>
+        <span class="ta-pending-big" style="color:${totalColor}">${totalPending}</span>
+      </div>`;
+    if (totalPeak) {
+      cardRows += `<div class="ta-pending-sub"><span>Carga estimada</span><span>máx ${totalPeak}/sem</span></div>`;
+    }
+    if (updated) cardRows += `<div class="ta-back-updated">Actualizado: ${updated}</div>`;
 
     const frontHtml = `
       <div class="ta-card${isSelected ? " selected" : ""}${selectedTaKey && !isSelected ? " dim" : ""}">
@@ -2865,6 +2866,7 @@ function renderSummaryTable(panel, data) {
   let totalStudents = 0;
   const allTAs = new Set();
   let rows = "";
+  const hoy = new Date().toISOString().substring(0, 10);
 
   for (const conv of data.convocatorias) {
     const cursos = conv.cursos || [];
@@ -2883,18 +2885,32 @@ function renderSummaryTable(panel, data) {
       tas.forEach(t => allTAs.add(t));
       totalStudents += c.inscritos || 0;
 
+      // Los cursos por jornadas (SLEP Jardines) no tienen inicio/cierre propios:
+      // su rango son las jornadas presenciales. Sin esto la fila mostraba "—" y
+      // no se distinguía un curso ya dictado de uno que todavía no parte.
+      const jornadas = (c.jornadas || []).map(j => j.fecha).filter(Boolean).sort();
+      const inicio = c.inicio || jornadas[0];
+      const cierre = c.cierre || jornadas[jornadas.length - 1];
+      const terminado = c.estado === "terminado" || (!!cierre && cierre < hoy);
+
       rows += "<tr>";
       if (i === 0) {
         rows += `<td class="conv-name" rowspan="${cursos.length}">${conv.nombre}</td>`;
         rows += `<td rowspan="${cursos.length}"><span class="badge ${badgeClass}">${estado}</span></td>`;
         rows += `<td rowspan="${cursos.length}" style="font-size:12px;white-space:nowrap">${matchRange}</td>`;
       }
-      rows += `<td>${c.nombre}</td>`;
-      rows += `<td class="num">${fmt(c.inicio)}</td>`;
-      rows += `<td class="num">${fmt(c.cierre)}</td>`;
+      rows += `<td${terminado ? ' class="curso-terminado"' : ''}>${c.nombre}${terminado ? ' <span class="badge badge-cerrada">terminado</span>' : ''}</td>`;
+      rows += `<td class="num">${fmt(inicio)}</td>`;
+      rows += `<td class="num">${fmt(cierre)}</td>`;
       rows += `<td class="num">${c.modulos || ""}</td>`;
       rows += `<td class="num">${c.inscritos ? c.inscritos.toLocaleString("es-CL") : ""}</td>`;
-      rows += `<td class="ta-list">${tas.length > 0 ? tas.join(", ") : '<span style="color:#94a3b8">Por definir</span>'}</td>`;
+      // sin_revision_ta: el curso se corrige solo (feedback automático). No es
+      // un TA por asignar, así que "Por definir" leería como algo pendiente.
+      rows += `<td class="ta-list">${
+        c.sin_revision_ta ? '<span style="color:#94a3b8">Sin TA</span>'
+        : tas.length > 0 ? tas.join(", ")
+        : '<span style="color:#94a3b8">Por definir</span>'
+      }</td>`;
       rows += "</tr>";
     }
   }

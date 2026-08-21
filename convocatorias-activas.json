@@ -112,7 +112,7 @@
   "convocatorias": [
     {
       "id": "sip-otono-2026",
-      "nombre": "SIP",
+      "nombre": "SIP líderes",
       "cliente": "SIP Red de Colegios",
       "temporada": "otoño 2026",
       "estado": "activa",
@@ -189,13 +189,12 @@
     },
     {
       "id": "sip-primavera-2026",
-      "nombre": "SIP Primavera",
+      "nombre": "SIP autismo",
       "cliente": "SIP Red de Colegios",
       "temporada": "primavera 2026",
       "estado": "activa",
       "cierre_proyecto": null,
       "carpeta": "SIP-autismo-2026",
-      "fin_periodo_match": "2026-09-04",
       "restricciones_comunicacion": {
         "horario_permitido": {
           "dias": [
@@ -224,18 +223,13 @@
         "tipos_bloqueados": "todos",
         "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
       },
-      "match": {
-        "inicio": "2026-08-24",
-        "fin": "2026-08-28"
-      },
       "cursos": [
         {
           "nombre": "Acompañamiento de estudiantes autistas en la escuela",
           "course_id": "01KZ4AP7GQ5AY5AS4T0CZKZC9J",
           "abreviacion": "Autismo",
-          "inicio": "2026-08-31",
-          "cierre": "2026-11-27",
-          "cierre_publico": "2026-09-25",
+          "inicio": "2026-10-16",
+          "cierre": "2026-12-15",
           "modulos": 4,
           "inscritos": 1000,
           "tas": [],
@@ -252,19 +246,14 @@
             4
           ],
           "nota_entregas": "Todas las entregas son actividades externas (lab.getcircles.org) con feedback de IA. No requieren revisión de TA.",
-          "office_hours": [
-            "2026-09-22T16:00",
-            "2026-10-14T16:00",
-            "2026-11-03T16:00",
-            "2026-11-11T16:00"
-          ],
-          "nota_office_hours": "OH 1 y 3 cubren módulos 1-2, OH 2 y 4 cubren módulos 3-4. Se repite cada tutoría en 2 fechas porque los grupos avanzan en fechas diferentes."
+          "sin_revision_ta": true,
+          "nota_fechas": "Fechas corridas (21/08/2026): inicio 16/10, extensión hasta 15/12. Cierre público, match y tutorías pendientes de reprogramar."
         }
       ]
     },
     {
       "id": "slep-tamarugal-2-invierno-2026",
-      "nombre": "SLEP Tamarugal Invierno 2026",
+      "nombre": "SLEP 2",
       "cliente": "SLEP Tamarugal",
       "temporada": "invierno 2026",
       "estado": "activa",
@@ -493,7 +482,8 @@
               "fecha": "2026-06-30"
             }
           ],
-          "certificados_desde": "2026-07-07"
+          "certificados_desde": "2026-07-07",
+          "estado": "terminado"
         },
         {
           "nombre": "Diversificación de la enseñanza",
