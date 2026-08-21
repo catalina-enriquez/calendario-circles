@@ -100,7 +100,14 @@
     }
   ],
   "no_corregir_entregas": [],
-  "recordatorios": [],
+  "recordatorios": [
+    {
+      "fecha": "2026-08-21",
+      "convocatoria": "MCE Líderes (SIP)",
+      "mensaje": "Hoy es el ÚLTIMO reporte diario de SA de MCE Líderes a Florencia. Después de que llegue (08:00), desactivar el job com.circles.sa-report-sip-lideres.",
+      "mostrado": true
+    }
+  ],
   "personas_autorizadas_solas": [],
   "convocatorias": [
     {
@@ -163,7 +170,11 @@
             "Dafne Polanco"
           ],
           "abreviacion": "MCE Líd",
-          "tipo_entregas": ["I", "G", "G"],
+          "tipo_entregas": [
+            "I",
+            "G",
+            "G"
+          ],
           "match": {
             "inicio": "2026-07-27",
             "fin": "2026-08-07"
@@ -228,8 +239,18 @@
           "modulos": 4,
           "inscritos": 1000,
           "tas": [],
-          "tipo_entregas": ["G", "G", "I", "G"],
-          "tareas_revision_automatica": [1, 2, 3, 4],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "I",
+            "G"
+          ],
+          "tareas_revision_automatica": [
+            1,
+            2,
+            3,
+            4
+          ],
           "nota_entregas": "Todas las entregas son actividades externas (lab.getcircles.org) con feedback de IA. No requieren revisión de TA.",
           "office_hours": [
             "2026-09-22T16:00",
@@ -279,11 +300,26 @@
           "abreviacion": "Obs IA SLEP 2",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
-            {"email": "gabriela.briceno@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "katherine.catalan.jara@gmail.com", "deadline": "2026-08-24"},
-            {"email": "camila.flores@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "maribel.mamani@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "camila.rojas@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+            {
+              "email": "gabriela.briceno@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "katherine.catalan.jara@gmail.com",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "camila.flores@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "maribel.mamani@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "camila.rojas@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            }
           ],
           "nota_excepciones": "La Huayca — extensión por problemas de conectividad"
         },
@@ -302,12 +338,30 @@
           "abreviacion": "Est. did.",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
-            {"email": "cinthia.araya@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "paulinabravo85@gmail.com", "deadline": "2026-08-24"},
-            {"email": "krisna.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "jhonny.irrazabal@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "carolina.quintana@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "lilian.taucare.o@gmail.com", "deadline": "2026-08-24"}
+            {
+              "email": "cinthia.araya@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "paulinabravo85@gmail.com",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "krisna.cortes@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "jhonny.irrazabal@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "carolina.quintana@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "lilian.taucare.o@gmail.com",
+              "deadline": "2026-08-24"
+            }
           ],
           "nota_excepciones": "La Huayca — extensión por problemas de conectividad. Lilian Taucare (Oasis En El Desierto) incluida por compartir círculo con La Huayca."
         },
@@ -326,9 +380,18 @@
           "abreviacion": "Convivencia",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
-            {"email": "fernando.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "franceska.hidalgo@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "simon.vergara@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+            {
+              "email": "fernando.cortes@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "franceska.hidalgo@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "simon.vergara@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            }
           ],
           "nota_excepciones": "La Huayca — extensión por problemas de conectividad. Simón Vergara (La Tirana) incluido por compartir círculo con La Huayca."
         },
@@ -347,15 +410,42 @@
           "abreviacion": "IA edu",
           "deadline_revisiones": "2026-08-07",
           "excepciones_deadline": [
-            {"email": "marjorie.castro@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "daniel.aliaga@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "judith.castro@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "tiburcio.cortes@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "daniela.gonzalez.b@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "scarlett.jara@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"},
-            {"email": "grimanesa.85@gmail.com", "deadline": "2026-08-24"},
-            {"email": "mseverinou@gmail.com", "deadline": "2026-08-24"},
-            {"email": "yohanna.ticuna@edu.sleptamarugal.gob.cl", "deadline": "2026-08-24"}
+            {
+              "email": "marjorie.castro@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "daniel.aliaga@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "judith.castro@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "tiburcio.cortes@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "daniela.gonzalez.b@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "scarlett.jara@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "grimanesa.85@gmail.com",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "mseverinou@gmail.com",
+              "deadline": "2026-08-24"
+            },
+            {
+              "email": "yohanna.ticuna@edu.sleptamarugal.gob.cl",
+              "deadline": "2026-08-24"
+            }
           ],
           "nota_excepciones": "La Huayca — extensión por problemas de conectividad"
         }
@@ -495,8 +585,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 74,
-          "tas": ["Daniel Martínez"],
-          "tipo_entregas": ["G", "I", "G", "G"],
+          "tas": [
+            "Daniel Martínez"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "G",
+            "G"
+          ],
           "office_hours": [
             "2026-08-31T16:30",
             "2026-09-14T16:30"
@@ -511,8 +608,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 57,
-          "tas": ["Daniel Martínez"],
-          "tipo_entregas": ["G", "G", "G", "G"],
+          "tas": [
+            "Daniel Martínez"
+          ],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "G",
+            "G"
+          ],
           "office_hours": [
             "2026-08-31T18:00",
             "2026-09-14T18:00"
@@ -527,8 +631,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 43,
-          "tas": ["Victoria Marcenaro"],
-          "tipo_entregas": ["G", "I", "I", "G"],
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "I",
+            "G"
+          ],
           "office_hours": [
             "2026-09-01T16:30",
             "2026-09-15T16:30"
@@ -543,8 +654,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 42,
-          "tas": ["Daniela García"],
-          "tipo_entregas": ["G", "G", "I", "G"],
+          "tas": [
+            "Daniela García"
+          ],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "I",
+            "G"
+          ],
           "office_hours": [
             "2026-09-01T18:00",
             "2026-09-15T18:00"
@@ -559,8 +677,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 44,
-          "tas": ["Victoria Marcenaro"],
-          "tipo_entregas": ["I", "G", "G", "G"],
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "tipo_entregas": [
+            "I",
+            "G",
+            "G",
+            "G"
+          ],
           "office_hours": [
             "2026-09-02T16:30",
             "2026-09-16T16:30"
@@ -575,8 +700,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 45,
-          "tas": ["Victoria Marcenaro"],
-          "tipo_entregas": ["G", "G", "G", "G"],
+          "tas": [
+            "Victoria Marcenaro"
+          ],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "G",
+            "G"
+          ],
           "office_hours": [
             "2026-09-02T18:00",
             "2026-09-16T18:00"
@@ -591,8 +723,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 80,
-          "tas": ["Daniela García"],
-          "tipo_entregas": ["I", "I", "I", "G"],
+          "tas": [
+            "Daniela García"
+          ],
+          "tipo_entregas": [
+            "I",
+            "I",
+            "I",
+            "G"
+          ],
           "office_hours": [
             "2026-09-03T18:00",
             "2026-09-16T15:00"
@@ -607,8 +746,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 25,
-          "tas": ["Daniela García"],
-          "tipo_entregas": ["G", "I", "I", "I"],
+          "tas": [
+            "Daniela García"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "I",
+            "I"
+          ],
           "office_hours": [
             "2026-09-03T16:30",
             "2026-09-15T15:00"
@@ -623,8 +769,15 @@
           "cierre_publico": "2026-09-16",
           "modulos": 4,
           "inscritos": 23,
-          "tas": ["Daniel Martínez"],
-          "tipo_entregas": ["G", "I", "G", "I"],
+          "tas": [
+            "Daniel Martínez"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "G",
+            "I"
+          ],
           "office_hours": [
             "2026-09-04T16:30",
             "2026-09-14T15:00"
@@ -670,10 +823,19 @@
           "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
-          "tas": ["Denisse Campusano"],
-          "tipo_entregas": ["G", "I", "G"],
+          "tas": [
+            "Denisse Campusano"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "G"
+          ],
           "nota_entregas": "Curso de 3 sesiones con entrega (s1 grupal, s2 individual, s3 grupal). El 4° módulo podría no tener entrega.",
-          "office_hours": ["2026-09-09T15:25", "2026-09-30T15:25"]
+          "office_hours": [
+            "2026-09-09T15:25",
+            "2026-09-30T15:25"
+          ]
         },
         {
           "nombre": "Convivencia escolar y regulación emocional",
@@ -685,9 +847,19 @@
           "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
-          "tas": ["Víctor Gálvez"],
-          "tipo_entregas": ["G", "G", "G", "G"],
-          "office_hours": ["2026-09-10T15:25", "2026-10-01T15:25"]
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "G",
+            "G"
+          ],
+          "office_hours": [
+            "2026-09-10T15:25",
+            "2026-10-01T15:25"
+          ]
         },
         {
           "nombre": "Estrategias didácticas de aprendizaje activo",
@@ -699,9 +871,19 @@
           "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
-          "tas": ["Víctor Gálvez"],
-          "tipo_entregas": ["I", "G", "G", "G"],
-          "office_hours": ["2026-09-08T15:25", "2026-09-29T15:25"]
+          "tas": [
+            "Víctor Gálvez"
+          ],
+          "tipo_entregas": [
+            "I",
+            "G",
+            "G",
+            "G"
+          ],
+          "office_hours": [
+            "2026-09-08T15:25",
+            "2026-09-29T15:25"
+          ]
         },
         {
           "nombre": "Diseño Universal de Aprendizaje",
@@ -713,10 +895,20 @@
           "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": 150,
-          "tas": ["Denisse Campusano"],
-          "tipo_entregas": ["G", "I", "G", "I"],
+          "tas": [
+            "Denisse Campusano"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "G",
+            "I"
+          ],
           "nota_entregas": "S1-S3 tienen actividad externa especificada pero pendiente de desarrollo. Por ahora requieren revisión TA.",
-          "office_hours": ["2026-09-11T15:25", "2026-10-02T15:25"]
+          "office_hours": [
+            "2026-09-11T15:25",
+            "2026-10-02T15:25"
+          ]
         },
         {
           "nombre": "Toma de decisiones basada en evidencia",
@@ -728,9 +920,14 @@
           "certificados_desde": "2026-10-05",
           "modulos": 4,
           "inscritos": null,
-          "tas": ["Evelyn Duarte"],
+          "tas": [
+            "Evelyn Duarte"
+          ],
           "nota_entregas": "Curso de líderes. Meta de inscritos por definir.",
-          "office_hours": ["2026-09-07T15:25", "2026-09-28T15:25"]
+          "office_hours": [
+            "2026-09-07T15:25",
+            "2026-09-28T15:25"
+          ]
         }
       ]
     },
@@ -764,9 +961,19 @@
           "cierre_publico": "2026-09-11",
           "modulos": 4,
           "inscritos": 50,
-          "tas": ["Joseph Fuentealba"],
-          "tipo_entregas": ["G", "G", "I", "I"],
-          "office_hours": ["2026-08-27T19:30", "2026-09-10T19:30"]
+          "tas": [
+            "Joseph Fuentealba"
+          ],
+          "tipo_entregas": [
+            "G",
+            "G",
+            "I",
+            "I"
+          ],
+          "office_hours": [
+            "2026-08-27T19:30",
+            "2026-09-10T19:30"
+          ]
         },
         {
           "nombre": "Habilidades socioemocionales para el deporte: Parte 2",
@@ -777,9 +984,19 @@
           "cierre_publico": "2026-10-16",
           "modulos": 4,
           "inscritos": 50,
-          "tas": ["Joseph Fuentealba"],
-          "tipo_entregas": ["G", "I", "G", "I"],
-          "office_hours": ["2026-10-01T19:30", "2026-10-15T19:30"],
+          "tas": [
+            "Joseph Fuentealba"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "G",
+            "I"
+          ],
+          "office_hours": [
+            "2026-10-01T19:30",
+            "2026-10-15T19:30"
+          ],
           "match": {
             "inicio": "2026-09-14",
             "fin": "2026-09-18"
