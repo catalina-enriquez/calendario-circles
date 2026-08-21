@@ -2891,7 +2891,10 @@ function renderSummaryTable(panel, data) {
       const jornadas = (c.jornadas || []).map(j => j.fecha).filter(Boolean).sort();
       const inicio = c.inicio || jornadas[0];
       const cierre = c.cierre || jornadas[jornadas.length - 1];
-      const terminado = c.estado === "terminado" || (!!cierre && cierre < hoy);
+      // Solo se marca "terminado" lo que lo declara o lo que se cierra por
+      // jornadas ya dictadas. Un curso con `cierre` propio ya pasado puede
+      // seguir vivo por extensiones — ese estado lo lleva la convocatoria.
+      const terminado = c.estado === "terminado" || (!c.cierre && !!cierre && cierre < hoy);
 
       rows += "<tr>";
       if (i === 0) {
