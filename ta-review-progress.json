@@ -1,13 +1,12 @@
 {
-  "updated": "2026-08-21T10:00:04",
+  "updated": "2026-08-21T18:08:13",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 256,
-        "to_review": 47
+        "reviewed": 40,
+        "to_review": 31
       }
     },
-    "denisse.circles@gmail.com": {},
     "dmgarciamolina@gmail.com": {
       "slep2": {
         "reviewed": 62,
@@ -16,17 +15,25 @@
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
-        "reviewed": 256,
-        "to_review": 6
+        "reviewed": 147,
+        "to_review": 7
       },
       "slep2": {
         "reviewed": 27,
         "to_review": 0
       }
     },
-    "joseph.fuentealba@inacapmail.cl": {},
-    "teacherdan.eng@gmail.com": {},
+    "joseph.fuentealba@inacapmail.cl": {
+      "luksic": {
+        "reviewed": 0,
+        "to_review": 3
+      }
+    },
     "vgalvezvargas@gmail.com": {
+      "slep-jardines": {
+        "reviewed": 30,
+        "to_review": 0
+      },
       "slep2": {
         "reviewed": 118,
         "to_review": 0
