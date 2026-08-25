@@ -924,6 +924,14 @@
     {
       "id": "fundacion-luksic-2026",
       "nombre": "Fundación Luksic",
+      "cuentas_internas": [
+        "rdonoso@fundacionluksic.cl",
+        "fabarca@fundacionluksic.cl",
+        "jsilva@fundacionluksic.cl",
+        "comunicaciones@fundacionluksic.cl",
+        "dante.mascarello3@gmail.com",
+        "olakunleaanu@gmail.com"
+      ],
       "cliente": "Fundación Luksic",
       "temporada": "2026",
       "estado": "activa",
