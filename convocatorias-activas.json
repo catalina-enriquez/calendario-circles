@@ -15,14 +15,15 @@
       "excepciones_deadline": "Lista de excepciones al deadline. Formato nuevo: [{email, deadline}] con deadline individual por persona (CLT). Formato legacy: [email, ...] sin deadline individual.",
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria.",
-      "certificados_desde": "Fecha CLT (YYYY-MM-DD) desde la cual el daily ops summary revisa TODOS los días si quedan certificados por emitir en este curso. Si se omite, se deriva de cierre_publico + 1 día hábil. Solo alerta cuando hay alguien con el curso 100% aprobado (ACCEPTED + is_completed) sin certificate_issued en la DB de admin; si no hay nadie pendiente no aparece nada. Reemplaza al antiguo bloque `certificados` con primera_emision/emitidos, que dependía de un flag manual y se quedaba obsoleto."
+      "certificados_desde": "Fecha CLT (YYYY-MM-DD) desde la cual el daily ops summary revisa TODOS los días si quedan certificados por emitir en este curso. Si se omite, se deriva de cierre_publico + 1 día hábil. Solo alerta cuando hay alguien con el curso 100% aprobado (ACCEPTED + is_completed) sin certificate_issued en la DB de admin; si no hay nadie pendiente no aparece nada. Reemplaza al antiguo bloque `certificados` con primera_emision/emitidos, que dependía de un flag manual y se quedaba obsoleto.",
+      "tipo_entregas": "Tipo de entrega de cada módulo evaluable, en orden. 'I' = individual (una revisión por persona), 'G' = grupal (una revisión por círculo), 'N' = el módulo no tiene entrega (submission_type NONE en admin). Debe reflejar lo que está cargado en admin, que es lo que ven los inscritos."
     },
     "campos_convocatoria": {
       "cierre_proyecto": "Fecha CLT (YYYY-MM-DD) del cierre del PROYECTO con el cliente. NO es deadline_revisiones ni el plazo final de extensión: es la fecha administrativa en que se da por terminada la convocatoria. Pasada esa fecha el daily ops summary deja de revisar certificados pendientes de esta convocatoria, y la convocatoria pasa a Convocatorias-finalizadas/. null = todavía sin definir; el reporte sigue revisando y avisa en el correo que falta configurarla."
     },
     "campos_fin_periodo_match": "Ultimo dia INCLUIDO en que la convocatoria se trata como 'en periodo de match' (fecha CLT YYYY-MM-DD). NUNCA es la fecha en que termina el match: es el termino del match MAS AL MENOS 5 DIAS HABILES. Queda una cola tras cerrar el match (gente sin circulo sobre la hora, circulos de 1, cambios de ultimo minuto) en que las sugerencias de match siguen sirviendo y el soporte proactivo todavia no, porque marcaria como baja a quien solo no alcanzo a tener circulo. Los 5 habiles son un PISO, no el valor exacto: se puede estirar. Lo leen sync-consolidado-sheets.py, send-match-suggestion.py y sync-soporte-proactivo.py via streamlit/match_period.py, que avisa por log si la fecha guardada queda bajo el piso.",
     "campos_inscripciones": "Periodo de inscripción de la convocatoria: {inicio, fin} en fechas CLT (YYYY-MM-DD). Opcional; solo presente en convocatorias donde se registró.",
-    "actualizado": "2026-08-19",
+    "actualizado": "2026-08-25",
     "ubicacion": "Operations/convocatorias-activas.json"
   },
   "tas": [
@@ -100,14 +101,7 @@
     }
   ],
   "no_corregir_entregas": [],
-  "recordatorios": [
-    {
-      "fecha": "2026-08-21",
-      "convocatoria": "MCE Líderes (SIP)",
-      "mensaje": "Hoy es el ÚLTIMO reporte diario de SA de MCE Líderes a Florencia. Después de que llegue (08:00), desactivar el job com.circles.sa-report-sip-lideres.",
-      "mostrado": true
-    }
-  ],
+  "recordatorios": [],
   "personas_autorizadas_solas": [],
   "convocatorias": [
     {
@@ -579,10 +573,10 @@
             "Daniel Martínez"
           ],
           "tipo_entregas": [
-            "G",
+            "N",
             "I",
             "G",
-            "G"
+            "I"
           ],
           "office_hours": [
             "2026-08-31T16:30",
@@ -602,14 +596,17 @@
             "Daniel Martínez"
           ],
           "tipo_entregas": [
-            "G",
-            "G",
+            "I",
+            "I",
             "G",
             "G"
           ],
           "office_hours": [
             "2026-08-31T18:00",
             "2026-09-14T18:00"
+          ],
+          "tareas_revision_automatica": [
+            2
           ]
         },
         {
@@ -625,9 +622,9 @@
             "Victoria Marcenaro"
           ],
           "tipo_entregas": [
+            "I",
             "G",
-            "I",
-            "I",
+            "G",
             "G"
           ],
           "office_hours": [
@@ -650,7 +647,7 @@
           "tipo_entregas": [
             "G",
             "G",
-            "I",
+            "G",
             "G"
           ],
           "office_hours": [
@@ -718,7 +715,7 @@
           ],
           "tipo_entregas": [
             "I",
-            "I",
+            "G",
             "I",
             "G"
           ],
@@ -741,9 +738,9 @@
           ],
           "tipo_entregas": [
             "G",
-            "I",
-            "I",
-            "I"
+            "G",
+            "G",
+            "G"
           ],
           "office_hours": [
             "2026-09-03T16:30",
@@ -764,7 +761,7 @@
           ],
           "tipo_entregas": [
             "G",
-            "I",
+            "G",
             "G",
             "I"
           ],
@@ -817,8 +814,9 @@
             "Denisse Campusano"
           ],
           "tipo_entregas": [
-            "G",
             "I",
+            "I",
+            "G",
             "G"
           ],
           "nota_entregas": "Curso de 3 sesiones con entrega (s1 grupal, s2 individual, s3 grupal). El 4° módulo podría no tener entrega.",
@@ -890,9 +888,9 @@
           ],
           "tipo_entregas": [
             "G",
-            "I",
             "G",
-            "I"
+            "G",
+            "G"
           ],
           "nota_entregas": "S1-S3 tienen actividad externa especificada pero pendiente de desarrollo. Por ahora requieren revisión TA.",
           "office_hours": [
@@ -917,6 +915,12 @@
           "office_hours": [
             "2026-09-07T15:25",
             "2026-09-28T15:25"
+          ],
+          "tipo_entregas": [
+            "G",
+            "I",
+            "I",
+            "G"
           ]
         }
       ]
