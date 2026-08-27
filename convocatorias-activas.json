@@ -480,31 +480,38 @@
           "estado": "terminado"
         },
         {
-          "nombre": "Diversificación de la enseñanza",
-          "course_id": null,
-          "modulos": 3,
-          "inscritos": 46,
+          "nombre": "DUA en el jardín infantil",
+          "course_id": "01M0BA4GRBPB3HEP6T9RZ2P5EP",
+          "modulos": 2,
+          "inscritos": 9,
           "tas": [
             "Víctor Gálvez"
           ],
-          "abreviacion": "Divers.",
+          "abreviacion": "DUA jardines",
+          "tipo_entregas": [
+            "G",
+            "G"
+          ],
           "jornadas": [
-            {
-              "jardin": "Piqueñitos",
-              "comuna": "Pica",
-              "fecha": "2026-08-27"
-            },
             {
               "jardin": "Inti Jalsu",
               "comuna": "Colchane",
-              "fecha": "2026-08-28"
+              "fecha": "2026-08-27"
             },
             {
               "jardin": "Semillita",
               "comuna": "Camiña",
-              "fecha": "2026-08-28"
+              "fecha": "2026-08-27"
+            },
+            {
+              "jardin": "Piqueñitos",
+              "comuna": "Pica",
+              "fecha": null,
+              "estado": "suspendida",
+              "nota": "Jornada suspendida hasta nuevo aviso (cambio informado el 2026-08-27). Sin inscritos cargados en el curso."
             }
-          ]
+          ],
+          "nota": "Antes figuraba como 'Diversificación de la enseñanza' (nombre de planificación). El nombre real en plataforma es 'DUA en el jardín infantil'. Tiene 2 módulos evaluables (ambos grupales) + tarea informativa de certificado. Los 9 inscritos son de Inti Jalsu (5) y Semillita (4), que hacen la jornada el 2026-08-27. Piqueñitos queda suspendido hasta nuevo aviso."
         },
         {
           "nombre": "Toma de decisiones basada en evidencias (PME)",
