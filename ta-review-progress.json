@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-27T10:03:42",
+  "updated": "2026-08-27T18:00:03",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
-        "reviewed": 71,
-        "to_review": 28
+        "reviewed": 99,
+        "to_review": 3
       }
     },
     "dmgarciamolina@gmail.com": {
@@ -14,13 +14,13 @@
       },
       "inacap-inv": {
         "reviewed": 0,
-        "to_review": 9
+        "to_review": 11
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
       "sip": {
         "reviewed": 183,
-        "to_review": 24
+        "to_review": 22
       },
       "slep2": {
         "reviewed": 27,
@@ -31,6 +31,12 @@
       "luksic": {
         "reviewed": 4,
         "to_review": 4
+      }
+    },
+    "teacherdan.eng@gmail.com": {
+      "inacap-inv": {
+        "reviewed": 0,
+        "to_review": 3
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -50,7 +56,7 @@
       },
       "inacap-inv": {
         "reviewed": 0,
-        "to_review": 10
+        "to_review": 12
       }
     }
   }
