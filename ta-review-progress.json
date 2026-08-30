@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29T18:01:36",
+  "updated": "2026-08-30T10:11:31",
   "tas": {
     "dafnayal@gmail.com": {
       "sip": {
@@ -9,12 +9,12 @@
     },
     "dmgarciamolina@gmail.com": {
       "slep2": {
-        "reviewed": 62,
-        "to_review": 2
+        "reviewed": 64,
+        "to_review": 0
       },
       "inacap-inv": {
-        "reviewed": 0,
-        "to_review": 31
+        "reviewed": 31,
+        "to_review": 8
       }
     },
     "evelyn.duarte.leiva@gmail.com": {
@@ -30,13 +30,13 @@
     "joseph.fuentealba@inacapmail.cl": {
       "luksic": {
         "reviewed": 8,
-        "to_review": 1
+        "to_review": 2
       }
     },
     "teacherdan.eng@gmail.com": {
       "inacap-inv": {
         "reviewed": 0,
-        "to_review": 9
+        "to_review": 11
       }
     },
     "vgalvezvargas@gmail.com": {
@@ -56,7 +56,7 @@
       },
       "inacap-inv": {
         "reviewed": 0,
-        "to_review": 25
+        "to_review": 30
       }
     }
   }
