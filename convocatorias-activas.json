@@ -16,15 +16,34 @@
       "abreviacion": "Nombre corto del curso para reportes y calendario. Fuente: calendario-circles.",
       "circulos_1_autorizados": "true = todos los círculos de 1 persona en esta convocatoria se incluyen en reportes de revisiones pendientes (sin necesidad de estar en personas_autorizadas_solas). Campo a nivel de convocatoria.",
       "certificados_desde": "Fecha CLT (YYYY-MM-DD) desde la cual el daily ops summary revisa TODOS los días si quedan certificados por emitir en este curso. Si se omite, se deriva de cierre_publico + 1 día hábil. Solo alerta cuando hay alguien con el curso 100% aprobado (ACCEPTED + is_completed) sin certificate_issued en la DB de admin; si no hay nadie pendiente no aparece nada. Reemplaza al antiguo bloque `certificados` con primera_emision/emitidos, que dependía de un flag manual y se quedaba obsoleto.",
-      "tipo_entregas": "Tipo de entrega de cada módulo evaluable, en orden. 'I' = individual (una revisión por persona), 'G' = grupal (una revisión por círculo), 'N' = el módulo no tiene entrega (submission_type NONE en admin). Debe reflejar lo que está cargado en admin, que es lo que ven los inscritos."
+      "tipo_entregas": "Tipo de entrega de cada módulo evaluable, en orden. 'I' = individual (una revisión por persona), 'G' = grupal (una revisión por círculo), 'N' = el módulo no tiene entrega (submission_type NONE en admin). Debe reflejar lo que está cargado en admin, que es lo que ven los inscritos.",
+      "launchpad_project_id": "UUID del proyecto de LaunchPad que corresponde a este curso. Lo usan los skills del agent runner para publicar detecciones (Alertas) en el proyecto correcto: circulos-sin-ta manda una foto completa por proyecto. Se llenó a mano contra los proyectos de producción (cliente + nombre del curso + fechas); un curso sin match inequívoco queda sin el campo y el skill lo informa como \"solo por correo\" en vez de adivinar. Ausente = el curso no tiene proyecto en LaunchPad todavía.",
+      "exclusiones": "Lista de correos que NO reciben las comunicaciones de este curso, aunque estén inscritos y activos. Es para los casos puntuales; los grupos grandes van en omitidos_csv. Lo aplica convocatorias_config.resolve_course_recipients(), que es el único lugar donde se decide a quién se le escribe.",
+      "omitidos_csv": "Nombre del CSV de omitidos de este curso, relativo a la carpeta de la convocatoria (por ejemplo 'omitidos-tutorias-mce-lideres.csv'). Primera columna: el correo; el resto de las columnas son para las personas. Sale del mismo resolver que `exclusiones`. Si el archivo está configurado y no existe, el resolver levanta una excepción en vez de escribirle a todo el mundo.",
+      "extension": "Extensión del plazo de entregas de este curso: {enabled: true|false, deadline: 'YYYY-MM-DD' (fecha CLT del nuevo plazo), audience: 'all'|'pending'}. Extender es una decisión de operaciones: el skill extension-plazo solo manda el correo cuando enabled es true, y la fecha que anuncia es exactamente `deadline` —nunca una derivada de project_end ni del last_review_date de admin—. Con audience 'pending' la lista de quienes tienen entregas pendientes se congela en el borrador y no se vuelve a consultar al enviar. Ausente = no se manda nada y la tarea se cierra como omitida.",
+      "certificados": "Requisitos de certificación de este curso: {requiere_tutorias: true|false, asistencia_csv: '<ruta>'}. Con requiere_tutorias en true, el skill certificados corre generate-certificates-list.py --tutorias <asistencia_csv> y falla si el archivo no está configurado o no existe: una lista sin ese cruce dejaría pasar a quien no cumplió el requisito. No confundir con `certificados_desde`, que es del daily ops summary.",
+      "plataforma": "Plataforma de las tutorías del curso ('zoom', 'Teams', 'youtube'), cuando no está en el JSON de tutorías. La fuente preferida sigue siendo Convocatorias-activas/<carpeta>/tutorias-anuncio*.json —a nivel de curso, y una tutoría puede sobrescribirla—; este campo es el respaldo. Sin plataforma en ninguna parte, el recordatorio falla en vez de asumir Zoom.",
+      "bajas_csv": "Ruta exacta del CSV de bajas de la semana que usa el reporte de avance a cliente (--bajas-csv). Sin este campo el script lo busca solo en la carpeta de la convocatoria, y el skill revisa en el log que lo que eligió sea de esta convocatoria."
     },
     "campos_convocatoria": {
-      "cierre_proyecto": "Fecha CLT (YYYY-MM-DD) del cierre del PROYECTO con el cliente. NO es deadline_revisiones ni el plazo final de extensión: es la fecha administrativa en que se da por terminada la convocatoria. Pasada esa fecha el daily ops summary deja de revisar certificados pendientes de esta convocatoria, y la convocatoria pasa a Convocatorias-finalizadas/. null = todavía sin definir; el reporte sigue revisando y avisa en el correo que falta configurarla."
+      "cierre_proyecto": "Fecha CLT (YYYY-MM-DD) del cierre del PROYECTO con el cliente. NO es deadline_revisiones ni el plazo final de extensión: es la fecha administrativa en que se da por terminada la convocatoria. Pasada esa fecha el daily ops summary deja de revisar certificados pendientes de esta convocatoria, y la convocatoria pasa a Convocatorias-finalizadas/. null = todavía sin definir; el reporte sigue revisando y avisa en el correo que falta configurarla.",
+      "sa_report_key": "Llave de esta convocatoria en el diccionario CONVOCATORIAS de streamlit/sa-daily-report.py. Es lo que une la tarea automatizada de LaunchPad (automation_key 'sa-daily-report:<key>') con el argumento --convocatoria del script. El skill sa-daily-report compara los course_ids que tiene el script para esa llave con los cursos activos de esta convocatoria y falla si difieren, para que un curso nuevo no quede fuera del reporte en silencio. Sin este campo, la convocatoria no tiene reporte diario SA automatizado.",
+      "contraparte": "Contraparte del cliente: {to: [correos], cc: [correos], saludo: '<nombre de pila>'}. `to` y `cc` son los destinatarios reales de los reportes al cliente y, de paso, cuentas que el resolver de destinatarios excluye de cualquier correo a inscritos. `saludo` es el nombre con que empieza el reporte de avance ('Hola Javiera,'): lo usa el skill reporte-avance-cliente como --contact-name y sin él la tarea falla, porque un nombre no se deduce de una dirección de correo.",
+      "consolidado": "Ruta exacta (relativa a la raíz de docs) del consolidado interno de la convocatoria, el CSV con RUT y nombres que se cruza por correo. Lo usan los skills certificados (--consolidado de fix-student-names.py) e informe-final-cliente (--consolidado de generar-csvs-reporte-final.py). Es una ruta escrita, no una búsqueda: sin este campo los skills fallan en vez de elegir un archivo parecido. Cuando llegue un consolidado nuevo desde Sheets, se actualiza esta línea.",
+      "typeform_form_ids": "Encuestas de cierre de esta convocatoria, como lista de objetos {form_id, course_id}: el `form_id` es el del formulario en Typeform y el `course_id` dice a qué curso corresponde la encuesta, o va en null cuando es una sola para toda la convocatoria. Sin el mapeo, un informe de varios cursos no sabe qué CSV va con qué sección y termina mezclándolos. Los usa informe-final-cliente para bajarlos con scripts/descargar_typeform.py --download <form_id> --output <ruta exacta> --output-json <resumen>, que es de donde sale la ruta del CSV: el nombre que arma el script desde el título del formulario no se puede predecir. Sin este campo no se busca por nombre —una búsqueda amplia baja formularios de otro cliente—: las secciones de satisfacción del informe quedan marcadas como pendientes. Formato: [{\"form_id\": \"AmofGid8\", \"course_id\": \"01KJ69REFY73YZ71ZA80F0444R\"}].",
+      "certificados_nota": "El bloque `certificados` va por curso (ver campos_curso.certificados). En INACAP Invierno los nueve cursos lo traen con requiere_tutorias en true, porque el JSON de tutorías declara que asistir 30 minutos a una de las dos es requisito de aprobación; falta el asistencia_csv, así que el skill certificados falla en el preflight en vez de emitir una lista que se saltaría el requisito."
     },
     "campos_fin_periodo_match": "Ultimo dia INCLUIDO en que la convocatoria se trata como 'en periodo de match' (fecha CLT YYYY-MM-DD). NUNCA es la fecha en que termina el match: es el termino del match MAS AL MENOS 5 DIAS HABILES. Queda una cola tras cerrar el match (gente sin circulo sobre la hora, circulos de 1, cambios de ultimo minuto) en que las sugerencias de match siguen sirviendo y el soporte proactivo todavia no, porque marcaria como baja a quien solo no alcanzo a tener circulo. Los 5 habiles son un PISO, no el valor exacto: se puede estirar. Lo leen sync-consolidado-sheets.py, send-match-suggestion.py y sync-soporte-proactivo.py via streamlit/match_period.py, que avisa por log si la fecha guardada queda bajo el piso.",
     "campos_inscripciones": "Periodo de inscripción de la convocatoria: {inicio, fin} en fechas CLT (YYYY-MM-DD). Opcional; solo presente en convocatorias donde se registró.",
-    "actualizado": "2026-08-25",
-    "ubicacion": "Operations/convocatorias-activas.json"
+    "actualizado": "2026-09-02",
+    "ubicacion": "Operations/convocatorias-activas.json",
+    "campos_ta_feedback_summary": "Bloque de nivel raíz 'ta_feedback_summary'. 'recipients' es la lista de destinatarios del resumen de calidad de feedback de TAs (ta-feedback-summary-email.py): la fuente de verdad está acá y no en una constante del script. Vacío o ausente = el script cae en su destinatario histórico. Agregar o sacar a alguien se hace acá.",
+    "campos_tutorias_json": "En Convocatorias-activas/<carpeta>/tutorias-anuncio*.json, cada tutoría puede llevar 'instructor': {nombre, email}. Es por tutoría y no por curso, porque dos sesiones del mismo curso pueden tener instructores distintos. Lo usa el skill pre-tutoria-instructor para mandarle el análisis de tickets de salida antes de la sesión; sin el dato, esa tarea falla en vez de adivinar el destinatario."
+  },
+  "ta_feedback_summary": {
+    "recipients": [
+      "catalina@getcircles.org"
+    ]
   },
   "tas": [
     {
@@ -110,6 +129,7 @@
       "cliente": "SIP Red de Colegios",
       "temporada": "otoño 2026",
       "estado": "activa",
+      "sa_report_key": "mce-lideres",
       "cierre_proyecto": null,
       "carpeta": "SIP-MCE-2026",
       "restricciones_comunicacion": {
@@ -154,6 +174,7 @@
         {
           "nombre": "Modelo de clase efectiva para el liderazgo pedagógico (Líderes)",
           "course_id": "01KJ69REFY73YZ71ZA80F0444R",
+          "launchpad_project_id": "9d4bc3c6-d9ef-4741-a46c-de41ae019dd1",
           "inicio": "2026-08-10",
           "cierre": "2026-10-30",
           "cierre_publico": "2026-10-09",
@@ -177,9 +198,11 @@
             "2026-08-27T16:00",
             "2026-10-01T16:00"
           ],
-          "nota": "Correo con info de tutorías lo envía Circles directamente. SIP comunicó a sus inscritos la fecha final (30 oct) directamente, no hay distinción cierre público/extensión."
+          "nota": "Correo con info de tutorías lo envía Circles directamente. SIP comunicó a sus inscritos la fecha final (30 oct) directamente, no hay distinción cierre público/extensión.",
+          "omitidos_csv": "omitidos-tutorias-mce-lideres.csv"
         }
-      ]
+      ],
+      "consolidado": "Operations/Convocatorias-activas/SIP-MCE-2026/Consolidado SIP Otoño 2026 - Consolidado interno (1).csv"
     },
     {
       "id": "sip-primavera-2026",
@@ -221,6 +244,7 @@
         {
           "nombre": "Acompañamiento de estudiantes autistas en la escuela",
           "course_id": "01KZ4AP7GQ5AY5AS4T0CZKZC9J",
+          "launchpad_project_id": "025306ba-13d8-4f94-8fd6-eb23dc3fede3",
           "abreviacion": "Autismo",
           "inicio": "2026-10-16",
           "cierre": "2026-12-15",
@@ -293,6 +317,7 @@
         {
           "nombre": "DUA en el jardín infantil",
           "course_id": "01M0BA4GRBPB3HEP6T9RZ2P5EP",
+          "launchpad_project_id": "803a46be-b1d7-4890-8b5c-409e70abd0c6",
           "modulos": 2,
           "inscritos": 9,
           "tas": [
@@ -347,7 +372,8 @@
           ],
           "nota": "Semillita - Camiña: sin fecha por ahora"
         }
-      ]
+      ],
+      "consolidado": "Operations/Convocatorias-activas/SLEP-Jardines-2026/Consolidado SLEP Jardines - Consolidado interno.csv"
     },
     {
       "id": "inacap-invierno-2026",
@@ -355,6 +381,7 @@
       "cliente": "INACAP",
       "temporada": "invierno 2026",
       "estado": "activa",
+      "sa_report_key": "inacap-invierno",
       "cierre_proyecto": null,
       "carpeta": "INACAP-invierno-2026",
       "fin_periodo_match": "2026-08-28",
@@ -377,10 +404,21 @@
           "2026-08-18T18:00"
         ]
       },
+      "bajas": {
+        "aprueba": "contraparte",
+        "politica": "INACAP aprueba las bajas caso a caso. Solo se sacan de la plataforma las excepcionales (desvinculacion, licencia medica, error de inscripcion, excepcion autorizada por formacion docente). Las que no se aprueban siguen inscritas y reprueban el curso.",
+        "registro": {
+          "planilla": "Consolidado INACAP invierno 2026 (spreadsheet_id en config-sa-report.json de la carpeta)",
+          "pestana": "Bajas"
+        },
+        "estado_no_se_anota": "El estado lo dice la plataforma: en la hoja + en removed_students = aprobada; en la hoja + sigue en enrolled_students = no aprobada.",
+        "en_reportes": "email-progress-reports-by-institution.py --bajas-sheet-id <id> marca a los no aprobados con '(pidio baja - no aprobada)' junto al nombre, y bloquea la corrida completa si alguno es destinatario del reporte."
+      },
       "cursos": [
         {
           "nombre": "IA para la Educación",
           "course_id": "01KZVQYZBP0K74MYECY016DZZ9",
+          "launchpad_project_id": "0e66bb1f-c7ef-4251-83bc-71ebeae0d6c5",
           "abreviacion": "IAE",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -399,11 +437,15 @@
           "office_hours": [
             "2026-08-31T16:30",
             "2026-09-14T16:30"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "IA para la Educación Avanzado",
           "course_id": "01KZVQZ2X987S9YGAP2GXGPHBZ",
+          "launchpad_project_id": "1e875538-2a35-4bcb-9a57-8e57cd8bb4d8",
           "abreviacion": "IAEA",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -425,11 +467,15 @@
           ],
           "tareas_revision_automatica": [
             2
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Estrategias Didácticas",
           "course_id": "01KZEWC968R8KG3KQWZ3XA64ZC",
+          "launchpad_project_id": "f5d300f0-b1e0-4b7a-ae1e-5a313f80ae65",
           "abreviacion": "ED",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -448,11 +494,15 @@
           "office_hours": [
             "2026-09-01T16:30",
             "2026-09-15T16:30"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Competencias Digitales",
           "course_id": "01KZESE2S0Q8SMG97ZKFNDZHEG",
+          "launchpad_project_id": "4fb9e237-2824-41dc-a892-22f5961b5f45",
           "abreviacion": "CD",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -471,11 +521,15 @@
           "office_hours": [
             "2026-09-01T18:00",
             "2026-09-15T18:00"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Elaboración de Proyectos",
           "course_id": "01KZEWB3KPRAYSTQMARGPAP90F",
+          "launchpad_project_id": "3221f0dc-e98a-4eaa-b0fe-921850e9fd33",
           "abreviacion": "EP",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -494,11 +548,15 @@
           "office_hours": [
             "2026-09-02T16:30",
             "2026-09-16T16:30"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Gestión de Proyectos",
           "course_id": "01KZEWAJVERP55X8G0EXKPNYEK",
+          "launchpad_project_id": "34aa002a-edd5-4a50-bf66-3609d17116e6",
           "abreviacion": "GP",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -517,11 +575,15 @@
           "office_hours": [
             "2026-09-02T18:00",
             "2026-09-16T18:00"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Elaboración y Revisión de Productos con Inteligencia Artificial",
           "course_id": "01KZESE9DY5AJ9T91QWN049RS8",
+          "launchpad_project_id": "48f04699-ec20-41a0-81be-0da257d3ec15",
           "abreviacion": "ERPIA",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -540,11 +602,15 @@
           "office_hours": [
             "2026-09-03T18:00",
             "2026-09-16T15:00"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Estrategias Didácticas para Educación Online",
           "course_id": "01KZEWBQCXSZ2K8AR8GNEBWESW",
+          "launchpad_project_id": "fc2d1caf-c36c-414f-bdf6-8c768a0161e8",
           "abreviacion": "EDO",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -563,11 +629,15 @@
           "office_hours": [
             "2026-09-03T16:30",
             "2026-09-15T15:00"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         },
         {
           "nombre": "Evaluación",
           "course_id": "01KZEWBZ5MGNSX5HCR1GKGGG4C",
+          "launchpad_project_id": "e14725f5-fa14-4c89-96dc-79dfd3291449",
           "abreviacion": "Ev",
           "inicio": "2026-08-24",
           "cierre": "2026-10-02",
@@ -586,7 +656,10 @@
           "office_hours": [
             "2026-09-04T16:30",
             "2026-09-14T15:00"
-          ]
+          ],
+          "certificados": {
+            "requiere_tutorias": true
+          }
         }
       ]
     },
@@ -596,6 +669,7 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "invierno 2026",
       "estado": "activa",
+      "sa_report_key": "slep3",
       "cierre_proyecto": "2026-11-01",
       "carpeta": "SLEP-Tamarugal-3-2026",
       "fin_periodo_match": "2026-09-04",
@@ -621,6 +695,7 @@
         {
           "nombre": "IA para la educación",
           "course_id": "01KYJEDJT8B5VH69YPVH6M7R8G",
+          "launchpad_project_id": "6d4ff814-012c-41a5-b6a3-573cfafba359",
           "abreviacion": "IA edu",
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
@@ -646,6 +721,7 @@
         {
           "nombre": "Convivencia escolar y regulación emocional",
           "course_id": "01KYJED9CDDJBEHSH3SQQ33Q8R",
+          "launchpad_project_id": "b05c0b27-5594-4fa9-a821-0fb63da80219",
           "abreviacion": "Convivencia",
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
@@ -670,6 +746,7 @@
         {
           "nombre": "Estrategias didácticas de aprendizaje activo",
           "course_id": "01KYJED0KYS87YCGK3SJJ3VR48",
+          "launchpad_project_id": "2ef9fc39-5c28-4dbd-8d0d-1f13950c1247",
           "abreviacion": "Est. did.",
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
@@ -694,6 +771,7 @@
         {
           "nombre": "Diseño Universal de Aprendizaje",
           "course_id": "01KYJEC1794D9XJCXJ2XZFE3ZW",
+          "launchpad_project_id": "3b7c5f85-a61b-4581-840c-d2ca5ee74dcc",
           "abreviacion": "DUA",
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
@@ -719,6 +797,7 @@
         {
           "nombre": "Toma de decisiones basada en evidencia",
           "course_id": "01KZV746J6NP108MEGKRM14Q5G",
+          "launchpad_project_id": "cdd79e69-91c0-4af8-a17d-0693b32ee4f6",
           "abreviacion": "Toma dec.",
           "inicio": "2026-08-31",
           "cierre": "2026-10-16",
@@ -757,6 +836,7 @@
       "cliente": "Fundación Luksic",
       "temporada": "2026",
       "estado": "activa",
+      "sa_report_key": "luksic",
       "cierre_proyecto": null,
       "carpeta": "Fundacion-Luksic-2026",
       "fin_periodo_match": "2026-08-28",
@@ -775,6 +855,7 @@
         {
           "nombre": "Habilidades socioemocionales para el deporte: Parte 1",
           "course_id": "01KXGVFSAP75142HWA34BVH829",
+          "launchpad_project_id": "799aa914-1ee8-4934-af98-32c5202fb3a1",
           "abreviacion": "HSE Dep 1",
           "inicio": "2026-08-17",
           "cierre": "2026-10-23",
@@ -793,11 +874,13 @@
           "office_hours": [
             "2026-08-27T19:30",
             "2026-09-10T19:30"
-          ]
+          ],
+          "omitidos_csv": "omitidos-tutorias-curso1.csv"
         },
         {
           "nombre": "Habilidades socioemocionales para el deporte: Parte 2",
           "course_id": "01KY5NYMJRTMFMSSQTFWSB0EJX",
+          "launchpad_project_id": "f52af9dd-892a-4ede-ac3e-ea4b692d1852",
           "abreviacion": "HSE Dep 2",
           "inicio": "2026-09-21",
           "cierre": "2026-10-23",
