@@ -63,6 +63,11 @@
       "horas_semana": 30
     },
     {
+      "nombre": "Victor Manuel Galvez Vargas",
+      "email": "vgalvezvargas@gmail.com",
+      "horas_semana": 30
+    },
+    {
       "nombre": "Dafne Polanco",
       "email": "dafnayal@gmail.com",
       "horas_semana": 20
@@ -854,7 +859,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [
-            "Víctor Gálvez"
+            "Victor Manuel Galvez Vargas"
           ],
           "tipo_entregas": [
             "G",
@@ -888,7 +893,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [
-            "Víctor Gálvez"
+            "Victor Manuel Galvez Vargas"
           ],
           "tipo_entregas": [
             "I",
