@@ -304,7 +304,7 @@
           "modulos": 3,
           "inscritos": 46,
           "tas": [
-            "Víctor Gálvez"
+            "Victor Manuel Galvez Vargas"
           ],
           "jornadas": [
             {
@@ -337,7 +337,7 @@
           "modulos": 2,
           "inscritos": 9,
           "tas": [
-            "Víctor Gálvez"
+            "Victor Manuel Galvez Vargas"
           ],
           "tipo_entregas": [
             "G",
@@ -378,7 +378,7 @@
           "modulos": 3,
           "inscritos": 46,
           "tas": [
-            "Víctor Gálvez"
+            "Victor Manuel Galvez Vargas"
           ],
           "jornadas": [
             {
@@ -824,7 +824,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [
-            "Denisse Campusano"
+            "Denisse Campusano Marin"
           ],
           "tipo_entregas": [
             "I",
@@ -927,7 +927,7 @@
           "modulos": 4,
           "inscritos": 150,
           "tas": [
-            "Denisse Campusano"
+            "Denisse Campusano Marin"
           ],
           "tipo_entregas": [
             "G",
@@ -962,7 +962,7 @@
           "modulos": 4,
           "inscritos": 2,
           "tas": [
-            "Evelyn Duarte"
+            "Evelyn Duarte Leiva"
           ],
           "tipo_entregas": [
             "G",
@@ -1007,10 +1007,9 @@
       "contraparte": {
         "to": [
           "jsilva@fundacionluksic.cl",
-          "rdonoso@fundacionluksic.cl",
-          "fabarca@fundacionluksic.cl"
+          "ncarredano@fundacionluksic.cl"
         ],
-        "saludo": "Estimada Nury y equipo,"
+        "saludo": "Estimado equipo Fundación Luksic,"
       },
       "inscripciones": {
         "inicio": "2026-07-13",
