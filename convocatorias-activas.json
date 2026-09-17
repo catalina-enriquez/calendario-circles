@@ -336,9 +336,6 @@
           "cierre": "2026-08-28",
           "modulos": 2,
           "inscritos": 9,
-          "tas": [
-            "Victor Manuel Galvez Vargas"
-          ],
           "tipo_entregas": [
             "G",
             "G"
@@ -369,7 +366,7 @@
           "extension": {
             "audience": "pending"
           },
-          "nota": "Antes figuraba como 'Diversificación de la enseñanza' (nombre de planificación). El nombre real en plataforma es 'DUA en el jardín infantil'. Tiene 2 módulos evaluables (ambos grupales) + tarea informativa de certificado. Los 9 inscritos son de Inti Jalsu (5) y Semillita (4), que hacen la jornada el 2026-08-27. Piqueñitos queda suspendido hasta nuevo aviso."
+          "nota": "Antes figuraba como 'Diversificación de la enseñanza' (nombre de planificación). El nombre real en plataforma es 'DUA en el jardín infantil'. Tiene 2 módulos evaluables (ambos grupales) + tarea informativa de certificado. Los 9 inscritos son de Inti Jalsu (5) y Semillita (4), que hacen la jornada el 2026-08-27. Piqueñitos queda suspendido hasta nuevo aviso. Sin TA a propósito (2026-09-16): las actividades del curso son todas externas, así que no hay entregas que revisar."
         },
         {
           "nombre": "Toma de decisiones basada en evidencias (PME)",
