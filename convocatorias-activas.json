@@ -238,6 +238,9 @@
         "tipos_bloqueados": "todos",
         "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
       },
+      "contraparte": {
+        "saludo": "Estimado equipo SIP,"
+      },
       "inscripciones": {
         "inicio": "2026-10-05",
         "fin": "2026-10-09"
@@ -303,9 +306,6 @@
           "estado": "terminado",
           "modulos": 3,
           "inscritos": 46,
-          "tas": [
-            "Victor Manuel Galvez Vargas"
-          ],
           "jornadas": [
             {
               "fecha": "2026-05-22",
@@ -325,7 +325,8 @@
           ],
           "extension": {
             "audience": "pending"
-          }
+          },
+          "nota": "Sin TA a propósito (2026-09-21): el curso ya terminó, así que no hay entregas que revisar ni asignación que crear."
         },
         {
           "nombre": "DUA en el jardín infantil",
@@ -372,11 +373,17 @@
           "nombre": "Toma de decisiones basada en evidencias (PME)",
           "launchpad_project_id": "badf26b0-eee3-4efd-8dc5-67a7b665fd77",
           "abreviacion": "PME",
+          "inicio": "2026-12-11",
+          "cierre": "2026-12-29",
           "modulos": 3,
           "inscritos": 46,
           "tas": [
             "Victor Manuel Galvez Vargas"
           ],
+          "match": {
+            "inicio": "2026-12-07",
+            "fin": "2026-12-10"
+          },
           "jornadas": [
             {
               "fecha": "2026-12-11",
