@@ -161,6 +161,13 @@
         "tipos_bloqueados": "todos",
         "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
       },
+      "contraparte": {
+        "to": [
+          "carolina.cortes@sip.cl",
+          "janley.aranda@sip.cl"
+        ],
+        "saludo": "Estimadas Carolina y Janley,"
+      },
       "fin_periodo_match": "2026-08-21",
       "cursos": [
         {
@@ -208,6 +215,7 @@
       "cliente": "SIP",
       "temporada": "primavera 2026",
       "estado": "activa",
+      "sa_report_key": "sip-autismo",
       "cierre_proyecto": "2026-12-31",
       "carpeta": "SIP-autismo-2026",
       "restricciones_comunicacion": {
@@ -239,7 +247,11 @@
         "nota": "Solicitado por SIP. Ningún tipo de comunicación (correo, WhatsApp, etc.) fuera de horario permitido o en fechas bloqueadas."
       },
       "contraparte": {
-        "saludo": "Estimado equipo SIP,"
+        "to": [
+          "carolina.cortes@sip.cl",
+          "janley.aranda@sip.cl"
+        ],
+        "saludo": "Estimadas Carolina y Janley,"
       },
       "inscripciones": {
         "inicio": "2026-10-05",
@@ -257,6 +269,8 @@
           "abreviacion": "Autismo",
           "inicio": "2026-10-21",
           "cierre": "2026-12-15",
+          "cierre_publico": "2026-12-15",
+          "certificados_desde": "2026-12-16",
           "modulos": 4,
           "inscritos": 1000,
           "tipo_entregas": [
@@ -287,6 +301,8 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "2026",
       "estado": "activa",
+      "sa_report_key": "slep-jardines",
+      "cierre_proyecto": "2026-12-31",
       "carpeta": "SLEP-Jardines-2026",
       "formato": "jornadas-unicas",
       "contraparte": {
@@ -419,7 +435,8 @@
         ],
         "cc": [
           "mgallardoj@inacap.cl"
-        ]
+        ],
+        "saludo": "Estimadas Caterina y Marcela,"
       },
       "inscripciones": {
         "inicio": "2026-08-10",
@@ -784,7 +801,8 @@
             "requiere_tutorias": true
           }
         }
-      ]
+      ],
+      "consolidado": "Operations/Convocatorias-activas/INACAP-invierno-2026/Consolidado INACAP invierno 2026 - para subir inscritos (1).csv"
     },
     {
       "id": "slep-tamarugal-3-invierno-2026",
@@ -945,7 +963,7 @@
           },
           "office_hours": [
             "2026-09-11T15:25",
-            "2026-10-02T15:25"
+            "2026-09-28T13:00"
           ],
           "extension": {
             "enabled": true,
