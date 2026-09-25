@@ -301,6 +301,7 @@
       "cliente": "SLEP Tamarugal",
       "temporada": "2026",
       "estado": "activa",
+      "sa_report_key": "slep-jardines",
       "cierre_proyecto": "2026-12-31",
       "carpeta": "SLEP-Jardines-2026",
       "formato": "jornadas-unicas",
